@@ -13,7 +13,7 @@
    - [4. References](#4-references)
 2. [2. Actor Flows (CDSL)](#2-actor-flows-cdsl)
    - [Create Task](#create-task)
-3. [3. Processes / Business Logic (CDSL)](#3-processes-business-logic-cdsl)
+3. [3. Processes / Business Logic (CDSL)](#3-processes--business-logic-cdsl)
    - [Validate Task](#validate-task)
 4. [4. States (CDSL)](#4-states-cdsl)
    - [Task Status](#task-status)
