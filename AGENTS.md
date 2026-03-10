@@ -1,4 +1,4 @@
-# Cypilot Kit: SDLC (`cypilot-sdlc`)
+# Cypilot Kit: SDLC (`sdlc`)
 
 Agent quick reference.
 
