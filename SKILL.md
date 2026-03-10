@@ -72,7 +72,7 @@ Kit `sdlc` skill extensions.
 
 ALWAYS re-fetch and re-analyze from scratch WHEN a PR review or status request is detected — even if the same PR was reviewed earlier in this conversation. Previous results are stale the moment a new request arrives. NEVER skip fetch or reuse earlier analysis.
 
-ALWAYS run `python3 {cypilot_path}/config/kits/sdlc/scripts/pr.py list` WHEN user intent matches PR list patterns:
+ALWAYS run `python3 {scripts}/pr.py list` WHEN user intent matches PR list patterns:
 - `list PRs`, `list open PRs`, `cypilot list PRs`
 - `show PRs`, `show open PRs`, `what PRs are open`
 - Any request to enumerate or browse open pull requests
@@ -91,7 +91,7 @@ ALWAYS route to the `cypilot-pr-status` workflow WHEN user intent matches PR sta
 ### PR List (Quick Command)
 
 When routed to list PRs:
-1. Run `python3 {cypilot_path}/config/kits/sdlc/scripts/pr.py list`
+1. Run `python3 {scripts}/pr.py list`
 2. Present the output to the user (respects `.prs/config.yaml` exclude list)
 3. No Protocol Guard or workflow loading required — this is a quick command
 
@@ -99,19 +99,19 @@ When routed to list PRs:
 
 When routed to PR review:
 1. **ALWAYS fetch fresh data first** — run `pr.py fetch` even if data exists from a prior run
-2. Read `{cypilot_path}/config/kits/sdlc/workflows/pr-review.md` and follow its steps
-3. Use `python3 {cypilot_path}/config/kits/sdlc/scripts/pr.py` as the script
+2. Read `{workflow_pr_review}` and follow its steps
+3. Use `python3 {scripts}/pr.py` as the script
 4. When target is `ALL` or no PR number given, run `pr.py list` first to show available PRs
 5. Select prompt and checklist from `{cypilot_path}/config/pr-review.toml` → `prompts`
 6. Load prompt from `prompt_file` and checklist from `checklist` in matched entry
-7. Use templates from `{cypilot_path}/config/kits/sdlc/artifacts/PR-CODE-REVIEW-TEMPLATE/template.md` and `{cypilot_path}/config/kits/sdlc/artifacts/PR-STATUS-REPORT-TEMPLATE/template.md`
+7. Use templates from `{pr_code_review_template}` and `{pr_status_report_template}`
 
 ### PR Status Workflow
 
 When routed to PR status:
 1. **ALWAYS fetch fresh data first** — `pr.py status` auto-fetches, but never assume prior data is current
-2. Read `{cypilot_path}/config/kits/sdlc/workflows/pr-status.md` and follow its steps
-3. Use `python3 {cypilot_path}/config/kits/sdlc/scripts/pr.py` as the script
+2. Read `{workflow_pr_status}` and follow its steps
+3. Use `python3 {scripts}/pr.py` as the script
 4. When target is `ALL` or no PR number given, run `pr.py list` first to show available PRs
 
 ## PRD

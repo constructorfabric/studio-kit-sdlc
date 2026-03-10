@@ -4,9 +4,9 @@
 **Kit**: sdlc
 
 **Dependencies**:
-- `{cypilot_path}/config/kits/sdlc/artifacts/DECOMPOSITION/template.md` — structural reference
-- `{cypilot_path}/config/kits/sdlc/artifacts/DECOMPOSITION/checklist.md` — semantic quality criteria
-- `{cypilot_path}/config/kits/sdlc/artifacts/DECOMPOSITION/examples/example.md` — reference implementation
+- `{decomposition_template}` — structural reference
+- `{decomposition_checklist}` — semantic quality criteria
+- `{decomposition_example}` — reference implementation
 
 ## Table of Contents
 
@@ -47,13 +47,13 @@
 
 ### Load Dependencies
 
-- [ ] Load `{cypilot_path}/config/kits/sdlc/artifacts/DECOMPOSITION/template.md` for structure
-- [ ] Load `{cypilot_path}/config/kits/sdlc/artifacts/DECOMPOSITION/checklist.md` for decomposition quality guidance
-- [ ] Load `{cypilot_path}/config/kits/sdlc/artifacts/DECOMPOSITION/examples/example.md` for reference style
+- [ ] Load `{decomposition_template}` for structure
+- [ ] Load `{decomposition_checklist}` for decomposition quality guidance
+- [ ] Load `{decomposition_example}` for reference style
 - [ ] Read DESIGN to identify elements to decompose
 - [ ] Read PRD to identify requirements to cover
 - [ ] Read `{cypilot_path}/config/artifacts.toml` to determine artifact paths
-- [ ] Load `{cypilot_path}/config/kits/sdlc/constraints.toml` for kit-level constraints
+- [ ] Load `{constraints}` for kit-level constraints
 - [ ] Load `{cypilot_path}/.core/architecture/specs/traceability.md` for ID formats
 
 ---
@@ -62,7 +62,7 @@
 
 ### Structural
 
-- [ ] DECOMPOSITION follows `{cypilot_path}/config/kits/sdlc/artifacts/DECOMPOSITION/template.md` structure
+- [ ] DECOMPOSITION follows `{decomposition_template}` structure
 - [ ] All required sections present and non-empty
 - [ ] Each feature has unique ID: `cpt-{hierarchy-prefix}-feature-{slug}`
 - [ ] Each feature has priority marker (`p1`-`p9`)
@@ -72,7 +72,7 @@
 
 ### Decomposition Quality
 
-**Reference**: `{cypilot_path}/config/kits/sdlc/artifacts/DECOMPOSITION/checklist.md` for detailed criteria based on IEEE 1016 and ISO 21511
+**Reference**: `{decomposition_checklist}` for detailed criteria based on IEEE 1016 and ISO 21511
 
 **Coverage (100% Rule)**:
 - [ ] ALL components from DESIGN are assigned to at least one feature
@@ -118,7 +118,7 @@
 
 ### Constraints
 
-- [ ] ALWAYS open and follow `{cypilot_path}/config/kits/sdlc/constraints.toml` (kit root)
+- [ ] ALWAYS open and follow `{constraints}` (kit root)
 - [ ] Treat `constraints.toml` as primary validator for:
   - where IDs are defined
   - where IDs are referenced
@@ -139,9 +139,9 @@
 
 ### Phase 1: Setup
 
-- [ ] Load `{cypilot_path}/config/kits/sdlc/artifacts/DECOMPOSITION/template.md` for structure
-- [ ] Load `{cypilot_path}/config/kits/sdlc/artifacts/DECOMPOSITION/checklist.md` for decomposition quality guidance
-- [ ] Load `{cypilot_path}/config/kits/sdlc/artifacts/DECOMPOSITION/examples/example.md` for reference style
+- [ ] Load `{decomposition_template}` for structure
+- [ ] Load `{decomposition_checklist}` for decomposition quality guidance
+- [ ] Load `{decomposition_example}` for reference style
 - [ ] Read DESIGN to identify elements to decompose
 - [ ] Read PRD to identify requirements to cover
 
@@ -164,8 +164,8 @@
 
 ### Phase 4: Quality Check
 
-- [ ] Compare output to `{cypilot_path}/config/kits/sdlc/artifacts/DECOMPOSITION/examples/example.md`
-- [ ] Self-review against `{cypilot_path}/config/kits/sdlc/artifacts/DECOMPOSITION/checklist.md` COV, EXC, ATTR, TRC, DEP sections
+- [ ] Compare output to `{decomposition_example}`
+- [ ] Self-review against `{decomposition_checklist}` COV, EXC, ATTR, TRC, DEP sections
 - [ ] Verify 100% design element coverage
 - [ ] Verify no scope overlaps between features
 - [ ] Verify dependency graph is valid DAG
@@ -213,7 +213,7 @@
 
 ### Phase 2: Decomposition Quality Validation (Checklist-based)
 
-Apply `{cypilot_path}/config/kits/sdlc/artifacts/DECOMPOSITION/checklist.md` systematically:
+Apply `{decomposition_checklist}` systematically:
 1. **COV (Coverage)**: Verify 100% design element coverage
 2. **EXC (Exclusivity)**: Verify no scope overlaps
 3. **ATTR (Attributes)**: Verify each feature has all required attributes

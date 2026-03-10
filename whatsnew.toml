@@ -1,5 +1,14 @@
 # What's New — SDLC Kit
 
+[whatsnew."1.1.1"]
+summary = "Resource ID variables for cross-references"
+details = """\
+- Replaced all hardcoded `{cypilot_path}/config/kits/sdlc/...` paths with `{resource_id}` variables from `manifest.toml`
+- Affected files: all `rules.md` (ADR, DECOMPOSITION, DESIGN, FEATURE, PRD), `codebase/rules.md`, `AGENTS.md`, `SKILL.md`, workflows, `scripts/pr-review.toml`
+- Fixed stale reference to `artifacts/FEATURE/examples/task-crud.md` (now uses `{feature_example}`)
+- Cross-references are now consistent and maintainable via manifest resource IDs\
+"""
+
 [whatsnew."1.1.0"]
 summary = "Declarative installation manifest"
 details = """\

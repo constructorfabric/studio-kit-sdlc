@@ -4,7 +4,7 @@
 **Kit**: sdlc
 
 **Dependencies**:
-- `{cypilot_path}/config/kits/sdlc/codebase/checklist.md` — semantic quality criteria
+- `{codebase_checklist}` — semantic quality criteria
 
 ## Table of Contents
 
@@ -46,12 +46,12 @@
 
 - [ ] Read project `AGENTS.md` for code conventions
 - [ ] Load source artifact/description (FEATURE preferred)
-- [ ] Load `{cypilot_path}/config/kits/sdlc/codebase/checklist.md` for quality guidance
+- [ ] Load `{codebase_checklist}` for quality guidance
 - [ ] Load `{cypilot_path}/.core/requirements/code-checklist.md` for generic code quality checks
 - [ ] If FEATURE source: identify all IDs with `to_code="true"` attribute
 - [ ] Determine Traceability Mode (FULL vs DOCS-ONLY)
 - [ ] If Traceability Mode FULL: load `{cypilot_path}/.core/architecture/specs/traceability.md`
-- [ ] Load `{cypilot_path}/config/kits/sdlc/constraints.toml` for kit-level constraints
+- [ ] Load `{constraints}` for kit-level constraints
 
 **Source** (one of, in priority order):
 1. FEATURE design — registered artifact with `to_code="true"` IDs
@@ -154,7 +154,7 @@ PRD/DESIGN: referenced IDs [x] when ALL downstream refs [x]
 
 ### Quality
 
-**Reference**: `{cypilot_path}/config/kits/sdlc/codebase/checklist.md` for detailed criteria
+**Reference**: `{codebase_checklist}` for detailed criteria
 
 - [ ] Code passes quality checklist
 - [ ] Functions/methods are appropriately sized
@@ -177,7 +177,7 @@ PRD/DESIGN: referenced IDs [x] when ALL downstream refs [x]
 **Load Context**:
 - [ ] Read project `AGENTS.md` for code conventions
 - [ ] Load source artifact/description
-- [ ] Load `{cypilot_path}/config/kits/sdlc/codebase/checklist.md` for quality guidance
+- [ ] Load `{codebase_checklist}` for quality guidance
 - [ ] Determine Traceability Mode
 - [ ] Plan implementation order
 
@@ -246,7 +246,7 @@ After each work package, sync checkboxes:
 
 ### Phase 5: Quality Check
 
-- [ ] Self-review against `{cypilot_path}/config/kits/sdlc/codebase/checklist.md`
+- [ ] Self-review against `{codebase_checklist}`
 - [ ] If Traceability Mode ON: verify all `to_code="true"` IDs have markers
 - [ ] If Traceability Mode ON: ensure no orphaned markers
 - [ ] Run tests to verify implementation

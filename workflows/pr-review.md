@@ -44,12 +44,12 @@ Previous results are stale the moment a new review request arrives.
 
 ## Paths
 
-- **Script**: `python3 {cypilot_path}/config/kits/sdlc/scripts/pr.py`
+- **Script**: `python3 {scripts}/pr.py`
 - **Config**: `{cypilot_path}/config/pr-review.toml`
-- **Code review template**: `{cypilot_path}/config/kits/sdlc/artifacts/PR-CODE-REVIEW-TEMPLATE/template.md`
-- **Status report template**: `{cypilot_path}/config/kits/sdlc/artifacts/PR-STATUS-REPORT-TEMPLATE/template.md`
+- **Code review template**: `{pr_code_review_template}`
+- **Status report template**: `{pr_status_report_template}`
 - **Checklists**: Referenced per-prompt in `pr-review.toml`
-- **Prompts**: `{cypilot_path}/config/kits/sdlc/scripts/prompts/pr/`
+- **Prompts**: `{scripts}/prompts/pr/`
 - **PR data**: `.prs/{ID}/`
 - **Exclude list**: `.prs/config.yaml` → `exclude_prs`
 
@@ -65,7 +65,7 @@ Previous results are stale the moment a new review request arrives.
 
 ## Step 1: List open PRs (when needed)
 // turbo
-Run: `python3 {cypilot_path}/config/kits/sdlc/scripts/pr.py list`
+Run: `python3 {scripts}/pr.py list`
 ALWAYS run this step WHEN target is `ALL` or no PR number was specified.
 Present the list to the user so they can select a PR or confirm ALL.
 This respects the `.prs/config.yaml` exclude list.
@@ -73,7 +73,7 @@ This respects the `.prs/config.yaml` exclude list.
 
 ## Step 2: Fetch PR data (MANDATORY — always re-fetch)
 // turbo
-Run: `python3 {cypilot_path}/config/kits/sdlc/scripts/pr.py fetch <ARG>`
+Run: `python3 {scripts}/pr.py fetch <ARG>`
 This downloads the **latest** PR metadata, diff, and comments from
 GitHub into `.prs/{ID}/`. Fetch never uses cached data — it always
 overwrites any previously fetched files.
@@ -122,7 +122,7 @@ Prioritise files with the largest delta first. Produce a thorough
 review covering the areas specified in the prompt and checklist.
 
 d. **Write review output**
-Read the template at `{cypilot_path}/config/kits/sdlc/artifacts/PR-CODE-REVIEW-TEMPLATE/template.md` and
+Read the template at `{pr_code_review_template}` and
 use it to structure the review. Save the review to
 `.prs/{ID}/review.md`.
 The review must follow the template format, including the mandatory

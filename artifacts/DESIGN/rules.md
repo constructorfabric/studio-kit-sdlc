@@ -4,9 +4,9 @@
 **Kit**: sdlc
 
 **Dependencies**:
-- `{cypilot_path}/config/kits/sdlc/artifacts/DESIGN/template.md` — structural reference
-- `{cypilot_path}/config/kits/sdlc/artifacts/DESIGN/checklist.md` — semantic quality criteria
-- `{cypilot_path}/config/kits/sdlc/artifacts/DESIGN/examples/example.md` — reference implementation
+- `{design_template}` — structural reference
+- `{design_checklist}` — semantic quality criteria
+- `{design_example}` — reference implementation
 
 ## Table of Contents
 
@@ -50,12 +50,12 @@
 
 ### Load Dependencies
 
-- [ ] Load `{cypilot_path}/config/kits/sdlc/artifacts/DESIGN/template.md` for structure
-- [ ] Load `{cypilot_path}/config/kits/sdlc/artifacts/DESIGN/checklist.md` for semantic guidance
-- [ ] Load `{cypilot_path}/config/kits/sdlc/artifacts/DESIGN/examples/example.md` for reference style
+- [ ] Load `{design_template}` for structure
+- [ ] Load `{design_checklist}` for semantic guidance
+- [ ] Load `{design_example}` for reference style
 - [ ] Read parent PRD for context
 - [ ] Load `{cypilot_path}/.core/architecture/specs/traceability.md` for ID formats
-- [ ] Load `{cypilot_path}/config/kits/sdlc/constraints.toml` for kit-level constraints
+- [ ] Load `{constraints}` for kit-level constraints
 - [ ] Load `{cypilot_path}/.core/architecture/specs/kit/constraints.md` for constraints specification
 - [ ] Load `{cypilot_path}/.core/schemas/kit-constraints.schema.json` for constraints JSON Schema
 
@@ -65,7 +65,7 @@
 
 ### Structural
 
-- [ ] DESIGN follows `{cypilot_path}/config/kits/sdlc/artifacts/DESIGN/template.md` structure
+- [ ] DESIGN follows `{design_template}` structure
 - [ ] Artifact frontmatter (optional): use `cpt:` format for document metadata
 - [ ] All required sections present and non-empty
 - [ ] All IDs follow `cpt-{hierarchy-prefix}-{kind}-{slug}` convention (see artifacts.toml for hierarchy)
@@ -82,7 +82,7 @@
 
 ### Semantic
 
-**Reference**: `{cypilot_path}/config/kits/sdlc/artifacts/DESIGN/checklist.md` for detailed semantic criteria
+**Reference**: `{design_checklist}` for detailed semantic criteria
 
 - [ ] Architecture overview is complete and clear
 - [ ] Domain model defines all core types
@@ -127,7 +127,7 @@
 
 ### Constraints
 
-- [ ] ALWAYS open and follow `{cypilot_path}/config/kits/sdlc/constraints.toml` (kit root)
+- [ ] ALWAYS open and follow `{constraints}` (kit root)
 - [ ] Treat `constraints.toml` as primary validator for:
   - where IDs are defined
   - where IDs are referenced
@@ -179,9 +179,9 @@ DESIGN documents must NOT contain the following — report as violation if found
 
 ### Phase 1: Setup
 
-- [ ] Load `{cypilot_path}/config/kits/sdlc/artifacts/DESIGN/template.md` for structure
-- [ ] Load `{cypilot_path}/config/kits/sdlc/artifacts/DESIGN/checklist.md` for semantic guidance
-- [ ] Load `{cypilot_path}/config/kits/sdlc/artifacts/DESIGN/examples/example.md` for reference style
+- [ ] Load `{design_template}` for structure
+- [ ] Load `{design_checklist}` for semantic guidance
+- [ ] Load `{design_example}` for reference style
 - [ ] Read parent PRD for context
 
 ### Phase 2: Content Creation
@@ -229,7 +229,7 @@ If DESIGN cannot be completed in a single session:
 
 ### Phase 4: Quality Check
 
-- [ ] Self-review against `{cypilot_path}/config/kits/sdlc/artifacts/DESIGN/checklist.md` MUST HAVE items
+- [ ] Self-review against `{design_checklist}` MUST HAVE items
 - [ ] Ensure no MUST NOT HAVE violations
 - [ ] Verify PRD traceability
 
@@ -252,7 +252,7 @@ If DESIGN cannot be completed in a single session:
 
 ### Phase 2: Semantic Validation (Checklist-based)
 
-- [ ] Read `{cypilot_path}/config/kits/sdlc/artifacts/DESIGN/checklist.md` in full
+- [ ] Read `{design_checklist}` in full
 - [ ] For each MUST HAVE item: check if requirement is met
   - If not met: report as violation with severity
   - If not applicable: verify explicit "N/A" with reasoning
@@ -342,7 +342,7 @@ When reviewing PRs that add or change design documents, additionally focus on:
 - [ ] Trade-off analysis — are alternatives considered and justified?
 - [ ] API contract consistency with existing endpoints and conventions
 - [ ] Security considerations — authentication, authorization, data protection
-- [ ] Compliance with `{cypilot_path}/config/kits/sdlc/artifacts/DESIGN/template.md` structure
+- [ ] Compliance with `{design_template}` structure
 - [ ] Identify antipatterns — god objects, leaky abstractions, tight coupling
 - [ ] Compare proposed design with existing industry patterns in SaaS platforms
 - [ ] Compare proposed design with IEEE, ISO, and other industry standards where applicable

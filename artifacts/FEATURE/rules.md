@@ -4,9 +4,9 @@
 **Kit**: sdlc
 
 **Dependencies**:
-- `{cypilot_path}/config/kits/sdlc/artifacts/FEATURE/template.md` — structural reference
-- `{cypilot_path}/config/kits/sdlc/artifacts/FEATURE/checklist.md` — semantic quality criteria
-- `{cypilot_path}/config/kits/sdlc/artifacts/FEATURE/examples/example.md` — reference implementation
+- `{feature_template}` — structural reference
+- `{feature_checklist}` — semantic quality criteria
+- `{feature_example}` — reference implementation
 
 ## Table of Contents
 
@@ -52,13 +52,13 @@
 
 ### Load Dependencies
 
-- [ ] Load `{cypilot_path}/config/kits/sdlc/artifacts/FEATURE/template.md` for structure
-- [ ] Load `{cypilot_path}/config/kits/sdlc/artifacts/FEATURE/checklist.md` for semantic guidance
-- [ ] Load `{cypilot_path}/config/kits/sdlc/artifacts/FEATURE/examples/task-crud.md` for reference style
+- [ ] Load `{feature_template}` for structure
+- [ ] Load `{feature_checklist}` for semantic guidance
+- [ ] Load `{feature_example}` for reference style
 - [ ] Read DECOMPOSITION to get feature ID and context
 - [ ] Read DESIGN to understand domain types and components
 - [ ] Read `{cypilot_path}/config/artifacts.toml` to determine FEATURE artifact path
-- [ ] Load `{cypilot_path}/config/kits/sdlc/constraints.toml` for kit-level constraints
+- [ ] Load `{constraints}` for kit-level constraints
 - [ ] Load `{cypilot_path}/.core/architecture/specs/traceability.md` for ID formats
 
 ---
@@ -67,7 +67,7 @@
 
 ### Structural
 
-- [ ] FEATURE follows `{cypilot_path}/config/kits/sdlc/artifacts/FEATURE/template.md` structure
+- [ ] FEATURE follows `{feature_template}` structure
 - [ ] Artifact frontmatter (optional): use `cpt:` format for document metadata
 - [ ] References parent feature from DECOMPOSITION manifest
 - [ ] All flows, algorithms, states, DoD items have unique IDs
@@ -87,7 +87,7 @@
 
 ### Semantic
 
-**Reference**: `{cypilot_path}/config/kits/sdlc/artifacts/FEATURE/checklist.md` for detailed criteria
+**Reference**: `{feature_checklist}` for detailed criteria
 
 - [ ] Actor flows define complete user journeys
 - [ ] Algorithms specify processing logic clearly
@@ -104,7 +104,7 @@
 
 ### Constraints
 
-- [ ] ALWAYS open and follow `{cypilot_path}/config/kits/sdlc/constraints.toml` (kit root)
+- [ ] ALWAYS open and follow `{constraints}` (kit root)
 - [ ] Treat `constraints.toml` as primary validator for:
   - where IDs are defined
   - where IDs are referenced
@@ -242,9 +242,9 @@ FEATURE documents must NOT contain the following — report as violation if foun
 
 ### Phase 1: Setup
 
-- [ ] Load `{cypilot_path}/config/kits/sdlc/artifacts/FEATURE/template.md` for structure
-- [ ] Load `{cypilot_path}/config/kits/sdlc/artifacts/FEATURE/checklist.md` for semantic guidance
-- [ ] Load `{cypilot_path}/config/kits/sdlc/artifacts/FEATURE/examples/task-crud.md` for reference style
+- [ ] Load `{feature_template}` for structure
+- [ ] Load `{feature_checklist}` for semantic guidance
+- [ ] Load `{feature_example}` for reference style
 - [ ] Read DECOMPOSITION to get feature ID and context
 - [ ] Read DESIGN to understand domain types and components
 - [ ] Read `{cypilot_path}/config/artifacts.toml` to determine FEATURE artifact path
@@ -273,8 +273,8 @@ FEATURE documents must NOT contain the following — report as violation if foun
 
 ### Phase 4: Quality Check
 
-- [ ] Compare CDSL style to `{cypilot_path}/config/kits/sdlc/artifacts/FEATURE/examples/task-crud.md`
-- [ ] Self-review against `{cypilot_path}/config/kits/sdlc/artifacts/FEATURE/checklist.md` MUST HAVE items
+- [ ] Compare CDSL style to `{feature_example}`
+- [ ] Self-review against `{feature_checklist}` MUST HAVE items
 - [ ] Ensure no MUST NOT HAVE violations
 - [ ] Verify parent feature reference exists
 
@@ -299,7 +299,7 @@ FEATURE documents must NOT contain the following — report as violation if foun
 
 ### Phase 2: Semantic Validation (Checklist-based)
 
-Apply `{cypilot_path}/config/kits/sdlc/artifacts/FEATURE/checklist.md` systematically:
+Apply `{feature_checklist}` systematically:
 1. For each MUST HAVE item: check if requirement is met
 2. For each MUST NOT HAVE item: scan document for violations
 3. Use example for quality baseline
