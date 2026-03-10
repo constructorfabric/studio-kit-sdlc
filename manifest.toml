@@ -1,0 +1,268 @@
+# Cypilot SDLC Kit — Declarative Installation Manifest
+# Schema: kit-manifest.schema.json v1.0
+
+[manifest]
+version = "1.0"
+root = "{cypilot_path}/config/kits/{slug}"
+user_modifiable = true
+
+# ── ADR artifact files ───────────────────────────────────────────────
+
+[[resources]]
+id = "adr_template"
+description = "ADR artifact template"
+source = "artifacts/ADR/template.md"
+default_path = "artifacts/ADR/template.md"
+type = "file"
+user_modifiable = true
+
+[[resources]]
+id = "adr_rules"
+description = "ADR validation rules"
+source = "artifacts/ADR/rules.md"
+default_path = "artifacts/ADR/rules.md"
+type = "file"
+user_modifiable = true
+
+[[resources]]
+id = "adr_checklist"
+description = "ADR review checklist"
+source = "artifacts/ADR/checklist.md"
+default_path = "artifacts/ADR/checklist.md"
+type = "file"
+user_modifiable = true
+
+[[resources]]
+id = "adr_example"
+description = "ADR example artifact"
+source = "artifacts/ADR/examples/example.md"
+default_path = "artifacts/ADR/examples/example.md"
+type = "file"
+user_modifiable = true
+
+# ── DECOMPOSITION artifact files ─────────────────────────────────────
+
+[[resources]]
+id = "decomposition_template"
+description = "DECOMPOSITION artifact template"
+source = "artifacts/DECOMPOSITION/template.md"
+default_path = "artifacts/DECOMPOSITION/template.md"
+type = "file"
+user_modifiable = true
+
+[[resources]]
+id = "decomposition_rules"
+description = "DECOMPOSITION validation rules"
+source = "artifacts/DECOMPOSITION/rules.md"
+default_path = "artifacts/DECOMPOSITION/rules.md"
+type = "file"
+user_modifiable = true
+
+[[resources]]
+id = "decomposition_checklist"
+description = "DECOMPOSITION review checklist"
+source = "artifacts/DECOMPOSITION/checklist.md"
+default_path = "artifacts/DECOMPOSITION/checklist.md"
+type = "file"
+user_modifiable = true
+
+[[resources]]
+id = "decomposition_example"
+description = "DECOMPOSITION example artifact"
+source = "artifacts/DECOMPOSITION/examples/example.md"
+default_path = "artifacts/DECOMPOSITION/examples/example.md"
+type = "file"
+user_modifiable = true
+
+# ── DESIGN artifact files ────────────────────────────────────────────
+
+[[resources]]
+id = "design_template"
+description = "DESIGN artifact template"
+source = "artifacts/DESIGN/template.md"
+default_path = "artifacts/DESIGN/template.md"
+type = "file"
+user_modifiable = true
+
+[[resources]]
+id = "design_rules"
+description = "DESIGN validation rules"
+source = "artifacts/DESIGN/rules.md"
+default_path = "artifacts/DESIGN/rules.md"
+type = "file"
+user_modifiable = true
+
+[[resources]]
+id = "design_checklist"
+description = "DESIGN review checklist"
+source = "artifacts/DESIGN/checklist.md"
+default_path = "artifacts/DESIGN/checklist.md"
+type = "file"
+user_modifiable = true
+
+[[resources]]
+id = "design_example"
+description = "DESIGN example artifact"
+source = "artifacts/DESIGN/examples/example.md"
+default_path = "artifacts/DESIGN/examples/example.md"
+type = "file"
+user_modifiable = true
+
+# ── FEATURE artifact files ───────────────────────────────────────────
+
+[[resources]]
+id = "feature_template"
+description = "FEATURE artifact template"
+source = "artifacts/FEATURE/template.md"
+default_path = "artifacts/FEATURE/template.md"
+type = "file"
+user_modifiable = true
+
+[[resources]]
+id = "feature_rules"
+description = "FEATURE validation rules"
+source = "artifacts/FEATURE/rules.md"
+default_path = "artifacts/FEATURE/rules.md"
+type = "file"
+user_modifiable = true
+
+[[resources]]
+id = "feature_checklist"
+description = "FEATURE review checklist"
+source = "artifacts/FEATURE/checklist.md"
+default_path = "artifacts/FEATURE/checklist.md"
+type = "file"
+user_modifiable = true
+
+[[resources]]
+id = "feature_example"
+description = "FEATURE example artifact"
+source = "artifacts/FEATURE/examples/example.md"
+default_path = "artifacts/FEATURE/examples/example.md"
+type = "file"
+user_modifiable = true
+
+# ── PRD artifact files ───────────────────────────────────────────────
+
+[[resources]]
+id = "prd_template"
+description = "PRD artifact template"
+source = "artifacts/PRD/template.md"
+default_path = "artifacts/PRD/template.md"
+type = "file"
+user_modifiable = true
+
+[[resources]]
+id = "prd_rules"
+description = "PRD validation rules"
+source = "artifacts/PRD/rules.md"
+default_path = "artifacts/PRD/rules.md"
+type = "file"
+user_modifiable = true
+
+[[resources]]
+id = "prd_checklist"
+description = "PRD review checklist"
+source = "artifacts/PRD/checklist.md"
+default_path = "artifacts/PRD/checklist.md"
+type = "file"
+user_modifiable = true
+
+[[resources]]
+id = "prd_example"
+description = "PRD example artifact"
+source = "artifacts/PRD/examples/example.md"
+default_path = "artifacts/PRD/examples/example.md"
+type = "file"
+user_modifiable = true
+
+# ── PR template artifacts ────────────────────────────────────────────
+
+[[resources]]
+id = "pr_code_review_template"
+description = "PR code review report template"
+source = "artifacts/PR-CODE-REVIEW-TEMPLATE/template.md"
+default_path = "artifacts/PR-CODE-REVIEW-TEMPLATE/template.md"
+type = "file"
+user_modifiable = true
+
+[[resources]]
+id = "pr_status_report_template"
+description = "PR status report template"
+source = "artifacts/PR-STATUS-REPORT-TEMPLATE/template.md"
+default_path = "artifacts/PR-STATUS-REPORT-TEMPLATE/template.md"
+type = "file"
+user_modifiable = true
+
+# ── Codebase files ───────────────────────────────────────────────────
+
+[[resources]]
+id = "codebase_rules"
+description = "Codebase traceability and implementation rules"
+source = "codebase/rules.md"
+default_path = "codebase/rules.md"
+type = "file"
+user_modifiable = true
+
+[[resources]]
+id = "codebase_checklist"
+description = "Codebase review checklist"
+source = "codebase/checklist.md"
+default_path = "codebase/checklist.md"
+type = "file"
+user_modifiable = true
+
+# ── Workflow files ───────────────────────────────────────────────────
+
+[[resources]]
+id = "workflow_pr_review"
+description = "PR review workflow"
+source = "workflows/pr-review.md"
+default_path = "workflows/pr-review.md"
+type = "file"
+user_modifiable = false
+
+[[resources]]
+id = "workflow_pr_status"
+description = "PR status report workflow"
+source = "workflows/pr-status.md"
+default_path = "workflows/pr-status.md"
+type = "file"
+user_modifiable = false
+
+# ── Scripts ──────────────────────────────────────────────────────────
+
+[[resources]]
+id = "scripts"
+description = "Kit scripts and PR review prompts"
+source = "scripts"
+default_path = "scripts"
+type = "directory"
+user_modifiable = true
+
+# ── Kit-level files ──────────────────────────────────────────────────
+
+[[resources]]
+id = "constraints"
+description = "Kit structural constraints (heading outlines, ID kinds, cross-references)"
+source = "constraints.toml"
+default_path = "constraints.toml"
+type = "file"
+user_modifiable = false
+
+[[resources]]
+id = "skill"
+description = "Kit SKILL.md for agent navigation and workflow routing"
+source = "SKILL.md"
+default_path = "SKILL.md"
+type = "file"
+user_modifiable = false
+
+[[resources]]
+id = "agents"
+description = "Kit AGENTS.md for agent integration entry points"
+source = "AGENTS.md"
+default_path = "AGENTS.md"
+type = "file"
+user_modifiable = false
+

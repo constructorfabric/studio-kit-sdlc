@@ -1,5 +1,17 @@
 # What's New — SDLC Kit
 
+[whatsnew."1.1.0"]
+summary = "Declarative installation manifest"
+details = """\
+- Added `manifest.toml` — declarative kit installation manifest per `kit-manifest.schema.json`
+- All artifact and codebase resources declared as per-file entries with `user_modifiable = true`
+- Workflows (pr-review, pr-status) declared per-file with `user_modifiable = false`
+- Scripts declared as a single directory resource with `user_modifiable = true`
+- Kit-level files (constraints.toml, SKILL.md, AGENTS.md) declared with `user_modifiable = false`
+- Guides, README, whatsnew.toml, and pipeline diagram excluded from installation
+- Resource bindings registered in `core.toml` under `[kits.sdlc.resources]` at install time\
+"""
+
 [whatsnew."1.0.0"]
 summary = "Kit is a direct file package"
 details = """\
