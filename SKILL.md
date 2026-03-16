@@ -1,6 +1,6 @@
 ---
 name: cypilot-sdlc
-description: "Artifacts: ADR, CODEBASE, DECOMPOSITION, DESIGN, FEATURE, PR-CODE-REVIEW-TEMPLATE, PR-REVIEW, PR-STATUS-REPORT-TEMPLATE, PRD; Workflows: pr-review, pr-status"
+description: "Artifacts: ADR, CODEBASE, DECOMPOSITION, DESIGN, FEATURE, PR-CODE-REVIEW-TEMPLATE, PR-REVIEW, PR-STATUS-REPORT-TEMPLATE, PRD; Workflows: migrate-openspec, pr-review, pr-status"
 ---
 
 # Cypilot Skill — Kit `sdlc`
@@ -113,6 +113,22 @@ When routed to PR status:
 2. Read `{workflow_pr_status}` and follow its steps
 3. Use `python3 {scripts}/pr.py` as the script
 4. When target is `ALL` or no PR number given, run `pr.py list` first to show available PRs
+
+## MIGRATION
+
+### Migration Commands
+- `cypilot migrate-openspec` — migrate OpenSpec artifacts to Cypilot SDLC documents
+
+### Migration Workflows
+
+ALWAYS route to the `cypilot-migrate-openspec` workflow WHEN user intent matches OpenSpec migration patterns:
+- `migrate openspec`, `migrate from openspec`, `convert openspec`
+- `cypilot migrate-openspec`, `openspec to cypilot`
+- Any request to convert OpenSpec artifacts to Cypilot SDLC format
+
+When routed to OpenSpec migration:
+1. Read `{workflow_migrate_openspec}` and follow its steps
+2. The workflow handles all configuration discovery and user interaction
 
 ## PRD
 

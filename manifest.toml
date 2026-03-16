@@ -230,6 +230,14 @@ default_path = "workflows/pr-status.md"
 type = "file"
 user_modifiable = false
 
+[[resources]]
+id = "workflow_migrate_openspec"
+description = "OpenSpec to Cypilot SDLC migration workflow"
+source = "workflows/migrate-openspec.md"
+default_path = "workflows/migrate-openspec.md"
+type = "file"
+user_modifiable = false
+
 # ── Scripts ──────────────────────────────────────────────────────────
 
 [[resources]]
