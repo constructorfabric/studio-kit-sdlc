@@ -1,5 +1,16 @@
 # What's New — SDLC Kit
 
+[whatsnew."1.2.0"]
+summary = "Added OpenSpec to Cypilot SDLC migration workflow"
+details = """\
+- New `migrate-openspec` workflow for converting OpenSpec artifacts (proposals, specs, designs, tasks) to Cypilot SDLC documents (PRD, DESIGN, ADR, FEATURE, DECOMPOSITION) with code-verified traceability
+- Workflow is fully parameterized — works for any project with OpenSpec artifacts
+- Includes Configuration section with variable discovery protocol
+- Includes OpenSpec Format Reference appendix for agent context
+- 8-phase migration: Inventory → PRD → DESIGN → ADR → DECOMPOSITION → FEATURE → Code Markers → Validate
+- Each phase uses Code Verification Protocol to ground artifacts in actual codebase behavior\
+"""
+
 [whatsnew."1.1.1"]
 summary = "Resource ID variables for cross-references"
 details = """\
