@@ -1,5 +1,19 @@
 # What's New — SDLC Kit
 
+[whatsnew."1.3.0"]
+summary = "Lazy loading for all rules.md dependencies"
+details = """\
+- All artifact rules.md files now use lazy loading for dependencies (templates, checklists, examples)
+- Removed mandatory "Load Dependencies" section from Prerequisites
+- Added "Load on demand" blocks directly before sections that require each resource
+- Templates load WHEN generating artifact structure OR WHEN validating structure
+- Checklists load WHEN checking semantic quality OR during Semantic Validation phase
+- Examples load WHEN needing reference for content depth/style
+- Constraints and traceability specs load WHEN validating cross-references or ID formats
+- Affected files: PRD/rules.md, DESIGN/rules.md, FEATURE/rules.md, ADR/rules.md, DECOMPOSITION/rules.md, codebase/rules.md
+- fix(pr-status): report unresolved non-outdated review threads correctly\
+"""
+
 [whatsnew."1.2.0"]
 summary = "Added OpenSpec to Cypilot SDLC migration workflow"
 details = """\

@@ -3,13 +3,12 @@
 **Artifact**: CODEBASE
 **Kit**: sdlc
 
-**Dependencies**:
-- `{codebase_checklist}` — semantic quality criteria
+**Dependencies** (lazy-loaded):
+- `{codebase_checklist}` — semantic quality criteria (load WHEN checking code quality)
 
 ## Table of Contents
 
 1. [Prerequisites](#prerequisites)
-   - [Load Dependencies](#load-dependencies)
 2. [Requirements](#requirements)
    - [Structural](#structural)
    - [Traceability](#traceability)
@@ -42,16 +41,10 @@
 
 ## Prerequisites
 
-### Load Dependencies
-
-- [ ] Read project `AGENTS.md` for code conventions
-- [ ] Load source artifact/description (FEATURE preferred)
-- [ ] Load `{codebase_checklist}` for quality guidance
-- [ ] Load `{cypilot_path}/.core/requirements/code-checklist.md` for generic code quality checks
-- [ ] If FEATURE source: identify all IDs with `to_code="true"` attribute
-- [ ] Determine Traceability Mode (FULL vs DOCS-ONLY)
-- [ ] If Traceability Mode FULL: load `{cypilot_path}/.core/architecture/specs/traceability.md`
-- [ ] Load `{constraints}` for kit-level constraints
+- Read project `AGENTS.md` for code conventions
+- Load source artifact/description (FEATURE preferred)
+- If FEATURE source: identify all IDs with `to_code="true"` attribute
+- Determine Traceability Mode (FULL vs DOCS-ONLY)
 
 **Source** (one of, in priority order):
 1. FEATURE design — registered artifact with `to_code="true"` IDs
@@ -74,7 +67,7 @@
 
 ### Traceability
 
-**Reference**: `{cypilot_path}/.core/architecture/specs/traceability.md` for full specification
+**Load on demand**: `{cypilot_path}/.core/architecture/specs/traceability.md` — WHEN Traceability Mode FULL
 
 - [ ] Traceability Mode determined per feature (FULL vs DOCS-ONLY)
 - [ ] If Mode ON: markers follow feature syntax (`@cpt-*`, `@cpt-begin`/`@cpt-end`)
@@ -154,7 +147,9 @@ PRD/DESIGN: referenced IDs [x] when ALL downstream refs [x]
 
 ### Quality
 
-**Reference**: `{codebase_checklist}` for detailed criteria
+**Load on demand**:
+- `{codebase_checklist}` — WHEN checking code quality
+- `{cypilot_path}/.core/requirements/code-checklist.md` — WHEN checking generic code quality
 
 - [ ] Code passes quality checklist
 - [ ] Functions/methods are appropriately sized
@@ -177,7 +172,6 @@ PRD/DESIGN: referenced IDs [x] when ALL downstream refs [x]
 **Load Context**:
 - [ ] Read project `AGENTS.md` for code conventions
 - [ ] Load source artifact/description
-- [ ] Load `{codebase_checklist}` for quality guidance
 - [ ] Determine Traceability Mode
 - [ ] Plan implementation order
 
@@ -246,6 +240,8 @@ After each work package, sync checkboxes:
 
 ### Phase 5: Quality Check
 
+**Load on demand**: `{codebase_checklist}` — WHEN self-reviewing code quality
+
 - [ ] Self-review against `{codebase_checklist}`
 - [ ] If Traceability Mode ON: verify all `to_code="true"` IDs have markers
 - [ ] If Traceability Mode ON: ensure no orphaned markers
@@ -271,7 +267,7 @@ After each work package, sync checkboxes:
 
 ### Phase 2: Traceability Validation (Mode ON only)
 
-**Mode ON only.** Reference: `{cypilot_path}/.core/architecture/specs/traceability.md`
+**Load on demand**: `{cypilot_path}/.core/architecture/specs/traceability.md` — required for this phase (Mode ON only)
 
 - [ ] Marker format valid
 - [ ] All begin/end pairs matched

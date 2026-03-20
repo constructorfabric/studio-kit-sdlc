@@ -3,15 +3,14 @@
 **Artifact**: PRD
 **Kit**: sdlc
 
-**Dependencies**:
-- `{prd_template}` — structural reference
-- `{prd_checklist}` — semantic quality criteria
-- `{prd_example}` — reference implementation
+**Dependencies** (lazy-loaded):
+- `{prd_template}` — structural reference (load WHEN validating structure)
+- `{prd_checklist}` — semantic quality criteria (load WHEN checking semantic quality)
+- `{prd_example}` — reference implementation (load WHEN needing content depth reference)
 
 ## Table of Contents
 
 1. [Prerequisites](#prerequisites)
-   - [Load Dependencies](#load-dependencies)
 2. [Requirements](#requirements)
    - [Structural](#structural)
    - [Versioning](#versioning)
@@ -47,21 +46,15 @@
 
 ## Prerequisites
 
-### Load Dependencies
-
-- [ ] Load `{prd_template}` for structure
-- [ ] Load `{prd_checklist}` for semantic guidance
-- [ ] Load `{prd_example}` for reference style
-- [ ] Read project config for ID prefix
-- [ ] Load `{cypilot_path}/.core/architecture/specs/traceability.md` for ID formats
-- [ ] Load `{constraints}` for kit-level constraints
-- [ ] Load `{cypilot_path}/.core/architecture/specs/kit/constraints.md` for constraints specification
+Read project config for ID prefix.
 
 ---
 
 ## Requirements
 
 ### Structural
+
+**Load on demand**: `{prd_template}` — WHEN validating structure
 
 - [ ] PRD follows `{prd_template}` structure
 - [ ] Artifact frontmatter (optional): use `cpt:` format for document metadata
@@ -79,6 +72,8 @@
 - [ ] Keep changelog of significant changes
 
 ### Semantic
+
+**Load on demand**: `{prd_checklist}` — WHEN checking semantic quality
 
 - [ ] Purpose MUST be ≤ 2 paragraphs
 - [ ] Purpose MUST NOT contain implementation details
@@ -119,11 +114,17 @@
 
 ### Traceability
 
+**Load on demand**: `{cypilot_path}/.core/architecture/specs/traceability.md` — WHEN checking ID formats
+
 - [ ] Capabilities traced through: PRD → DESIGN → DECOMPOSITION → FEATURE → CODE
 - [ ] When capability fully implemented (all specs IMPLEMENTED) → mark capability `[x]`
 - [ ] When all capabilities `[x]` → product version complete
 
 ### Constraints
+
+**Load on demand**:
+- `{constraints}` — WHEN validating cross-references
+- `{cypilot_path}/.core/architecture/specs/kit/constraints.md` — WHEN resolving constraint rules
 
 - [ ] ALWAYS open and follow `{constraints}` (kit root)
 - [ ] Treat `constraints.toml` as primary validator for:
@@ -161,12 +162,14 @@ PRDs must NOT contain the following — report as violation if found:
 
 ### Phase 1: Setup
 
-- [ ] Load `{prd_template}` for structure
-- [ ] Load `{prd_checklist}` for semantic guidance
-- [ ] Load `{prd_example}` for reference style
 - [ ] Read project config for ID prefix
+- [ ] Identify artifact output path from `{cypilot_path}/config/artifacts.toml`
 
 ### Phase 2: Content Creation
+
+**Load on demand**:
+- `{prd_template}` — WHEN generating artifact structure
+- `{prd_example}` — WHEN needing reference for content depth
 
 - [ ] Write each section guided by template prompts and examples
 - [ ] Use example as reference for content depth:
@@ -210,6 +213,8 @@ PRDs must NOT contain the following — report as violation if found:
   - No duplicate IDs
 
 ### Phase 2: Semantic Validation (Checklist-based)
+
+**Load on demand**: `{prd_checklist}` — required for this phase
 
 - [ ] Read `{prd_checklist}` in full
 - [ ] For each MUST HAVE item: check if requirement is met

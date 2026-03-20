@@ -3,15 +3,14 @@
 **Artifact**: DESIGN
 **Kit**: sdlc
 
-**Dependencies**:
-- `{design_template}` — structural reference
-- `{design_checklist}` — semantic quality criteria
-- `{design_example}` — reference implementation
+**Dependencies** (lazy-loaded):
+- `{design_template}` — structural reference (load WHEN validating structure)
+- `{design_checklist}` — semantic quality criteria (load WHEN checking semantic quality)
+- `{design_example}` — reference implementation (load WHEN needing content depth reference)
 
 ## Table of Contents
 
 1. [Prerequisites](#prerequisites)
-   - [Load Dependencies](#load-dependencies)
 2. [Requirements](#requirements)
    - [Structural](#structural)
    - [Versioning](#versioning)
@@ -48,22 +47,15 @@
 
 ## Prerequisites
 
-### Load Dependencies
-
-- [ ] Load `{design_template}` for structure
-- [ ] Load `{design_checklist}` for semantic guidance
-- [ ] Load `{design_example}` for reference style
-- [ ] Read parent PRD for context
-- [ ] Load `{cypilot_path}/.core/architecture/specs/traceability.md` for ID formats
-- [ ] Load `{constraints}` for kit-level constraints
-- [ ] Load `{cypilot_path}/.core/architecture/specs/kit/constraints.md` for constraints specification
-- [ ] Load `{cypilot_path}/.core/schemas/kit-constraints.schema.json` for constraints JSON Schema
+Read parent PRD for context (if exists).
 
 ---
 
 ## Requirements
 
 ### Structural
+
+**Load on demand**: `{design_template}` — WHEN validating structure
 
 - [ ] DESIGN follows `{design_template}` structure
 - [ ] Artifact frontmatter (optional): use `cpt:` format for document metadata
@@ -82,7 +74,7 @@
 
 ### Semantic
 
-**Reference**: `{design_checklist}` for detailed semantic criteria
+**Load on demand**: `{design_checklist}` — WHEN checking semantic quality
 
 - [ ] Architecture overview is complete and clear
 - [ ] Domain model defines all core types
@@ -121,11 +113,18 @@
 
 ### Traceability
 
+**Load on demand**: `{cypilot_path}/.core/architecture/specs/traceability.md` — WHEN checking ID formats
+
 - [ ] When component fully implemented → mark component `[x]` in DESIGN
 - [ ] When all components for ADR implemented → update ADR status (PROPOSED → ACCEPTED)
 - [ ] When all design elements for PRD capability implemented → mark capability `[x]` in PRD
 
 ### Constraints
+
+**Load on demand**:
+- `{constraints}` — WHEN validating cross-references
+- `{cypilot_path}/.core/architecture/specs/kit/constraints.md` — WHEN resolving constraint rules
+- `{cypilot_path}/.core/schemas/kit-constraints.schema.json` — WHEN validating constraints schema
 
 - [ ] ALWAYS open and follow `{constraints}` (kit root)
 - [ ] Treat `constraints.toml` as primary validator for:
@@ -179,12 +178,14 @@ DESIGN documents must NOT contain the following — report as violation if found
 
 ### Phase 1: Setup
 
-- [ ] Load `{design_template}` for structure
-- [ ] Load `{design_checklist}` for semantic guidance
-- [ ] Load `{design_example}` for reference style
-- [ ] Read parent PRD for context
+- [ ] Read parent PRD for context (if exists)
+- [ ] Identify artifact output path from `{cypilot_path}/config/artifacts.toml`
 
 ### Phase 2: Content Creation
+
+**Load on demand**:
+- `{design_template}` — WHEN generating artifact structure
+- `{design_example}` — WHEN needing reference for content depth
 
 **Apply checklist.md semantics during creation:**
 
@@ -251,6 +252,8 @@ If DESIGN cannot be completed in a single session:
   - No placeholders
 
 ### Phase 2: Semantic Validation (Checklist-based)
+
+**Load on demand**: `{design_checklist}` — required for this phase
 
 - [ ] Read `{design_checklist}` in full
 - [ ] For each MUST HAVE item: check if requirement is met

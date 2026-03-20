@@ -3,15 +3,14 @@
 **Artifact**: ADR
 **Kit**: sdlc
 
-**Dependencies**:
-- `{adr_template}` — structural reference
-- `{adr_checklist}` — semantic quality criteria
-- `{adr_example}` — reference implementation
+**Dependencies** (lazy-loaded):
+- `{adr_template}` — structural reference (load WHEN validating structure)
+- `{adr_checklist}` — semantic quality criteria (load WHEN checking semantic quality)
+- `{adr_example}` — reference implementation (load WHEN needing content reference)
 
 ## Table of Contents
 
 1. [Prerequisites](#prerequisites)
-   - [Load Dependencies](#load-dependencies)
 2. [Requirements](#requirements)
    - [Structural](#structural)
    - [Versioning](#versioning)
@@ -48,21 +47,15 @@
 
 ## Prerequisites
 
-### Load Dependencies
-
-- [ ] Load `{adr_template}` for structure
-- [ ] Load `{adr_checklist}` for semantic guidance
-- [ ] Load `{adr_example}` for reference style
-- [ ] Read `{cypilot_path}/config/artifacts.toml` to determine ADR directory
-- [ ] Load `{cypilot_path}/.core/architecture/specs/traceability.md` for ID formats
-- [ ] Load `{constraints}` for kit-level constraints
-- [ ] Load `{cypilot_path}/.core/architecture/specs/kit/constraints.md` for constraints specification
+Read `{cypilot_path}/config/artifacts.toml` to determine ADR directory.
 
 ---
 
 ## Requirements
 
 ### Structural
+
+**Load on demand**: `{adr_template}` — WHEN validating structure
 
 - [ ] ADR follows `{adr_template}` structure
 - [ ] Artifact frontmatter is required
@@ -81,7 +74,7 @@
 
 ### Semantic
 
-**Reference**: `{adr_checklist}` for detailed criteria
+**Load on demand**: `{adr_checklist}` — WHEN checking semantic quality
 
 - [ ] Problem/context clearly stated
 - [ ] At least 2-3 options considered
@@ -143,6 +136,11 @@ Use when:
 Keep REJECTED ADRs for historical record — do not delete.
 
 ### Constraints
+
+**Load on demand**:
+- `{constraints}` — WHEN validating cross-references
+- `{cypilot_path}/.core/architecture/specs/traceability.md` — WHEN checking ID formats
+- `{cypilot_path}/.core/architecture/specs/kit/constraints.md` — WHEN resolving constraint rules
 
 - [ ] ALWAYS open and follow `{constraints}` (kit root)
 - [ ] Treat `constraints.toml` as primary validator for:
@@ -207,9 +205,6 @@ ADRs must NOT contain the following — report as violation if found:
 
 ### Phase 1: Setup
 
-- [ ] Load `{adr_template}` for structure
-- [ ] Load `{adr_checklist}` for semantic guidance
-- [ ] Load `{adr_example}` for reference style
 - [ ] Read `{cypilot_path}/config/artifacts.toml` to determine ADR directory
 - [ ] Determine next ADR number (ADR-NNNN)
 
@@ -228,6 +223,10 @@ ADRs must NOT contain the following — report as violation if found:
 3. Assign next sequential: `NNNN + 1`
 
 ### Phase 2: Content Creation
+
+**Load on demand**:
+- `{adr_template}` — WHEN generating artifact structure
+- `{adr_example}` — WHEN needing reference for content
 
 **Use example as reference:**
 
@@ -272,6 +271,8 @@ Run `cypilot validate` for:
 - [ ] No placeholders
 
 ### Phase 2: Semantic Validation (Checklist-based)
+
+**Load on demand**: `{adr_checklist}` — required for this phase
 
 Apply `{adr_checklist}`:
 1. Verify context explains why decision needed
