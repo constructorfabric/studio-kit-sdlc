@@ -1,5 +1,23 @@
 # What's New — SDLC Kit
 
+[whatsnew."2.0.0"]
+summary = "Rebrand: Cyber Pilot → Cyber Constructor (BREAKING)"
+details = """\
+- BREAKING: project rebranded from `Cyber Pilot` to `Cyber Constructor`
+- BREAKING: CLI tool renamed `cpt` → `cfc` — update all install/update/validate commands
+- BREAKING: skill renamed `cypilot-sdlc` → `cf-constructor-sdlc`
+- BREAKING: workflows renamed `cypilot-pr-review` → `cf-constructor-pr-review`, `cypilot-pr-status` → `cf-constructor-pr-status`, `cypilot-migrate-openspec` → `cf-constructor-migrate-openspec`
+- BREAKING: slash-commands renamed `/cypilot-generate` → `/cf-constructor-generate`, `/cypilot-analyze` → `/cf-constructor-analyze`
+- BREAKING: path variable renamed `{cypilot_path}` → `{cf-constructor-path}`; mode variable renamed `{cypilot_mode}` → `{cf-constructor-mode}`
+- BREAKING: workflow frontmatter field renamed `cypilot: true` → `cf-constructor: true`
+- BREAKING: skill directory and script renamed `.core/skills/cypilot/` → `.core/skills/cf-constructor/`, `cypilot.py` → `cfc.py`
+- BREAKING: legacy adapter directory renamed `.cypilot-adapter/` → `.cf-constructor-adapter/`
+- BREAKING: repo references updated `cyberfabric/cyber-pilot{,-kit-sdlc}` → `cyberfabric/cyber-constructor{,-kit-sdlc}`
+- `scripts/pr.py`: Python identifiers added (`_CFC_REL`, `CFC_PATH`, `_read_cfc_path`); legacy names (`_CYPILOT_REL`, `CYPILOT_PATH`, `_read_cypilot_path`) preserved as aliases; auto-detect candidates now `(".cfc", "cfc", "cf-constructor", ".cypilot", "cypilot")`; AGENTS.md TOML key `cf-constructor-path` is read first, with `cypilot_path` as legacy fallback
+- Documentation/CDSL references updated: `Cypilot DSL (CDSL)` → `Cyber Constructor DSL (CDSL)` (the **CDSL** acronym is preserved)
+- Stable interop preserved (no migration required): `cpt-{system}-{kind}-{slug}` artifact ID prefix, `@cpt-*` code traceability markers (flow/algo/state/dod, begin/end), `@cpt:root-agents` AGENTS.md root marker — these remain unchanged across the rebrand to keep existing IDs and code annotations valid\
+"""
+
 [whatsnew."1.3.0"]
 summary = "Lazy loading for all rules.md dependencies"
 details = """\
@@ -15,9 +33,9 @@ details = """\
 """
 
 [whatsnew."1.2.0"]
-summary = "Added OpenSpec to Cypilot SDLC migration workflow"
+summary = "Added OpenSpec to Cyber Constructor SDLC migration workflow"
 details = """\
-- New `migrate-openspec` workflow for converting OpenSpec artifacts (proposals, specs, designs, tasks) to Cypilot SDLC documents (PRD, DESIGN, ADR, FEATURE, DECOMPOSITION) with code-verified traceability
+- New `migrate-openspec` workflow for converting OpenSpec artifacts (proposals, specs, designs, tasks) to Cyber Constructor SDLC documents (PRD, DESIGN, ADR, FEATURE, DECOMPOSITION) with code-verified traceability
 - Workflow is fully parameterized — works for any project with OpenSpec artifacts
 - Includes Configuration section with variable discovery protocol
 - Includes OpenSpec Format Reference appendix for agent context
@@ -28,7 +46,7 @@ details = """\
 [whatsnew."1.1.1"]
 summary = "Resource ID variables for cross-references"
 details = """\
-- Replaced all hardcoded `{cypilot_path}/config/kits/sdlc/...` paths with `{resource_id}` variables from `manifest.toml`
+- Replaced all hardcoded `{cf-constructor-path}/config/kits/sdlc/...` paths with `{resource_id}` variables from `manifest.toml`
 - Affected files: all `rules.md` (ADR, DECOMPOSITION, DESIGN, FEATURE, PRD), `codebase/rules.md`, `AGENTS.md`, `SKILL.md`, workflows, `scripts/pr-review.toml`
 - Fixed stale reference to `artifacts/FEATURE/examples/task-crud.md` (now uses `{feature_example}`)
 - Cross-references are now consistent and maintainable via manifest resource IDs\
@@ -49,11 +67,11 @@ details = """\
 [whatsnew."1.0.0"]
 summary = "Kit is a direct file package"
 details = """\
-- Moved from Cyber Pilot repository
+- Moved from Cyber Constructor repository
 - Kit content (artifacts/, codebase/, constraints.toml, SKILL.md, AGENTS.md) shipped as ready files
 - `constraints.toml` now lives in kit source root (no longer auto-generated)
 - ADR example switched to marker-based TOC format (`<!-- toc -->` / `<!-- /toc -->`)
-- Kit slug simplified from `cypilot-sdlc` to `sdlc`
+- Kit slug simplified from `cf-constructor-sdlc` to `sdlc`
 - `conf.toml` no longer copied into installed kit; version tracked in core.toml
 - PRD: restructured FR examples with group (level 3) + entry (level 4) pattern
 - FEATURE: added numbering and (CDSL) suffix to section heading examples

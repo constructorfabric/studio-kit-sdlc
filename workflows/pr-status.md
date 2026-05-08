@@ -1,7 +1,7 @@
 ---
-cypilot: true
+cf-constructor: true
 type: workflow
-name: cypilot-pr-status
+name: cf-constructor-pr-status
 description: Generate status reports for GitHub PRs with severity assessment and resolved-comment audit
 version: 1.0
 purpose: Fetch latest PR data, generate status reports, assess comment severity, audit resolved comments
@@ -9,7 +9,7 @@ purpose: Fetch latest PR data, generate status reports, assess comment severity,
 
 # PR Status Workflow
 
-ALWAYS open and follow `{cypilot_path}/.core/skills/cypilot/SKILL.md` FIRST WHEN {cypilot_mode} is `off`
+ALWAYS open and follow `{cf-constructor-path}/.core/skills/cf-constructor/SKILL.md` FIRST WHEN {cf-constructor-mode} is `off`
 
 **Type**: Analysis
 **Role**: Reviewer
@@ -21,16 +21,16 @@ ALWAYS open and follow `{cypilot_path}/.core/skills/cypilot/SKILL.md` FIRST WHEN
 
 | User Intent | Route | Example |
 |-------------|-------|---------|
-| Check PR status | **pr-status.md** | "PR status 123", `/cypilot-pr-status 123` |
-| Check all PR statuses | **pr-status.md** | "status of all PRs", `/cypilot-pr-status ALL` |
-| Review a PR | **pr-review.md** | "review PR 123", `/cypilot-pr-review 123` |
+| Check PR status | **pr-status.md** | "PR status 123", `/cf-constructor-pr-status 123` |
+| Check all PR statuses | **pr-status.md** | "status of all PRs", `/cf-constructor-pr-status ALL` |
+| Review a PR | **pr-review.md** | "review PR 123", `/cf-constructor-pr-review 123` |
 
 ---
 
 ## Overview
 
 Accepts one argument: a PR number (e.g. `123`) or `ALL`.
-Also triggered by natural-language prompts like `cypilot PR status 123`.
+Also triggered by natural-language prompts like `cf-constructor PR status 123`.
 
 **IMPORTANT**: Every status request MUST re-fetch and re-analyze from scratch.
 NEVER reuse data or analysis from a previous run in this conversation.
@@ -41,7 +41,7 @@ Previous results are stale the moment a new status request arrives.
 ## Paths
 
 - **Script**: `python3 {scripts}/pr.py`
-- **Config**: `{cypilot_path}/config/pr-review.toml`
+- **Config**: `{cf-constructor-path}/config/pr-review.toml`
 - **Status report template**: `{pr_status_report_template}`
 - **PR data**: `.prs/{ID}/`
 - **Exclude list**: `.prs/config.yaml` → `exclude_prs`
