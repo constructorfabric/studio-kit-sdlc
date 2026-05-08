@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """PR review helper – fetch PR diffs, metadata, and generate status reports.
 
-Cypilot kit script: lives in kits/sdlc/scripts/pr.py, deployed to .gen/kits/sdlc/scripts/pr.py
+Cyber Constructor kit script: lives in kits/sdlc/scripts/pr.py, deployed to .gen/kits/sdlc/scripts/pr.py
 Resolves all paths relative to the project root (detected via git).
 
 All review is done in read-only mode: the script downloads diffs and
@@ -79,11 +79,13 @@ def _find_project_root():
 ROOT = _find_project_root()
 
 
-def _read_cypilot_path(project_root):
-    """Read cypilot_path variable from AGENTS.md TOML block.
+def _read_cfc_path(project_root):
+    """Read cf-constructor-path (or legacy cypilot_path) from AGENTS.md TOML block.
 
     Parses the ```toml block inside the @cpt:root-agents section.
-    Returns the value (e.g. '.cypilot', 'cypilot', 'cpt') or None.
+    Tries the new key `cf-constructor-path` first, then falls back to the
+    legacy `cypilot_path` for projects that haven't migrated yet.
+    Returns the value (e.g. '.cfc', 'cfc', 'cf-constructor', '.cypilot') or None.
     """
     agents = os.path.join(project_root, "AGENTS.md")
     if not os.path.isfile(agents):
@@ -95,44 +97,51 @@ def _read_cypilot_path(project_root):
         return None
     if _CPT_MARKER not in content:
         return None
-    # Extract cypilot_path from TOML block
-    m = re.search(
-        r'cypilot_path\s*=\s*"([^"]+)"', content,
-    )
-    if not m:
-        m = re.search(
-            r"cypilot_path\s*=\s*'([^']+)'", content,
-        )
-    return m.group(1).strip() if m else None
+    for key in ("cf-constructor-path", "cypilot_path"):
+        m = re.search(rf'{key}\s*=\s*"([^"]+)"', content)
+        if not m:
+            m = re.search(rf"{key}\s*=\s*'([^']+)'", content)
+        if m:
+            return m.group(1).strip()
+    return None
 
 
-# Resolve cypilot path from AGENTS.md, fallback to common names
-_CYPILOT_REL = _read_cypilot_path(ROOT)
-if _CYPILOT_REL is None:
-    # Auto-detect: check common directory names
-    for _candidate in (".cypilot", "cypilot", "cpt"):
+# Legacy alias preserved for back-compat with code that imported the old name.
+_read_cypilot_path = _read_cfc_path
+
+
+# Resolve cfc path from AGENTS.md, fallback to common names (new + legacy).
+_CFC_REL = _read_cfc_path(ROOT)
+if _CFC_REL is None:
+    # Auto-detect: check common directory names (legacy `.cypilot`/`cypilot`
+    # kept so projects mid-migration still resolve).
+    for _candidate in (".cfc", "cfc", "cf-constructor", ".cypilot", "cypilot"):
         if os.path.isdir(os.path.join(ROOT, _candidate)):
-            _CYPILOT_REL = _candidate
+            _CFC_REL = _candidate
             break
-    if _CYPILOT_REL is None:
-        _CYPILOT_REL = ".cypilot"
+    if _CFC_REL is None:
+        _CFC_REL = ".cfc"
 
-CYPILOT_PATH = os.path.join(ROOT, _CYPILOT_REL)
+CFC_PATH = os.path.join(ROOT, _CFC_REL)
+
+# Legacy aliases preserved as fallback for back-compat.
+_CYPILOT_REL = _CFC_REL
+CYPILOT_PATH = CFC_PATH
 
 
 def _load_pr_config():
-    """Load PR review config from {cypilot_path}/config/pr-review.toml.
+    """Load PR review config from {cf-constructor-path}/config/pr-review.toml.
 
     Resolution order:
-    1. {cypilot_path}/config/pr-review.toml   (user-editable)
-    2. {cypilot_path}/config/kits/sdlc/scripts/pr-review.toml  (kit default)
-    3. {cypilot_path}/config/pr-review.json   (legacy JSON)
-    4. .cypilot-adapter/pr-review.json        (legacy v1)
+    1. {cf-constructor-path}/config/pr-review.toml   (user-editable)
+    2. {cf-constructor-path}/config/kits/sdlc/scripts/pr-review.toml  (kit default)
+    3. {cf-constructor-path}/config/pr-review.json   (legacy JSON)
+    4. .cf-constructor-adapter/pr-review.json        (legacy v1)
     """
     # TOML candidates
     candidates_toml = [
-        os.path.join(CYPILOT_PATH, "config", "pr-review.toml"),
-        os.path.join(CYPILOT_PATH, ".gen", "kits", "sdlc", "scripts", "pr-review.toml"),
+        os.path.join(CFC_PATH, "config", "pr-review.toml"),
+        os.path.join(CFC_PATH, ".gen", "kits", "sdlc", "scripts", "pr-review.toml"),
     ]
     if tomllib is not None:
         for p in candidates_toml:
@@ -141,8 +150,8 @@ def _load_pr_config():
                     return tomllib.load(f)
     # Legacy JSON fallback
     candidates_json = [
-        os.path.join(CYPILOT_PATH, "config", "pr-review.json"),
-        os.path.join(ROOT, ".cypilot-adapter", "pr-review.json"),
+        os.path.join(CFC_PATH, "config", "pr-review.json"),
+        os.path.join(ROOT, ".cf-constructor-adapter", "pr-review.json"),
     ]
     for p in candidates_json:
         if os.path.exists(p):

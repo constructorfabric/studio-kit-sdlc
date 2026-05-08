@@ -1,9 +1,9 @@
-# Cypilot SDLC Kit — Declarative Installation Manifest
+# Cyber Constructor SDLC Kit — Declarative Installation Manifest
 # Schema: kit-manifest.schema.json v1.0
 
 [manifest]
 version = "1.0"
-root = "{cypilot_path}/config/kits/{slug}"
+root = "{cf-constructor-path}/config/kits/{slug}"
 user_modifiable = true
 
 # ── ADR artifact files ───────────────────────────────────────────────
@@ -232,7 +232,7 @@ user_modifiable = false
 
 [[resources]]
 id = "workflow_migrate_openspec"
-description = "OpenSpec to Cypilot SDLC migration workflow"
+description = "OpenSpec to Cyber Constructor SDLC migration workflow"
 source = "workflows/migrate-openspec.md"
 default_path = "workflows/migrate-openspec.md"
 type = "file"

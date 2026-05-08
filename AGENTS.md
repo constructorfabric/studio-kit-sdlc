@@ -1,4 +1,4 @@
-# Cypilot Kit: SDLC (`sdlc`)
+# Cyber Constructor Kit: SDLC (`sdlc`)
 
 Agent quick reference.
 

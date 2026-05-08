@@ -1,19 +1,19 @@
 ---
-name: cypilot-sdlc
+name: cf-constructor-sdlc
 description: "Artifacts: ADR, CODEBASE, DECOMPOSITION, DESIGN, FEATURE, PR-CODE-REVIEW-TEMPLATE, PR-REVIEW, PR-STATUS-REPORT-TEMPLATE, PRD; Workflows: migrate-openspec, pr-review, pr-status"
 ---
 
-# Cypilot Skill — Kit `sdlc`
+# Cyber Constructor Skill — Kit `sdlc`
 
 Kit `sdlc` skill extensions.
 
 ## ADR
 
 ### ADR Commands
-- `cypilot validate --artifact <ADR.md>` — validate ADR structure and IDs
-- `cypilot list-ids --kind adr` — list all ADRs
-- `cypilot where-defined --id <id>` — find where an ADR ID is defined
-- `cypilot where-used --id <id>` — find where an ADR ID is referenced in DESIGN
+- `cfc validate --artifact <ADR.md>` — validate ADR structure and IDs
+- `cfc list-ids --kind adr` — list all ADRs
+- `cfc where-defined --id <id>` — find where an ADR ID is defined
+- `cfc where-used --id <id>` — find where an ADR ID is referenced in DESIGN
 ### ADR Workflows
 - **Generate ADR**: create a new ADR from template with guided prompts per section
 - **Analyze ADR**: validate structure (deterministic) then semantic quality (checklist-based)
@@ -21,9 +21,9 @@ Kit `sdlc` skill extensions.
 ## CODEBASE
 
 ### CODE Commands
-- `cypilot validate --artifact <code-path>` — validate code traceability and quality
-- `cypilot where-defined --id <id>` — find where an ID is defined in artifacts
-- `cypilot where-used --id <id>` — find where an ID is referenced in code via `@cpt-*` markers
+- `cfc validate --artifact <code-path>` — validate code traceability and quality
+- `cfc where-defined --id <id>` — find where an ID is defined in artifacts
+- `cfc where-used --id <id>` — find where an ID is referenced in code via `@cpt-*` markers
 ### CODE Workflows
 - **Generate CODE**: implement FEATURE design with optional `@cpt-*` traceability markers
 - **Analyze CODE**: validate implementation coverage, traceability, tests, and quality
@@ -31,11 +31,11 @@ Kit `sdlc` skill extensions.
 ## DECOMPOSITION
 
 ### DECOMPOSITION Commands
-- `cypilot validate --artifact <DECOMPOSITION.md>` — validate DECOMPOSITION structure and IDs
-- `cypilot list-ids --kind feature` — list all features
-- `cypilot list-ids --kind status` — list status indicators
-- `cypilot where-defined --id <id>` — find where a feature ID is defined
-- `cypilot where-used --id <id>` — find where a feature ID is referenced in FEATURE artifacts
+- `cfc validate --artifact <DECOMPOSITION.md>` — validate DECOMPOSITION structure and IDs
+- `cfc list-ids --kind feature` — list all features
+- `cfc list-ids --kind status` — list status indicators
+- `cfc where-defined --id <id>` — find where a feature ID is defined
+- `cfc where-used --id <id>` — find where a feature ID is referenced in FEATURE artifacts
 ### DECOMPOSITION Workflows
 - **Generate DECOMPOSITION**: create feature manifest from DESIGN with guided prompts
 - **Analyze DECOMPOSITION**: validate structure (deterministic) then decomposition quality (checklist-based)
@@ -43,11 +43,11 @@ Kit `sdlc` skill extensions.
 ## DESIGN
 
 ### DESIGN Commands
-- `cypilot validate --artifact <DESIGN.md>` — validate DESIGN structure and IDs
-- `cypilot list-ids --kind component` — list all components
-- `cypilot list-ids --kind principle` — list all design principles
-- `cypilot where-defined --id <id>` — find where a DESIGN ID is defined
-- `cypilot where-used --id <id>` — find where a DESIGN ID is referenced downstream
+- `cfc validate --artifact <DESIGN.md>` — validate DESIGN structure and IDs
+- `cfc list-ids --kind component` — list all components
+- `cfc list-ids --kind principle` — list all design principles
+- `cfc where-defined --id <id>` — find where a DESIGN ID is defined
+- `cfc where-used --id <id>` — find where a DESIGN ID is referenced downstream
 ### DESIGN Workflows
 - **Generate DESIGN**: create a new DESIGN from template with guided prompts per section
 - **Analyze DESIGN**: validate structure (deterministic) then semantic quality (checklist-based)
@@ -55,13 +55,13 @@ Kit `sdlc` skill extensions.
 ## FEATURE
 
 ### FEATURE Commands
-- `cypilot validate --artifact <FEATURE.md>` — validate FEATURE structure and IDs
-- `cypilot list-ids --kind flow` — list all flows
-- `cypilot list-ids --kind algo` — list all algorithms
-- `cypilot list-ids --kind state` — list all state machines
-- `cypilot list-ids --kind dod` — list all definitions of done
-- `cypilot where-defined --id <id>` — find where a FEATURE ID is defined
-- `cypilot where-used --id <id>` — find where a FEATURE ID is referenced in code
+- `cfc validate --artifact <FEATURE.md>` — validate FEATURE structure and IDs
+- `cfc list-ids --kind flow` — list all flows
+- `cfc list-ids --kind algo` — list all algorithms
+- `cfc list-ids --kind state` — list all state machines
+- `cfc list-ids --kind dod` — list all definitions of done
+- `cfc where-defined --id <id>` — find where a FEATURE ID is defined
+- `cfc where-used --id <id>` — find where a FEATURE ID is referenced in code
 ### FEATURE Workflows
 - **Generate FEATURE**: create a new FEATURE from template with guided CDSL prompts
 - **Analyze FEATURE**: validate structure (deterministic) then semantic quality (checklist-based)
@@ -73,19 +73,19 @@ Kit `sdlc` skill extensions.
 ALWAYS re-fetch and re-analyze from scratch WHEN a PR review or status request is detected — even if the same PR was reviewed earlier in this conversation. Previous results are stale the moment a new request arrives. NEVER skip fetch or reuse earlier analysis.
 
 ALWAYS run `python3 {scripts}/pr.py list` WHEN user intent matches PR list patterns:
-- `list PRs`, `list open PRs`, `cypilot list PRs`
+- `list PRs`, `list open PRs`, `cf-constructor list PRs`
 - `show PRs`, `show open PRs`, `what PRs are open`
 - Any request to enumerate or browse open pull requests
 
 AVOID use `gh pr list` directly — ALWAYS use `pr.py list` for listing PRs.
 
-ALWAYS route to the `cypilot-pr-review` workflow WHEN user intent matches PR review patterns:
+ALWAYS route to the `cf-constructor-pr-review` workflow WHEN user intent matches PR review patterns:
 - `review PR {number}`, `review PR #{number}`, `review PR https://...`
-- `cypilot review PR {number}`, `PR review {number}`
+- `cf-constructor review PR {number}`, `PR review {number}`
 - `code review PR {number}`, `check PR {number}`
 
-ALWAYS route to the `cypilot-pr-status` workflow WHEN user intent matches PR status patterns:
-- `PR status {number}`, `cypilot PR status {number}`
+ALWAYS route to the `cf-constructor-pr-status` workflow WHEN user intent matches PR status patterns:
+- `PR status {number}`, `cf-constructor PR status {number}`
 - `status of PR {number}`, `check PR status {number}`
 
 ### PR List (Quick Command)
@@ -102,7 +102,7 @@ When routed to PR review:
 2. Read `{workflow_pr_review}` and follow its steps
 3. Use `python3 {scripts}/pr.py` as the script
 4. When target is `ALL` or no PR number given, run `pr.py list` first to show available PRs
-5. Select prompt and checklist from `{cypilot_path}/config/pr-review.toml` → `prompts`
+5. Select prompt and checklist from `{cf-constructor-path}/config/pr-review.toml` → `prompts`
 6. Load prompt from `prompt_file` and checklist from `checklist` in matched entry
 7. Use templates from `{pr_code_review_template}` and `{pr_status_report_template}`
 
@@ -117,14 +117,14 @@ When routed to PR status:
 ## MIGRATION
 
 ### Migration Commands
-- `cypilot migrate-openspec` — migrate OpenSpec artifacts to Cypilot SDLC documents
+- `cf-constructor migrate-openspec` — migrate OpenSpec artifacts to Cyber Constructor SDLC documents
 
 ### Migration Workflows
 
-ALWAYS route to the `cypilot-migrate-openspec` workflow WHEN user intent matches OpenSpec migration patterns:
+ALWAYS route to the `cf-constructor-migrate-openspec` workflow WHEN user intent matches OpenSpec migration patterns:
 - `migrate openspec`, `migrate from openspec`, `convert openspec`
-- `cypilot migrate-openspec`, `openspec to cypilot`
-- Any request to convert OpenSpec artifacts to Cypilot SDLC format
+- `cf-constructor migrate-openspec`, `openspec to Cyber Constructor`
+- Any request to convert OpenSpec artifacts to Cyber Constructor SDLC format
 
 When routed to OpenSpec migration:
 1. Read `{workflow_migrate_openspec}` and follow its steps
@@ -133,11 +133,11 @@ When routed to OpenSpec migration:
 ## PRD
 
 ### PRD Commands
-- `cypilot validate --artifact <PRD.md>` — validate PRD structure and IDs
-- `cypilot list-ids --kind fr` — list all functional requirements
-- `cypilot list-ids --kind actor` — list all actors
-- `cypilot where-defined --id <id>` — find where a PRD ID is defined
-- `cypilot where-used --id <id>` — find where a PRD ID is referenced downstream
+- `cfc validate --artifact <PRD.md>` — validate PRD structure and IDs
+- `cfc list-ids --kind fr` — list all functional requirements
+- `cfc list-ids --kind actor` — list all actors
+- `cfc where-defined --id <id>` — find where a PRD ID is defined
+- `cfc where-used --id <id>` — find where a PRD ID is referenced downstream
 ### PRD Workflows
 - **Generate PRD**: create a new PRD from template with guided prompts per section
 - **Analyze PRD**: validate structure (deterministic) then semantic quality (checklist-based)

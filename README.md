@@ -1,32 +1,32 @@
 # SDLC Kit
 
-> This is a kit for the [**Cyber Pilot**](https://github.com/cyberfabric/cyber-pilot) project.
+> This is a kit for the [**Cyber Constructor**](https://github.com/cyberfabric/cyber-constructor) project.
 
 ## Installation
 
 ```bash
 # Install (--version is optional, defaults to latest)
-cpt kit install cyberfabric/cyber-pilot-kit-sdlc
+cfc kit install cyberfabric/cyber-constructor-kit-sdlc
 
 # Update
-cpt kit update sdlc
+cfc kit update sdlc
 
 # Validate
-cpt validate-kits .
+cfc validate-kits .
 ```
 
 ## Overview
 
-**Cypilot SDLC** is a kit that provides an artifact-first pipeline, turning intent into implementation through a fixed sequence of document layers with deterministic validation gates and end-to-end traceability.
+**Cyber Constructor SDLC** is a kit that provides an artifact-first pipeline, turning intent into implementation through a fixed sequence of document layers with deterministic validation gates and end-to-end traceability.
 
 - **Layered transformation**: PRD → ADR + DESIGN → DECOMPOSITION → FEATURE → CODE
 - **Deterministic gates**: templates, IDs, cross-references, and task/acceptance criteria are validated by the skill engine at every step
-- **Behavior spec**: the **FEATURE** layer expresses behavior as **Cypilot DSL (CDSL)** flows/algorithms/states plus definitions of done that can be implemented directly
+- **Behavior spec**: the **FEATURE** layer expresses behavior as **Cyber Constructor DSL (CDSL)** flows/algorithms/states plus definitions of done that can be implemented directly
 - **Traceability chain**: each downstream artifact references upstream IDs; code keeps links via `@cpt-*` markers
 
 ## Pipeline Diagram
 
-![**Cypilot** SDLC pipeline: PRD → ADR + DESIGN → DECOMPOSITION → FEATURE → CODE, with validation gates and ID traceability between layers](pipeline.drawio.svg)
+![**Cyber Constructor** SDLC pipeline: PRD → ADR + DESIGN → DECOMPOSITION → FEATURE → CODE, with validation gates and ID traceability between layers](pipeline.drawio.svg)
 
 Each layer **transforms** the previous artifact into a new form while **preserving traceability through IDs and references**:
 
@@ -42,9 +42,9 @@ The LLM reads the upstream artifact, understands its intent, and generates a dow
 ---
 ## Quick Start
 
-**New to Cypilot SDLC?** Start here: **[QUICKSTART.md](guides/QUICKSTART.md)**
+**New to Cyber Constructor SDLC?** Start here: **[QUICKSTART.md](guides/QUICKSTART.md)**
 
-Learn Cypilot in 10 minutes with:
+Learn Cyber Constructor in 10 minutes with:
 - **Exact prompts to copy-paste** into your AI chat
 - **Complete example**: Task management API from start to finish
 - **Common scenarios**: What to do when requirements change
@@ -58,7 +58,7 @@ Learn Cypilot in 10 minutes with:
 | **ADR** | Captures key architecture decisions with rationale | Template structure, ID format | Semantic review vs industry best practices | Architects alignment |
 | **DESIGN** | Derived from PRD with architecture decisions | Cross reference ID and tasks validation | Semantic review vs PRD + ADR + industry best practices | Architects alignment |
 | **DECOMPOSITION** | Decomposed from DESIGN into implementable feature scope | Cross reference ID and tasks validation | Semantic review vs DESIGN + industry best practices | Architects alignment |
-| **FEATURE** | Expanded from DECOMPOSITION into **Cypilot DSL** (**CDSL**) flows/algorithms/states plus definitions of done | Cross reference ID and tasks validation | Semantic review vs DESIGN + DECOMPOSITION + industry best practices | Architects & Developers alignment |
+| **FEATURE** | Expanded from DECOMPOSITION into **Cyber Constructor DSL** (**CDSL**) flows/algorithms/states plus definitions of done | Cross reference ID and tasks validation | Semantic review vs DESIGN + DECOMPOSITION + industry best practices | Architects & Developers alignment |
 | **CODE** | Implemented from FEATURE with traceability in code comments | Cross reference ID and tasks validation | Semantic review vs FEATURE + DESIGN + DECOMPOSITION + industry best practices | Developers & QA alignment |
 
 ## What the SDLC Kit Provides

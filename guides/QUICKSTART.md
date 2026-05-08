@@ -1,8 +1,8 @@
-# Cypilot SDLC Quick Start
+# Cyber Constructor SDLC Quick Start
 
-**Learn Cypilot SDLC in 10 minutes with real prompts and examples**
+**Learn Cyber Constructor SDLC in 10 minutes with real prompts and examples**
 
-Cypilot SDLC works through the `cypilot` skill — enable it with `cypilot on` and use natural language prompts prefixed with `cypilot`. The skill handles artifact discovery, template loading, validation, and traceability automatically.
+Cyber Constructor SDLC works through the `cf-constructor` skill — enable it with `cf-constructor on` and use natural language prompts prefixed with `cf-constructor`. The skill handles artifact discovery, template loading, validation, and traceability automatically.
 
 ---
 
@@ -17,7 +17,7 @@ Cypilot SDLC works through the `cypilot` skill — enable it with `cypilot on` a
 
 ## The Pipeline
 
-Cypilot SDLC = **Design First, Code Second**
+Cyber Constructor SDLC = **Design First, Code Second**
 
 ```mermaid
 flowchart LR
@@ -50,18 +50,18 @@ Learn what each artifact means: [TAXONOMY.md](TAXONOMY.md)
 
 | Prompt | What happens |
 |--------|--------------|
-| `cypilot on` | Enables Cypilot mode, discovers config, loads project context |
-| `cypilot init` | Creates `cypilot/` directory with `.core/`, `.gen/`, `config/` and initializes `artifacts.toml` |
-| `cypilot show pipeline` | Displays current artifact hierarchy and validation status |
+| `cf-constructor on` | Enables Cyber Constructor mode, discovers config, loads project context |
+| `cf-constructor init` | Creates `cf-constructor/` directory with `.core/`, `.gen/`, `config/` and initializes `artifacts.toml` |
+| `cf-constructor show pipeline` | Displays current artifact hierarchy and validation status |
 
 **Customizing artifact locations:**
 
 | Prompt | What happens |
 |--------|--------------|
-| `cypilot set artifacts_dir to docs/design/` | Changes default base directory for new artifacts |
-| `cypilot register PRD at docs/requirements/product-requirements.md` | Registers existing file as PRD artifact |
-| `cypilot move PRD to docs/requirements/PRD.md` | Moves artifact and updates registry |
-| `cypilot show artifact locations` | Displays current paths from `artifacts.toml` |
+| `cf-constructor set artifacts_dir to docs/design/` | Changes default base directory for new artifacts |
+| `cf-constructor register PRD at docs/requirements/product-requirements.md` | Registers existing file as PRD artifact |
+| `cf-constructor move PRD to docs/requirements/PRD.md` | Moves artifact and updates registry |
+| `cf-constructor show artifact locations` | Displays current paths from `artifacts.toml` |
 
 ---
 
@@ -71,108 +71,108 @@ Learn what each artifact means: [TAXONOMY.md](TAXONOMY.md)
 
 | Prompt | What the agent does |
 |--------|---------------------|
-| `cypilot make PRD` | Generates PRD interactively, asking for context |
-| `cypilot make PRD for task management API` | Generates PRD with actors, requirements, flows |
-| `cypilot draft PRD from README` | Creates PRD draft from existing README |
-| `cypilot extend PRD with notifications` | Adds new capability to existing PRD |
-| `cypilot validate PRD` | Full validation (300+ criteria) |
-| `cypilot validate PRD semantic` | Semantic validation only (completeness, clarity) |
-| `cypilot validate PRD structural` | Structural validation only (format, IDs, template) |
-| `cypilot validate PRD refs` | Check cross-references to other artifacts |
+| `cf-constructor make PRD` | Generates PRD interactively, asking for context |
+| `cf-constructor make PRD for task management API` | Generates PRD with actors, requirements, flows |
+| `cf-constructor draft PRD from README` | Creates PRD draft from existing README |
+| `cf-constructor extend PRD with notifications` | Adds new capability to existing PRD |
+| `cf-constructor validate PRD` | Full validation (300+ criteria) |
+| `cf-constructor validate PRD semantic` | Semantic validation only (completeness, clarity) |
+| `cf-constructor validate PRD structural` | Structural validation only (format, IDs, template) |
+| `cf-constructor validate PRD refs` | Check cross-references to other artifacts |
 
 **ADR — Architecture Decision Records**
 
 | Prompt | What the agent does |
 |--------|---------------------|
-| `cypilot make ADR for PostgreSQL` | Creates ADR for technology choice |
-| `cypilot make ADR for REST vs GraphQL` | Creates ADR comparing approaches |
-| `cypilot draft ADR from discussion` | Extracts decision from conversation |
-| `cypilot list ADRs` | Shows all ADRs with status |
-| `cypilot validate ADR` | Validates all ADRs (270+ criteria each) |
-| `cypilot validate ADR 0001` | Validates specific ADR by number |
-| `cypilot validate ADR semantic` | Semantic validation (rationale quality) |
-| `cypilot validate ADR structural` | Structural validation (format, sections) |
+| `cf-constructor make ADR for PostgreSQL` | Creates ADR for technology choice |
+| `cf-constructor make ADR for REST vs GraphQL` | Creates ADR comparing approaches |
+| `cf-constructor draft ADR from discussion` | Extracts decision from conversation |
+| `cf-constructor list ADRs` | Shows all ADRs with status |
+| `cf-constructor validate ADR` | Validates all ADRs (270+ criteria each) |
+| `cf-constructor validate ADR 0001` | Validates specific ADR by number |
+| `cf-constructor validate ADR semantic` | Semantic validation (rationale quality) |
+| `cf-constructor validate ADR structural` | Structural validation (format, sections) |
 
 **DESIGN — Technical Architecture**
 
 | Prompt | What the agent does |
 |--------|---------------------|
-| `cypilot make DESIGN` | Creates DESIGN from PRD interactively |
-| `cypilot make DESIGN from PRD` | Transforms PRD into architecture |
-| `cypilot extend DESIGN with caching layer` | Adds new component to existing DESIGN |
-| `cypilot update DESIGN components` | Updates component section |
-| `cypilot validate DESIGN` | Full validation (380+ criteria) |
-| `cypilot validate DESIGN semantic` | Semantic validation (consistency, completeness) |
-| `cypilot validate DESIGN structural` | Structural validation (format, IDs) |
-| `cypilot validate DESIGN refs` | Check references to PRD/ADR |
+| `cf-constructor make DESIGN` | Creates DESIGN from PRD interactively |
+| `cf-constructor make DESIGN from PRD` | Transforms PRD into architecture |
+| `cf-constructor extend DESIGN with caching layer` | Adds new component to existing DESIGN |
+| `cf-constructor update DESIGN components` | Updates component section |
+| `cf-constructor validate DESIGN` | Full validation (380+ criteria) |
+| `cf-constructor validate DESIGN semantic` | Semantic validation (consistency, completeness) |
+| `cf-constructor validate DESIGN structural` | Structural validation (format, IDs) |
+| `cf-constructor validate DESIGN refs` | Check references to PRD/ADR |
 
 **DECOMPOSITION — Feature Breakdown**
 
 | Prompt | What the agent does |
 |--------|---------------------|
-| `cypilot decompose` | Creates DECOMPOSITION interactively |
-| `cypilot decompose into features` | Creates ordered feature list with dependencies |
-| `cypilot decompose by capability` | Groups features by business capability |
-| `cypilot decompose by layer` | Groups features by technical layer |
-| `cypilot add feature to decomposition` | Adds new feature entry |
-| `cypilot validate DECOMPOSITION` | Full validation (130+ criteria) |
-| `cypilot validate DECOMPOSITION semantic` | Semantic validation (coverage, dependencies) |
-| `cypilot validate DECOMPOSITION structural` | Structural validation (format, IDs) |
+| `cf-constructor decompose` | Creates DECOMPOSITION interactively |
+| `cf-constructor decompose into features` | Creates ordered feature list with dependencies |
+| `cf-constructor decompose by capability` | Groups features by business capability |
+| `cf-constructor decompose by layer` | Groups features by technical layer |
+| `cf-constructor add feature to decomposition` | Adds new feature entry |
+| `cf-constructor validate DECOMPOSITION` | Full validation (130+ criteria) |
+| `cf-constructor validate DECOMPOSITION semantic` | Semantic validation (coverage, dependencies) |
+| `cf-constructor validate DECOMPOSITION structural` | Structural validation (format, IDs) |
 
 **FEATURE — Feature Specification**
 
 | Prompt | What the agent does |
 |--------|---------------------|
-| `cypilot make FEATURE for auth` | Creates feature design for auth |
-| `cypilot make FEATURE for task-crud` | Creates detailed feature design |
-| `cypilot draft FEATURE from code` | Reverse-engineers feature from implementation |
-| `cypilot extend FEATURE auth with MFA` | Adds scenario to existing feature |
-| `cypilot validate FEATURE auth` | Full validation (380+ criteria) |
-| `cypilot validate FEATURE auth semantic` | Semantic validation (flows, edge cases) |
-| `cypilot validate FEATURE auth structural` | Structural validation (CDSL format, IDs) |
-| `cypilot validate FEATURE auth refs` | Check references to DESIGN/DECOMPOSITION |
+| `cf-constructor make FEATURE for auth` | Creates feature design for auth |
+| `cf-constructor make FEATURE for task-crud` | Creates detailed feature design |
+| `cf-constructor draft FEATURE from code` | Reverse-engineers feature from implementation |
+| `cf-constructor extend FEATURE auth with MFA` | Adds scenario to existing feature |
+| `cf-constructor validate FEATURE auth` | Full validation (380+ criteria) |
+| `cf-constructor validate FEATURE auth semantic` | Semantic validation (flows, edge cases) |
+| `cf-constructor validate FEATURE auth structural` | Structural validation (CDSL format, IDs) |
+| `cf-constructor validate FEATURE auth refs` | Check references to DESIGN/DECOMPOSITION |
 
 **CODE — Implementation**
 
 | Prompt | What the agent does |
 |--------|---------------------|
-| `cypilot implement {slug}` | Generates code from FEATURE |
-| `cypilot implement {slug} step by step` | Implements with user confirmation |
-| `cypilot implement {slug} tests first` | Generates tests first, then code |
-| `cypilot implement {slug} flow {flow-id}` | Implements specific flow only |
-| `cypilot implement {slug} api` | Implements API layer only |
-| `cypilot implement {slug} tests` | Generates tests only |
-| `cypilot continue implementing {slug}` | Continues partial implementation |
-| `cypilot implement {slug} remaining` | Implements only unimplemented parts |
-| `cypilot sync code with FEATURE {slug}` | Updates code to match FEATURE |
-| `cypilot add markers to {path}` | Adds markers to existing code |
-| `cypilot add markers for {slug}` | Adds markers matching FEATURE |
+| `cf-constructor implement {slug}` | Generates code from FEATURE |
+| `cf-constructor implement {slug} step by step` | Implements with user confirmation |
+| `cf-constructor implement {slug} tests first` | Generates tests first, then code |
+| `cf-constructor implement {slug} flow {flow-id}` | Implements specific flow only |
+| `cf-constructor implement {slug} api` | Implements API layer only |
+| `cf-constructor implement {slug} tests` | Generates tests only |
+| `cf-constructor continue implementing {slug}` | Continues partial implementation |
+| `cf-constructor implement {slug} remaining` | Implements only unimplemented parts |
+| `cf-constructor sync code with FEATURE {slug}` | Updates code to match FEATURE |
+| `cf-constructor add markers to {path}` | Adds markers to existing code |
+| `cf-constructor add markers for {slug}` | Adds markers matching FEATURE |
 
 **CODE — Validation**
 
 | Prompt | What the agent does |
 |--------|---------------------|
-| `cypilot validate code` | Validates all code markers |
-| `cypilot validate code for {slug}` | Validates specific feature |
-| `cypilot validate code coverage` | Reports implementation coverage % |
-| `cypilot validate code coverage for {slug}` | Coverage for specific feature |
-| `cypilot validate code orphans` | Finds orphaned markers |
-| `cypilot validate code refs` | Validates marker references |
-| `cypilot validate code markers` | Checks marker format |
-| `cypilot list code markers` | Lists all markers |
-| `cypilot list code markers for {slug}` | Lists markers for feature |
-| `cypilot show uncovered flows` | Lists flows without code |
-| `cypilot compare code to FEATURE {slug}` | Shows drift from feature |
-| `cypilot find missing implementations` | Lists unimplemented elements |
+| `cf-constructor validate code` | Validates all code markers |
+| `cf-constructor validate code for {slug}` | Validates specific feature |
+| `cf-constructor validate code coverage` | Reports implementation coverage % |
+| `cf-constructor validate code coverage for {slug}` | Coverage for specific feature |
+| `cf-constructor validate code orphans` | Finds orphaned markers |
+| `cf-constructor validate code refs` | Validates marker references |
+| `cf-constructor validate code markers` | Checks marker format |
+| `cf-constructor list code markers` | Lists all markers |
+| `cf-constructor list code markers for {slug}` | Lists markers for feature |
+| `cf-constructor show uncovered flows` | Lists flows without code |
+| `cf-constructor compare code to FEATURE {slug}` | Shows drift from feature |
+| `cf-constructor find missing implementations` | Lists unimplemented elements |
 
 **Pipeline & Cross-Artifact**
 
 | Prompt | What the agent does |
 |--------|---------------------|
-| `cypilot validate all` | Validates entire hierarchy |
-| `cypilot validate refs` | Checks all cross-references |
-| `cypilot show pipeline` | Displays artifact status |
-| `cypilot coverage report` | Summary of implementation coverage |
+| `cf-constructor validate all` | Validates entire hierarchy |
+| `cf-constructor validate refs` | Checks all cross-references |
+| `cf-constructor show pipeline` | Displays artifact status |
+| `cf-constructor coverage report` | Summary of implementation coverage |
 
 ---
 
@@ -182,30 +182,30 @@ Learn what each artifact means: [TAXONOMY.md](TAXONOMY.md)
 
 | Prompt | What the agent does |
 |--------|---------------------|
-| `cypilot reverse PRD from codebase` | Extracts requirements from existing implementation |
-| `cypilot reverse DESIGN from src/` | Documents current architecture from code |
-| `cypilot reverse FEATURE from src/auth/` | Creates FEATURE from auth module |
-| `cypilot reverse FEATURE auth from code` | Same, using feature slug |
-| `cypilot analyze src/api/` | Systematic code analysis with checklist |
+| `cf-constructor reverse PRD from codebase` | Extracts requirements from existing implementation |
+| `cf-constructor reverse DESIGN from src/` | Documents current architecture from code |
+| `cf-constructor reverse FEATURE from src/auth/` | Creates FEATURE from auth module |
+| `cf-constructor reverse FEATURE auth from code` | Same, using feature slug |
+| `cf-constructor analyze src/api/` | Systematic code analysis with checklist |
 
 **Import from existing docs**
 
 | Prompt | What the agent does |
 |--------|---------------------|
-| `cypilot make PRD from docs/requirements.txt` | Extracts requirements into PRD format |
-| `cypilot make PRD from README` | Creates PRD from project README |
-| `cypilot make PRD from this conversation` | Creates PRD from stakeholder discussion |
-| `cypilot import OpenAPI as DESIGN` | Converts API spec into DESIGN |
-| `cypilot import db-schema.sql as DESIGN data model` | Extracts data model from SQL |
-| `cypilot convert user-stories.md to PRD` | Transforms user stories to PRD |
+| `cf-constructor make PRD from docs/requirements.txt` | Extracts requirements into PRD format |
+| `cf-constructor make PRD from README` | Creates PRD from project README |
+| `cf-constructor make PRD from this conversation` | Creates PRD from stakeholder discussion |
+| `cf-constructor import OpenAPI as DESIGN` | Converts API spec into DESIGN |
+| `cf-constructor import db-schema.sql as DESIGN data model` | Extracts data model from SQL |
+| `cf-constructor convert user-stories.md to PRD` | Transforms user stories to PRD |
 
 **Sync and compare**
 
 | Prompt | What the agent does |
 |--------|---------------------|
-| `cypilot compare DESIGN to code` | Shows drift between design and implementation |
-| `cypilot sync DESIGN from code` | Updates DESIGN to match current code |
-| `cypilot diff FEATURE auth` | Shows changes since last validation |
+| `cf-constructor compare DESIGN to code` | Shows drift between design and implementation |
+| `cf-constructor sync DESIGN from code` | Updates DESIGN to match current code |
+| `cf-constructor diff FEATURE auth` | Shows changes since last validation |
 
 ---
 
@@ -215,35 +215,35 @@ Learn what each artifact means: [TAXONOMY.md](TAXONOMY.md)
 
 | Prompt | What the agent does |
 |--------|---------------------|
-| `cypilot extend PRD with payments` | Adds capability to PRD |
-| `cypilot extend DESIGN with caching` | Adds component to DESIGN |
-| `cypilot extend FEATURE auth with MFA` | Adds scenario to feature |
-| `cypilot add feature billing to decomposition` | Adds feature entry |
+| `cf-constructor extend PRD with payments` | Adds capability to PRD |
+| `cf-constructor extend DESIGN with caching` | Adds component to DESIGN |
+| `cf-constructor extend FEATURE auth with MFA` | Adds scenario to feature |
+| `cf-constructor add feature billing to decomposition` | Adds feature entry |
 
 **Update and propagate**
 
 | Prompt | What the agent does |
 |--------|---------------------|
-| `cypilot update PRD requirements` | Updates requirements section |
-| `cypilot propagate PRD changes to DESIGN` | Updates DESIGN from PRD changes |
-| `cypilot sync DESIGN from code` | Updates DESIGN to match implementation |
+| `cf-constructor update PRD requirements` | Updates requirements section |
+| `cf-constructor propagate PRD changes to DESIGN` | Updates DESIGN from PRD changes |
+| `cf-constructor sync DESIGN from code` | Updates DESIGN to match implementation |
 
 **Impact analysis**
 
 | Prompt | What the agent does |
 |--------|---------------------|
-| `cypilot show impact of removing FR-AUTH-002` | Traces downstream references |
-| `cypilot show impact of changing component auth` | Shows affected artifacts |
-| `cypilot deprecate feature user-import` | Marks deprecated across artifacts |
+| `cf-constructor show impact of removing FR-AUTH-002` | Traces downstream references |
+| `cf-constructor show impact of changing component auth` | Shows affected artifacts |
+| `cf-constructor deprecate feature user-import` | Marks deprecated across artifacts |
 
 **Refactoring**
 
 | Prompt | What the agent does |
 |--------|---------------------|
-| `cypilot refactor component auth-service` | Updates DESIGN and FEATUREs |
-| `cypilot rename feature billing to payments` | Renames across all artifacts |
-| `cypilot split feature payments` | Creates sub-features |
-| `cypilot merge features billing and invoicing` | Combines features |
+| `cf-constructor refactor component auth-service` | Updates DESIGN and FEATUREs |
+| `cf-constructor rename feature billing to payments` | Renames across all artifacts |
+| `cf-constructor split feature payments` | Creates sub-features |
+| `cf-constructor merge features billing and invoicing` | Combines features |
 
 ---
 
@@ -253,42 +253,42 @@ Learn what each artifact means: [TAXONOMY.md](TAXONOMY.md)
 
 | Prompt | What the agent does |
 |--------|---------------------|
-| `cypilot validate {ARTIFACT}` | Full validation (structural + semantic) |
-| `cypilot validate {ARTIFACT} semantic` | Semantic only (content quality, completeness) |
-| `cypilot validate {ARTIFACT} structural` | Structural only (format, IDs, template compliance) |
-| `cypilot validate {ARTIFACT} refs` | Cross-reference validation only |
-| `cypilot validate {ARTIFACT} quick` | Fast check (critical issues only) |
-| `cypilot validate all` | Full validation of entire pipeline |
-| `cypilot validate all semantic` | Semantic validation across all artifacts |
+| `cf-constructor validate {ARTIFACT}` | Full validation (structural + semantic) |
+| `cf-constructor validate {ARTIFACT} semantic` | Semantic only (content quality, completeness) |
+| `cf-constructor validate {ARTIFACT} structural` | Structural only (format, IDs, template compliance) |
+| `cf-constructor validate {ARTIFACT} refs` | Cross-reference validation only |
+| `cf-constructor validate {ARTIFACT} quick` | Fast check (critical issues only) |
+| `cf-constructor validate all` | Full validation of entire pipeline |
+| `cf-constructor validate all semantic` | Semantic validation across all artifacts |
 
 **Traceability queries**
 
 | Prompt | What the agent does |
 |--------|---------------------|
-| `cypilot trace FR-AUTH-001` | Shows path: PRD → DESIGN → FEATURE → CODE |
-| `cypilot trace feature auth` | Shows all references to auth feature |
-| `cypilot find orphans` | Lists IDs with no upstream/downstream refs |
-| `cypilot find orphan code` | Code markers referencing non-existent IDs |
-| `cypilot find orphan requirements` | Requirements not covered by DESIGN |
-| `cypilot list unimplemented` | Features without code coverage |
-| `cypilot coverage report` | Implementation coverage by artifact |
-| `cypilot show refs for DESIGN` | All references in DESIGN artifact |
+| `cf-constructor trace FR-AUTH-001` | Shows path: PRD → DESIGN → FEATURE → CODE |
+| `cf-constructor trace feature auth` | Shows all references to auth feature |
+| `cf-constructor find orphans` | Lists IDs with no upstream/downstream refs |
+| `cf-constructor find orphan code` | Code markers referencing non-existent IDs |
+| `cf-constructor find orphan requirements` | Requirements not covered by DESIGN |
+| `cf-constructor list unimplemented` | Features without code coverage |
+| `cf-constructor coverage report` | Implementation coverage by artifact |
+| `cf-constructor show refs for DESIGN` | All references in DESIGN artifact |
 
 **Review prompts**
 
 | Prompt | What the agent does |
 |--------|---------------------|
-| `cypilot review PRD` | Deep review with 300+ criteria |
-| `cypilot review DESIGN for consistency` | Checks for internal contradictions |
-| `cypilot review FEATURE auth for completeness` | Validates edge cases and error handling |
-| `cypilot review PR #42 against FEATURE` | Checks PR implements feature items |
-| `cypilot review code for auth` | Reviews implementation quality |
+| `cf-constructor review PRD` | Deep review with 300+ criteria |
+| `cf-constructor review DESIGN for consistency` | Checks for internal contradictions |
+| `cf-constructor review FEATURE auth for completeness` | Validates edge cases and error handling |
+| `cf-constructor review PR #42 against FEATURE` | Checks PR implements feature items |
+| `cf-constructor review code for auth` | Reviews implementation quality |
 
 ---
 
 ## Live Example
 
-[Taskman (Cypilot example project)](https://github.com/cyberfabric/cyber-pilot-examples-taskman) — a complete task management project with the full Cypilot artifact set and implementation.
+[Taskman (Cyber Constructor example project)](https://github.com/cyberfabric/cyber-constructor-examples-taskman) — a complete task management project with the full Cyber Constructor artifact set and implementation.
 
 ---
 
