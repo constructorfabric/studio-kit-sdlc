@@ -2,7 +2,7 @@
 
 Use this guide when you have a single repository with a single deployable (a monolith) organized into **modules** with strict boundaries.
 
-All prompts work through the `cf-constructor` skill — enable it with `cf-constructor on` and use natural language prompts.
+All prompts work through the `cf-studio` skill — enable it with `cf-studio on` and use natural language prompts.
 
 ## Goal
 
@@ -69,15 +69,15 @@ System → Subsystem → Component → Module:
 version = "1.0"
 project_root = ".."
 
-[kits.cf-constructor-sdlc]
-format = "Cyber Constructor"
+[kits.cf-studio]
+format = "Constructor Studio"
 path = ".gen/kits/sdlc"
 
 # System: Banking Platform
 [[systems]]
 name = "Banking Platform"
 slug = "banking"
-kit = "cf-constructor-sdlc"
+kit = "cf-studio"
 artifacts_dir = "architecture"
 
 [[systems.artifacts]]
@@ -101,7 +101,7 @@ extensions = [".ts"]
 [[systems.children]]
 name = "Core Banking"
 slug = "core"
-kit = "cf-constructor-sdlc"
+kit = "cf-studio"
 artifacts_dir = "subsystems/core/architecture"
 
 [[systems.children.artifacts]]
@@ -118,7 +118,7 @@ extensions = [".ts"]
 [[systems.children.children]]
 name = "Accounts"
 slug = "accounts"
-kit = "cf-constructor-sdlc"
+kit = "cf-studio"
 artifacts_dir = "subsystems/core/accounts/architecture"
 
 [[systems.children.children.artifacts]]
@@ -135,7 +135,7 @@ extensions = [".ts"]
 [[systems.children.children.children]]
 name = "Savings"
 slug = "savings"
-kit = "cf-constructor-sdlc"
+kit = "cf-studio"
 artifacts_dir = "subsystems/core/accounts/savings/architecture"
 
 [[systems.children.children.children.artifacts]]
@@ -165,15 +165,15 @@ Each module has its own complete artifact set:
 version = "1.0"
 project_root = ".."
 
-[kits.cf-constructor-sdlc]
-format = "Cyber Constructor"
+[kits.cf-studio]
+format = "Constructor Studio"
 path = ".gen/kits/sdlc"
 
 # System: SaaS Platform
 [[systems]]
 name = "SaaS Platform"
 slug = "saas"
-kit = "cf-constructor-sdlc"
+kit = "cf-studio"
 artifacts_dir = "architecture"
 
 [[systems.artifacts]]
@@ -209,7 +209,7 @@ extensions = [".ts", ".tsx"]
 [[systems.children]]
 name = "Auth"
 slug = "auth"
-kit = "cf-constructor-sdlc"
+kit = "cf-studio"
 artifacts_dir = "modules/auth/architecture"
 
 [[systems.children.artifacts]]
@@ -241,7 +241,7 @@ extensions = [".ts"]
 [[systems.children]]
 name = "Billing"
 slug = "billing"
-kit = "cf-constructor-sdlc"
+kit = "cf-studio"
 artifacts_dir = "modules/billing/architecture"
 
 [[systems.children.artifacts]]
@@ -273,14 +273,14 @@ Modules have only FEATURE artifacts, sharing project-level DESIGN:
 version = "1.0"
 project_root = ".."
 
-[kits.cf-constructor-sdlc]
-format = "Cyber Constructor"
+[kits.cf-studio]
+format = "Constructor Studio"
 path = ".gen/kits/sdlc"
 
 [[systems]]
 name = "SaaS Platform"
 slug = "saas"
-kit = "cf-constructor-sdlc"
+kit = "cf-studio"
 artifacts_dir = "architecture"
 
 [[systems.artifacts]]
@@ -310,7 +310,7 @@ extensions = [".ts", ".tsx"]
 [[systems.children]]
 name = "Auth"
 slug = "auth"
-kit = "cf-constructor-sdlc"
+kit = "cf-studio"
 artifacts_dir = "modules/auth/architecture"
 
 [[systems.children.artifacts]]
@@ -332,7 +332,7 @@ extensions = [".ts"]
 [[systems.children]]
 name = "Billing"
 slug = "billing"
-kit = "cf-constructor-sdlc"
+kit = "cf-studio"
 artifacts_dir = "modules/billing/architecture"
 
 [[systems.children.artifacts]]
@@ -354,14 +354,14 @@ Modules declared for codebase scoping only, no module-level artifacts:
 version = "1.0"
 project_root = ".."
 
-[kits.cf-constructor-sdlc]
-format = "Cyber Constructor"
+[kits.cf-studio]
+format = "Constructor Studio"
 path = ".gen/kits/sdlc"
 
 [[systems]]
 name = "SaaS Platform"
 slug = "saas"
-kit = "cf-constructor-sdlc"
+kit = "cf-studio"
 artifacts_dir = "architecture"
 
 [[systems.artifacts]]
@@ -391,7 +391,7 @@ extensions = [".ts", ".tsx"]
 [[systems.children]]
 name = "Auth"
 slug = "auth"
-kit = "cf-constructor-sdlc"
+kit = "cf-studio"
 
 [[systems.children.codebase]]
 name = "Auth Module"
@@ -402,7 +402,7 @@ extensions = [".ts"]
 [[systems.children]]
 name = "Billing"
 slug = "billing"
-kit = "cf-constructor-sdlc"
+kit = "cf-studio"
 
 [[systems.children.codebase]]
 name = "Billing Module"
@@ -416,7 +416,7 @@ The registry maps to this file structure:
 
 ```text
 project-root/
-├── cf-constructor/
+├── cf-studio/
 │   └── config/
 │       └── artifacts.toml
 ├── architecture/
@@ -452,12 +452,12 @@ When creating a component DESIGN, use the project (or parent) DESIGN as input fo
 ### Flow
 
 ```
-1. cf-constructor make DESIGN for component auth from project DESIGN
+1. cf-studio make DESIGN for component auth from project DESIGN
    → Reads project DESIGN
    → Extracts auth-related elements
    → Creates component DESIGN with references to project DESIGN
 
-2. cf-constructor validate DESIGN for component auth refs
+2. cf-studio validate DESIGN for component auth refs
    → Validates references to project DESIGN components
    → Ensures component doesn't contradict project architecture
 ```
@@ -466,15 +466,15 @@ When creating a component DESIGN, use the project (or parent) DESIGN as input fo
 
 | Prompt | What happens |
 |--------|--------------|
-| `cf-constructor make DESIGN for component auth from project DESIGN` | Creates component DESIGN using project architecture |
-| `cf-constructor make DESIGN for component auth inheriting from project` | Same, alternative phrasing |
-| `cf-constructor sync DESIGN for component auth with project` | Updates component DESIGN to match project changes |
-| `cf-constructor compare DESIGN for component auth to project` | Shows differences from project DESIGN |
+| `cf-studio make DESIGN for component auth from project DESIGN` | Creates component DESIGN using project architecture |
+| `cf-studio make DESIGN for component auth inheriting from project` | Same, alternative phrasing |
+| `cf-studio sync DESIGN for component auth with project` | Updates component DESIGN to match project changes |
+| `cf-studio compare DESIGN for component auth to project` | Shows differences from project DESIGN |
 
 ### Example with Context
 
 ```
-cf-constructor make DESIGN for component auth from project DESIGN
+cf-studio make DESIGN for component auth from project DESIGN
 Context:
 - Component: auth
 - Project DESIGN: architecture/DESIGN.md
@@ -549,21 +549,21 @@ Child artifacts reference parent artifacts using full hierarchical IDs:
 
 | Prompt | What happens |
 |--------|--------------|
-| `cf-constructor trace cpt-saas-fr-user-management` | Shows: PRD → DESIGN → component DESIGN → FEATURE → CODE |
-| `cf-constructor trace cpt-saas-component-auth-service` | Shows system component and all child implementations |
-| `cf-constructor trace cpt-saas-auth-login-flow-token-validation` | Shows full path from system PRD to component code |
-| `cf-constructor find refs to cpt-saas-component-auth-service` | Lists all child artifacts referencing this component |
-| `cf-constructor validate refs for component auth` | Validates all cross-level references in component |
-| `cf-constructor show orphans across levels` | Finds broken references between project and children |
+| `cf-studio trace cpt-saas-fr-user-management` | Shows: PRD → DESIGN → component DESIGN → FEATURE → CODE |
+| `cf-studio trace cpt-saas-component-auth-service` | Shows system component and all child implementations |
+| `cf-studio trace cpt-saas-auth-login-flow-token-validation` | Shows full path from system PRD to component code |
+| `cf-studio find refs to cpt-saas-component-auth-service` | Lists all child artifacts referencing this component |
+| `cf-studio validate refs for component auth` | Validates all cross-level references in component |
+| `cf-studio show orphans across levels` | Finds broken references between project and children |
 
 ### Validation Across Levels
 
 | Prompt | What happens |
 |--------|--------------|
-| `cf-constructor validate all` | Validates project + all children |
-| `cf-constructor validate all refs` | Validates all cross-references at all levels |
-| `cf-constructor validate component auth against project` | Checks component compatibility with project |
-| `cf-constructor compare component auth to project DESIGN` | Shows component drift from project architecture |
+| `cf-studio validate all` | Validates project + all children |
+| `cf-studio validate all refs` | Validates all cross-references at all levels |
+| `cf-studio validate component auth against project` | Checks component compatibility with project |
+| `cf-studio compare component auth to project DESIGN` | Shows component drift from project architecture |
 
 ---
 
@@ -577,7 +577,7 @@ In a modular monolith, the most important context is:
 
 **Example format:**
 ```
-cf-constructor make DESIGN
+cf-studio make DESIGN
 Context:
 - Scope: system
 - Architecture style: modular monolith
@@ -597,21 +597,21 @@ Describe the full system and cross-module rules.
 
 | Prompt | What happens |
 |--------|--------------|
-| `cf-constructor make PRD` | Creates project PRD interactively |
-| `cf-constructor make PRD for SaaS platform` | Creates PRD with context |
+| `cf-studio make PRD` | Creates project PRD interactively |
+| `cf-studio make PRD for SaaS platform` | Creates PRD with context |
 
 **Update**
 
 | Prompt | What happens |
 |--------|--------------|
-| `cf-constructor update PRD` | Updates project PRD |
-| `cf-constructor extend PRD with multi-tenant support` | Adds capability |
+| `cf-studio update PRD` | Updates project PRD |
+| `cf-studio extend PRD with multi-tenant support` | Adds capability |
 
 **Provide context:** product vision, component list, architecture style.
 
 **Example:**
 ```
-cf-constructor make PRD
+cf-studio make PRD
 Context:
 - Product: SaaS platform
 - Architecture style: modular monolith
@@ -622,9 +622,9 @@ Context:
 
 | Prompt | What happens |
 |--------|--------------|
-| `cf-constructor validate PRD` | Full validation (300+ criteria) |
-| `cf-constructor validate PRD semantic` | Semantic only |
-| `cf-constructor validate PRD structural` | Structural only |
+| `cf-studio validate PRD` | Full validation (300+ criteria) |
+| `cf-studio validate PRD semantic` | Semantic only |
+| `cf-studio validate PRD structural` | Structural only |
 
 ### 3. ADR + DESIGN (Project)
 
@@ -632,30 +632,30 @@ Context:
 
 | Prompt | What happens |
 |--------|--------------|
-| `cf-constructor make DESIGN` | Creates project DESIGN interactively |
-| `cf-constructor make DESIGN from PRD` | Transforms PRD into architecture |
+| `cf-studio make DESIGN` | Creates project DESIGN interactively |
+| `cf-studio make DESIGN from PRD` | Transforms PRD into architecture |
 
 **Update DESIGN**
 
 | Prompt | What happens |
 |--------|--------------|
-| `cf-constructor update DESIGN` | Updates project DESIGN |
-| `cf-constructor extend DESIGN with component notifications` | Adds component |
-| `cf-constructor update DESIGN dependency rules` | Updates component dependencies |
+| `cf-studio update DESIGN` | Updates project DESIGN |
+| `cf-studio extend DESIGN with component notifications` | Adds component |
+| `cf-studio update DESIGN dependency rules` | Updates component dependencies |
 
 **ADR**
 
 | Prompt | What happens |
 |--------|--------------|
-| `cf-constructor make ADR for component boundaries` | Creates ADR for architecture decision |
-| `cf-constructor make ADR for cross-component communication` | Creates ADR comparing approaches |
-| `cf-constructor update ADR 0001` | Updates specific ADR |
+| `cf-studio make ADR for component boundaries` | Creates ADR for architecture decision |
+| `cf-studio make ADR for cross-component communication` | Creates ADR comparing approaches |
+| `cf-studio update ADR 0001` | Updates specific ADR |
 
 **Provide context:** component list, dependency rules, integration approach.
 
 **Example:**
 ```
-cf-constructor make DESIGN
+cf-studio make DESIGN
 Context:
 - Scope: system
 - Architecture style: modular monolith
@@ -670,11 +670,11 @@ Context:
 
 | Prompt | What happens |
 |--------|--------------|
-| `cf-constructor validate DESIGN` | Full validation (380+ criteria) |
-| `cf-constructor validate DESIGN semantic` | Semantic only |
-| `cf-constructor validate DESIGN refs` | Cross-references |
-| `cf-constructor validate ADR` | Validates all ADRs |
-| `cf-constructor validate ADR 0001` | Validates specific ADR |
+| `cf-studio validate DESIGN` | Full validation (380+ criteria) |
+| `cf-studio validate DESIGN semantic` | Semantic only |
+| `cf-studio validate DESIGN refs` | Cross-references |
+| `cf-studio validate ADR` | Validates all ADRs |
+| `cf-studio validate ADR 0001` | Validates specific ADR |
 
 ### 5. DECOMPOSITION (Project)
 
@@ -682,21 +682,21 @@ Context:
 
 | Prompt | What happens |
 |--------|--------------|
-| `cf-constructor decompose` | Creates project decomposition |
-| `cf-constructor decompose by capability` | Groups by business capability |
+| `cf-studio decompose` | Creates project decomposition |
+| `cf-studio decompose by capability` | Groups by business capability |
 
 **Update**
 
 | Prompt | What happens |
 |--------|--------------|
-| `cf-constructor add feature {slug}` | Adds project feature |
-| `cf-constructor update feature {slug} status` | Updates status |
+| `cf-studio add feature {slug}` | Adds project feature |
+| `cf-studio update feature {slug} status` | Updates status |
 
 **Provide context:** system-level features (NOT components).
 
 **Example:**
 ```
-cf-constructor decompose
+cf-studio decompose
 Context:
 - Scope: system
 - System features: pricing-plans, invoice-lifecycle, tenant-management
@@ -707,9 +707,9 @@ Context:
 
 | Prompt | What happens |
 |--------|--------------|
-| `cf-constructor validate DECOMPOSITION` | Full validation |
-| `cf-constructor validate DECOMPOSITION semantic` | Semantic only |
-| `cf-constructor validate DECOMPOSITION refs` | Cross-references |
+| `cf-studio validate DECOMPOSITION` | Full validation |
+| `cf-studio validate DECOMPOSITION semantic` | Semantic only |
+| `cf-studio validate DECOMPOSITION refs` | Cross-references |
 
 ---
 
@@ -725,21 +725,21 @@ Use when you want a component (or module in 4-level hierarchies) to have its own
 
 | Prompt | What happens |
 |--------|--------------|
-| `cf-constructor make PRD for component auth` | Creates component PRD |
-| `cf-constructor make PRD` with component context | Creates interactively |
+| `cf-studio make PRD for component auth` | Creates component PRD |
+| `cf-studio make PRD` with component context | Creates interactively |
 
 **Update**
 
 | Prompt | What happens |
 |--------|--------------|
-| `cf-constructor update PRD for component auth` | Updates component PRD |
-| `cf-constructor extend PRD for component auth with MFA` | Adds capability |
+| `cf-studio update PRD for component auth` | Updates component PRD |
+| `cf-studio extend PRD for component auth with MFA` | Adds capability |
 
 **Provide context:** scope, component name, component paths.
 
 **Example:**
 ```
-cf-constructor make PRD for component auth
+cf-studio make PRD for component auth
 Context:
 - Scope: component
 - Component: auth
@@ -753,22 +753,22 @@ Context:
 
 | Prompt | What happens |
 |--------|--------------|
-| `cf-constructor make DESIGN for component auth` | Creates component DESIGN |
-| `cf-constructor reverse DESIGN for component auth` | Reverse-engineers from code |
+| `cf-studio make DESIGN for component auth` | Creates component DESIGN |
+| `cf-studio reverse DESIGN for component auth` | Reverse-engineers from code |
 
 **Update**
 
 | Prompt | What happens |
 |--------|--------------|
-| `cf-constructor update DESIGN for component auth` | Updates component DESIGN |
-| `cf-constructor extend DESIGN for component auth with sessions` | Adds internal component |
-| `cf-constructor sync DESIGN for component auth from code` | Syncs with code |
+| `cf-studio update DESIGN for component auth` | Updates component DESIGN |
+| `cf-studio extend DESIGN for component auth with sessions` | Adds internal component |
+| `cf-studio sync DESIGN for component auth from code` | Syncs with code |
 
 **Provide context:** component dependencies, public interface, data ownership.
 
 **Example:**
 ```
-cf-constructor make DESIGN for component auth
+cf-studio make DESIGN for component auth
 Context:
 - Scope: component
 - Component: auth
@@ -784,19 +784,19 @@ Context:
 
 | Prompt | What happens |
 |--------|--------------|
-| `cf-constructor decompose component auth` | Creates component decomposition |
-| `cf-constructor decompose component auth from code` | From existing code |
+| `cf-studio decompose component auth` | Creates component decomposition |
+| `cf-studio decompose component auth from code` | From existing code |
 
 **Update**
 
 | Prompt | What happens |
 |--------|--------------|
-| `cf-constructor add feature {slug} to component auth` | Adds component feature |
-| `cf-constructor update feature {slug} in component auth` | Updates feature |
+| `cf-studio add feature {slug} to component auth` | Adds component feature |
+| `cf-studio update feature {slug} in component auth` | Updates feature |
 
 **Example:**
 ```
-cf-constructor decompose component auth
+cf-studio decompose component auth
 Context:
 - Scope: component
 - Component: auth
@@ -809,22 +809,22 @@ Context:
 
 | Prompt | What happens |
 |--------|--------------|
-| `cf-constructor make FEATURE sessions for component auth` | Creates component feature |
-| `cf-constructor reverse FEATURE sessions for component auth` | From existing code |
+| `cf-studio make FEATURE sessions for component auth` | Creates component feature |
+| `cf-studio reverse FEATURE sessions for component auth` | From existing code |
 
 **Update**
 
 | Prompt | What happens |
 |--------|--------------|
-| `cf-constructor update FEATURE sessions for component auth` | Updates feature |
-| `cf-constructor extend FEATURE sessions with token refresh` | Adds scenario |
-| `cf-constructor sync FEATURE sessions from code` | Syncs with code |
+| `cf-studio update FEATURE sessions for component auth` | Updates feature |
+| `cf-studio extend FEATURE sessions with token refresh` | Adds scenario |
+| `cf-studio sync FEATURE sessions from code` | Syncs with code |
 
 **Provide context:** component, feature slug, scenarios, data ownership.
 
 **Example:**
 ```
-cf-constructor make FEATURE sessions for component auth
+cf-studio make FEATURE sessions for component auth
 Context:
 - Scope: component
 - Component: auth
@@ -837,9 +837,9 @@ Context:
 
 | Prompt | What happens |
 |--------|--------------|
-| `cf-constructor validate FEATURE sessions for component auth` | Full validation |
-| `cf-constructor validate FEATURE sessions for component auth semantic` | Semantic only |
-| `cf-constructor validate FEATURE sessions for component auth refs` | Cross-references |
+| `cf-studio validate FEATURE sessions for component auth` | Full validation |
+| `cf-studio validate FEATURE sessions for component auth semantic` | Semantic only |
+| `cf-studio validate FEATURE sessions for component auth refs` | Cross-references |
 
 ### 12. CODE (Component)
 
@@ -847,36 +847,36 @@ Context:
 
 | Prompt | What happens |
 |--------|--------------|
-| `cf-constructor implement sessions for component auth` | Generates code |
-| `cf-constructor implement sessions for component auth step by step` | With confirmation |
-| `cf-constructor implement sessions for component auth tests first` | Tests first |
+| `cf-studio implement sessions for component auth` | Generates code |
+| `cf-studio implement sessions for component auth step by step` | With confirmation |
+| `cf-studio implement sessions for component auth tests first` | Tests first |
 
 **Implement specific parts**
 
 | Prompt | What happens |
 |--------|--------------|
-| `cf-constructor implement sessions for component auth flow token-refresh` | Specific flow |
-| `cf-constructor implement sessions for component auth api` | API layer only |
-| `cf-constructor implement sessions for component auth tests` | Tests only |
+| `cf-studio implement sessions for component auth flow token-refresh` | Specific flow |
+| `cf-studio implement sessions for component auth api` | API layer only |
+| `cf-studio implement sessions for component auth tests` | Tests only |
 
 **Continue / update**
 
 | Prompt | What happens |
 |--------|--------------|
-| `cf-constructor continue implementing sessions for component auth` | Continue partial |
-| `cf-constructor implement sessions for component auth remaining` | Unimplemented only |
-| `cf-constructor sync code with FEATURE sessions for component auth` | Sync with feature |
+| `cf-studio continue implementing sessions for component auth` | Continue partial |
+| `cf-studio implement sessions for component auth remaining` | Unimplemented only |
+| `cf-studio sync code with FEATURE sessions for component auth` | Sync with feature |
 
 **Add markers**
 
 | Prompt | What happens |
 |--------|--------------|
-| `cf-constructor add markers for sessions in component auth` | Adds markers to existing code |
-| `cf-constructor fix markers in src/core/auth/` | Fixes incorrect markers |
+| `cf-studio add markers for sessions in component auth` | Adds markers to existing code |
+| `cf-studio fix markers in src/core/auth/` | Fixes incorrect markers |
 
 **Example:**
 ```
-cf-constructor implement sessions for component auth
+cf-studio implement sessions for component auth
 Context:
 - Component code path: src/core/auth/
 - Component architecture: subsystems/core/auth/architecture/
@@ -888,32 +888,32 @@ Context:
 
 | Prompt | What happens |
 |--------|--------------|
-| `cf-constructor validate code for component auth` | All component code |
-| `cf-constructor validate code for sessions in component auth` | Specific feature |
-| `cf-constructor validate code in src/core/auth/` | Specific path |
+| `cf-studio validate code for component auth` | All component code |
+| `cf-studio validate code for sessions in component auth` | Specific feature |
+| `cf-studio validate code in src/core/auth/` | Specific path |
 
 **Coverage**
 
 | Prompt | What happens |
 |--------|--------------|
-| `cf-constructor validate code coverage for component auth` | Component coverage |
-| `cf-constructor validate code coverage for sessions in component auth` | Feature coverage |
-| `cf-constructor show uncovered for component auth` | Lists unimplemented |
+| `cf-studio validate code coverage for component auth` | Component coverage |
+| `cf-studio validate code coverage for sessions in component auth` | Feature coverage |
+| `cf-studio show uncovered for component auth` | Lists unimplemented |
 
 **Traceability**
 
 | Prompt | What happens |
 |--------|--------------|
-| `cf-constructor validate code orphans for component auth` | Orphaned markers |
-| `cf-constructor validate code refs for component auth` | Marker references |
-| `cf-constructor list code markers for component auth` | Lists component markers |
+| `cf-studio validate code orphans for component auth` | Orphaned markers |
+| `cf-studio validate code refs for component auth` | Marker references |
+| `cf-studio list code markers for component auth` | Lists component markers |
 
 **Consistency**
 
 | Prompt | What happens |
 |--------|--------------|
-| `cf-constructor compare code to FEATURE sessions for component auth` | Shows drift |
-| `cf-constructor validate code consistency for component auth` | Checks code matches features |
+| `cf-studio compare code to FEATURE sessions for component auth` | Shows drift |
+| `cf-studio validate code consistency for component auth` | Checks code matches features |
 
 ---
 
@@ -923,20 +923,20 @@ Context:
 
 | Step | Generate | Validate |
 |------|----------|----------|
-| 1 | `cf-constructor make PRD` | `cf-constructor validate PRD` |
-| 2 | `cf-constructor make DESIGN` | `cf-constructor validate DESIGN` |
-| 3 | `cf-constructor make ADR for ...` | `cf-constructor validate ADR` |
-| 4 | `cf-constructor decompose` | `cf-constructor validate DECOMPOSITION` |
+| 1 | `cf-studio make PRD` | `cf-studio validate PRD` |
+| 2 | `cf-studio make DESIGN` | `cf-studio validate DESIGN` |
+| 3 | `cf-studio make ADR for ...` | `cf-studio validate ADR` |
+| 4 | `cf-studio decompose` | `cf-studio validate DECOMPOSITION` |
 
 ### Component Level
 
 | Step | Generate | Validate |
 |------|----------|----------|
-| 1 | `cf-constructor make PRD for component {name}` | `cf-constructor validate PRD for component {name}` |
-| 2 | `cf-constructor make DESIGN for component {name}` | `cf-constructor validate DESIGN for component {name}` |
-| 3 | `cf-constructor decompose component {name}` | `cf-constructor validate DECOMPOSITION for component {name}` |
-| 4 | `cf-constructor make FEATURE {slug} for component {name}` | `cf-constructor validate FEATURE {slug} for component {name}` |
-| 5 | `cf-constructor implement {slug} for component {name}` | `cf-constructor validate code for {slug} in component {name}` |
+| 1 | `cf-studio make PRD for component {name}` | `cf-studio validate PRD for component {name}` |
+| 2 | `cf-studio make DESIGN for component {name}` | `cf-studio validate DESIGN for component {name}` |
+| 3 | `cf-studio decompose component {name}` | `cf-studio validate DECOMPOSITION for component {name}` |
+| 4 | `cf-studio make FEATURE {slug} for component {name}` | `cf-studio validate FEATURE {slug} for component {name}` |
+| 5 | `cf-studio implement {slug} for component {name}` | `cf-studio validate code for {slug} in component {name}` |
 
 > For 4-level hierarchies, use `module` instead of `component` to target the deepest level.
 
@@ -950,7 +950,7 @@ Context:
 
 ## Configuration
 
-Example `{cf-constructor-path}/config/AGENTS.md` for a modular monolith:
+Example `{cf-studio-path}/config/AGENTS.md` for a modular monolith:
 
 ```markdown
 # Project Configuration

@@ -1,4 +1,4 @@
-# Cyber Constructor Kit: SDLC (`sdlc`)
+# Constructor Studio Kit: SDLC (`sdlc`)
 
 Agent quick reference.
 

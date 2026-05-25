@@ -143,7 +143,7 @@ graph LR
 These IDs are typically marked `to_code="true"` in the template, which makes them subject to code coverage checks.
 
 **Transforms into**:
-- **CODE**: implement flows/algorithms/states/requirements in source code and tag implementation with Cyber Constructor markers.
+- **CODE**: implement flows/algorithms/states/requirements in source code and tag implementation with Constructor Studio markers.
 
 **Traceability**:
 - FEATURE IDs are referenced from code using scope markers: `@cpt-{kind}:{cpt-id}:p{N}`.
@@ -170,10 +170,10 @@ Phase tokens:
 **Purpose**: the implementation layer validated against FEATURE IDs.
 
 **Defines**:
-- No new Cyber Constructor IDs are defined in code. Code only references IDs that exist in artifacts.
+- No new Constructor Studio IDs are defined in code. Code only references IDs that exist in artifacts.
 
 **Traceability**:
-- Mark code with Cyber Constructor markers as specified in `{cf-constructor-path}/.core/requirements/traceability.md`.
+- Mark code with Constructor Studio markers as specified in `{cf-studio-path}/.core/requirements/traceability.md`.
 
 **Validation**:
 - Structure and pairing checks + cross-validation + coverage checks via `validate`.
@@ -189,26 +189,26 @@ Phase tokens:
 
 | Command | What it validates |
 |---------|-------------------|
-| `cfc validate` | Artifacts against templates + cross-references + code markers (pairing, coverage, orphans) |
-| `cfc validate-kits` | Kit package integrity — constraints, structure |
-| `cfc validate-toc` | Table of contents correctness in markdown files |
+| `cfs validate` | Artifacts against templates + cross-references + code markers (pairing, coverage, orphans) |
+| `cfs validate-kits` | Kit package integrity — constraints, structure |
+| `cfs validate-toc` | Table of contents correctness in markdown files |
 
-> `validate-code` is a legacy alias for `validate` — use `cfc validate` for all validation.
+> `validate-code` is a legacy alias for `validate` — use `cfs validate` for all validation.
 
 ### Traceability & Search
 
 | Command | What it does |
 |---------|--------------|
-| `cfc list-ids` | Lists all IDs defined across artifacts |
-| `cfc where-defined <id>` | Shows where an ID is defined |
-| `cfc where-used <id>` | Shows where an ID is referenced |
-| `cfc spec-coverage` | Measures code coverage by CDSL specification markers |
-| `cfc toc` | Generates/updates table of contents in markdown files |
-| `cfc info` | Shows Cyber Constructor configuration and project context |
+| `cfs list-ids` | Lists all IDs defined across artifacts |
+| `cfs where-defined <id>` | Shows where an ID is defined |
+| `cfs where-used <id>` | Shows where an ID is referenced |
+| `cfs spec-coverage` | Measures code coverage by CDSL specification markers |
+| `cfs toc` | Generates/updates table of contents in markdown files |
+| `cfs info` | Shows Constructor Studio configuration and project context |
 
-Script path (for direct invocation): `python3 {cf-constructor-path}/.core/skills/cf-constructor/scripts/cfc.py <command>`
+Script path (for direct invocation): `python3 {cf-studio-path}/.core/skills/cf-studio/scripts/cfs.py <command>`
 
-> All `cf-constructor ...` prompts in the guides above are **AI skill prompts** typed in the IDE chat. The `cfc` commands above are **CLI commands** run in the terminal.
+> All `cf-studio ...` prompts in the guides above are **AI skill prompts** typed in the IDE chat. The `cfs` commands above are **CLI commands** run in the terminal.
 
 ## References
 

@@ -1,4 +1,4 @@
-# Cyber Constructor vs OpenSpec vs Spec Kit vs MCAF vs BMAD vs Ralph
+# Constructor Studio vs OpenSpec vs Spec Kit vs MCAF vs BMAD vs Ralph
 
 ## Scope and framing
 This comparison focuses on how each framework/toolkit structures work for AI-assisted software development:
@@ -9,8 +9,8 @@ This comparison focuses on how each framework/toolkit structures work for AI-ass
 
 ## One-paragraph summaries
 
-### Cyber Constructor (Spec-Driven Design)
-A design-first methodology with a layered artifact hierarchy (adapter → PRD → DESIGN (+ ADR) → DECOMPOSITION → FEATURE → code), strict artifact structure requirements (sections, IDs, cross-links), and deterministic validation gates with scoring. It emphasizes plain-English behavioral designs (Cyber Constructor DSL (CDSL)) and traceability from design to code.
+### Constructor Studio (Spec-Driven Design)
+A design-first methodology with a layered artifact hierarchy (adapter → PRD → DESIGN (+ ADR) → DECOMPOSITION → FEATURE → code), strict artifact structure requirements (sections, IDs, cross-links), and deterministic validation gates with scoring. It emphasizes plain-English behavioral designs (Constructor Studio DSL (CDSL)) and traceability from design to code.
 
 ### OpenSpec
 A change-first, spec-driven workflow centered on explicit change folders and “delta specs” that patch a source-of-truth spec set. It is optimized for brownfield evolution and multi-spec updates by separating current truth (`{project-root}/openspec/specs/`) from proposals (`{project-root}/openspec/changes/`).
@@ -36,7 +36,7 @@ Legend:
 - **⚠️ Supported**: possible and described, but not the core organizing primitive
 - **❌ Out of scope**: not a primary concern / not prescribed
 
-| Capability | Cyber Constructor | OpenSpec | Spec Kit | MCAF | BMAD | Ralph |
+| Capability | Constructor Studio | OpenSpec | Spec Kit | MCAF | BMAD | Ralph |
 |---|---|---|---|---|---|---|
 | **🎯 Primary organizing unit** | Spec + artifact layers | Change folder | Spec spec folder (numbered) | Repo + docs + gates | Workflow phases + stories (epics/stories + sprint tracking) | Loop iterations + task list (PRD stories/tasks) |
 | **🌱 Greenfield (0→1) fit** | ✅ Native | ⚠️ Supported (but optimized for evolution) | ✅ Native | ⚠️ Supported | ✅ Native | ⚠️ Supported |
@@ -48,7 +48,7 @@ Legend:
 | **📜 Spec-as-source-of-truth (regenerate mindset)** | ✅ Native (design artifacts are source of truth; code validated vs design) | ⚠️ Supported (specs are source of truth; changes archived into specs) | ✅ Native (spec drives plan/tasks/implementation) | ⚠️ Supported (docs + tests are truth gates) | ⚠️ Supported | ⚠️ Supported |
 | **🔁 Living specs update model** | Artifacts are updated directly; design remains the source of truth | Archive merges approved deltas back into `{project-root}/openspec/specs/` | Specs live in `specs/<nnn-spec>/...` and evolve via branch/PR lifecycle | Truth is proven by tests/analyzers; docs must reflect the system that exists | Workflow outputs evolve via re-runs (e.g., `_bmad-output/` artifacts + status files) | Specs/tasks evolve via git; loop re-reads disk state each iteration |
 | **🔀 Delta/patch spec format** | ❌ Out of scope | ✅ Native (ADDED/MODIFIED/REMOVED/RENAMED requirements) | ❌ Out of scope | ❌ Out of scope | ❌ Out of scope | ❌ Out of scope |
-| **📐 Formal requirement format constraints** | ✅ Native (Cyber Constructor DSL (CDSL) for behaviors; no code in designs) | ✅ Native (requirements + scenarios; SHALL/MUST) | ⚠️ Supported (templates; constitution; process) | ⚠️ Supported (English docs; defined test flows) | ⚠️ Supported | ⚠️ Supported |
+| **📐 Formal requirement format constraints** | ✅ Native (Constructor Studio DSL (CDSL) for behaviors; no code in designs) | ✅ Native (requirements + scenarios; SHALL/MUST) | ⚠️ Supported (templates; constitution; process) | ⚠️ Supported (English docs; defined test flows) | ⚠️ Supported | ⚠️ Supported |
 | **🔒 Artifact schema strictness (required sections/IDs)** | ✅ Native (requirements define exact structure per artifact) | ✅ Native (change folder + delta format are prescribed) | ⚠️ Supported (templates; constitution) | ⚠️ Supported (recommended doc layout; repo conventions) | ✅ Native (standards + create/validate/edit modes) | ⚠️ Supported |
 | **🧾 Workflow spec strictness (prereqs/steps/criteria/checklists)** | ✅ Native (workflow file structure is prescribed; checklists + criteria) | ⚠️ Supported (schema-driven workflow + docs; not checklist-centric) | ⚠️ Supported (phase pipeline + prerequisites; less of a formal workflow schema) | ⚠️ Supported (AGENTS.md + DoD/gates; less of a workflow file schema) | ✅ Native (multi-step workflows + progressive disclosure) | ❌ Out of scope |
 | **🧩 Progressive disclosure workflow execution (step isolation)** | ❌ Out of scope | ❌ Out of scope | ❌ Out of scope | ❌ Out of scope | ✅ Native (AI sees only the current step) | ❌ Out of scope |
@@ -56,14 +56,14 @@ Legend:
 | **🔁 Fresh-context iteration loop (context reset per cycle)** | ❌ Out of scope | ❌ Out of scope | ❌ Out of scope | ❌ Out of scope | ❌ Out of scope | ✅ Native (fresh context is a core tenet) |
 | **🧪 Tri-modal workflows (Create / Validate / Edit modes)** | ⚠️ Supported (create/update workflows + separate validators) | ❌ Out of scope | ❌ Out of scope | ❌ Out of scope | ✅ Native (create/validate/edit pattern) | ❌ Out of scope |
 | **🔗 Cross-artifact integrity across a layered doc stack (IDs/refs/coverage)** | ✅ Native (ID conventions + cross-reference checks across layers) | ❌ Out of scope (change folder is the organizing unit; not a layered doc stack) | ❌ Out of scope | ⚠️ Supported (via repo discipline; not prescribed as a validator) | ❌ Out of scope | ❌ Out of scope |
-| **✅ Deterministic doc/schema validator (format/placeholders/required fields)** | ✅ Native (`cfc validate ...`) | ✅ Native (`openspec validate ... --strict`) | ⚠️ Supported (templates + structured analysis/checklists; not a strict doc validator) | ❌ Out of scope | ❌ Out of scope | ❌ Out of scope |
+| **✅ Deterministic doc/schema validator (format/placeholders/required fields)** | ✅ Native (`cfs validate ...`) | ✅ Native (`openspec validate ... --strict`) | ⚠️ Supported (templates + structured analysis/checklists; not a strict doc validator) | ❌ Out of scope | ❌ Out of scope | ❌ Out of scope |
 | **🔍 Deterministic cross-reference validator (doc↔doc)** | ✅ Native (cascading dependency + cross-ref checks) | ❌ Out of scope | ❌ Out of scope | ❌ Out of scope | ❌ Out of scope | ❌ Out of scope |
 | **🏷️ Deterministic code traceability validator (design/spec → code markers)** | ✅ Native (scans for `@cpt-*` tags) | ❌ Out of scope | ❌ Out of scope | ❌ Out of scope | ❌ Out of scope | ❌ Out of scope |
 | **🔬 Traceability granularity** | Instruction-level (`p*` + `inst-*`) + code markers | Change-level (proposal/tasks/deltas per change) | Task-level (spec → plan → tasks; tasks include file paths) | Verification-level (docs ↔ tests/analyzers; repo conventions) | Task/story-level (PRD → stories → implementation) | Verification-level (tests/typecheck/build gates + disk state) |
 | **📊 Scoring / thresholds (beyond pass/fail)** | ✅ Native (100-point scoring + thresholds per workflow) | ❌ Out of scope | ❌ Out of scope | ❌ Out of scope | ❌ Out of scope | ❌ Out of scope |
 | **🚧 Strict phase gates** | ✅ Native (layer-by-layer validation chain) | ⚠️ Supported (legacy workflow is phase-based; OPSX is actions-not-phases) | ✅ Native (phase checkpoints: spec → plan → tasks → implement) | ✅ Native (tests/analyzers gate completion) | ✅ Native (phase pipeline + workflow prerequisites) | ✅ Native (verification-driven loop stop conditions) |
 | **🤖 Agent instructions single source** | ✅ Native (`AGENTS.md` hierarchy) | ⚠️ Supported (generated tool-specific instruction files via `openspec init` / `openspec update`) | ⚠️ Supported (slash commands + generated repo files) | ✅ Native (`AGENTS.md` governance + local AGENTS.md) | ✅ Native (specialized agents are core) | ⚠️ Supported |
-| **⚙️ Repeatable automation packages ("skills")** | ✅ Native (Cyber Constructor skill tool + scripts) | ⚠️ Supported (CLI + agent instructions) | ⚠️ Supported (scripts/templates) | ✅ Native (skills packages with scripts/references/assets) | ✅ Native (workflow library/modules) | ⚠️ Supported |
+| **⚙️ Repeatable automation packages ("skills")** | ✅ Native (Constructor Studio skill tool + scripts) | ⚠️ Supported (CLI + agent instructions) | ⚠️ Supported (scripts/templates) | ✅ Native (skills packages with scripts/references/assets) | ✅ Native (workflow library/modules) | ⚠️ Supported |
 | **🧪 Executable gates (tests/analyzers) as decision makers** | ⚠️ Supported (methodology expects tests; adapter-driven) | ⚠️ Supported | ⚠️ Supported (constitution can mandate TDD; agents run real tools) | ✅ Native (tests + static analysis are decision makers) | ⚠️ Supported | ✅ Native |
 | **🌐 Integration/UI/API testing emphasis** | ⚠️ Supported (tooling can validate code vs spec; test strategy is adapter-driven) | ⚠️ Supported | ⚠️ Supported | ✅ Native (explicitly emphasized as "hard gate") | ⚠️ Supported | ⚠️ Supported |
 | **🎭 Mocks/fakes policy** | ❌ Out of scope (adapter-defined) | ❌ Out of scope | ❌ Out of scope | ✅ Native (restricted; prefer real containers for internal systems) | ❌ Out of scope | ❌ Out of scope |
@@ -85,7 +85,7 @@ This is a simple linear weighting system for the matrix. "Out of scope" receives
 
 | Framework | Native (×3) | Supported (×1) | Out of scope (×0) | Emerging (×0.5) | **Total Score** |
 |-----------|-------------|----------------|-------------------|-----------------|-----------------|
-| **Cyber Constructor** | 17 × 3 = 51 | 4 × 1 = 4 | 7 × 0 = 0 | 0 × 0.5 = 0 | **55** |
+| **Constructor Studio** | 17 × 3 = 51 | 4 × 1 = 4 | 7 × 0 = 0 | 0 × 0.5 = 0 | **55** |
 | **BMAD** | 12 × 3 = 36 | 6 × 1 = 6 | 10 × 0 = 0 | 0 × 0.5 = 0 | **42** |
 | **MCAF** | 8 × 3 = 24 | 10 × 1 = 10 | 10 × 0 = 0 | 0 × 0.5 = 0 | **34** |
 | **OpenSpec** | 6 × 3 = 18 | 10 × 1 = 10 | 11 × 0 = 0 | 1 × 0.5 = 0.5 | **28.5** |
@@ -94,7 +94,7 @@ This is a simple linear weighting system for the matrix. "Out of scope" receives
 
 **Breakdown by framework:**
 
-**Cyber Constructor (55 points):**
+**Constructor Studio (55 points):**
 - Native: Greenfield fit, Brownfield fit, PRD artifact, Overall architecture artifact, Spec catalog / roadmap artifact, Spec-as-source-of-truth (regenerate mindset), Formal requirement format constraints, Artifact schema strictness (required sections/IDs), Workflow spec strictness (prereqs/steps/criteria/checklists), Cross-artifact integrity across a layered doc stack (IDs/refs/coverage), Deterministic doc/schema validator (format/placeholders/required fields), Deterministic cross-reference validator (doc↔doc), Deterministic code traceability validator (design/spec → code markers), Scoring / thresholds (beyond pass/fail), Strict phase gates, Agent instructions single source, Repeatable automation packages ("skills")
 - Supported: Tri-modal workflows (Create / Validate / Edit modes), Executable gates (tests/analyzers) as decision makers, Integration/UI/API testing emphasis, Governance of instruction changes
 - Strengths: Strongest in **artifact structure**, **traceability**, and **deterministic validation**
@@ -127,7 +127,7 @@ This is a simple linear weighting system for the matrix. "Out of scope" receives
 
 **Key insights:**
 
-1. **Cyber Constructor leads in total capability coverage** (55 points), particularly excelling in structured documentation, cross-artifact integrity, and multi-layer traceability.
+1. **Constructor Studio leads in total capability coverage** (55 points), particularly excelling in structured documentation, cross-artifact integrity, and multi-layer traceability.
 
 2. **BMAD stands out for workflow execution capabilities** (42 points), primarily due to progressive disclosure, continuable workflows, and tri-modal create/validate/edit patterns.
 
@@ -140,7 +140,7 @@ This is a simple linear weighting system for the matrix. "Out of scope" receives
 5. **Ralph scores lower on artifact/validator breadth** (21 points) because it is primarily an autonomy/loop technique; its strongest “native” specs are verification gates, fresh-context loops, and iteration/stop conditions.
 
 6. **Specialization vs. breadth trade-off:**
-   - Cyber Constructor: Deep native support for design-first methodology
+   - Constructor Studio: Deep native support for design-first methodology
    - OpenSpec: Deep native support for change-first workflow
    - MCAF: Deep native support for verification-first process
    - Spec Kit: Broad support across many areas with lighter enforcement
@@ -155,7 +155,7 @@ This is a simple linear weighting system for the matrix. "Out of scope" receives
 ## Deep comparison (dimensions)
 
 ### 1) “Center of gravity”
-- **Cyber Constructor**: Design hierarchy + traceability (prd → architecture → feature decomposition → features manifest → feature designs → code).
+- **Constructor Studio**: Design hierarchy + traceability (prd → architecture → feature decomposition → features manifest → feature designs → code).
 - **OpenSpec**: Change proposal + delta spec + archiving into living specs.
 - **Spec Kit**: Spec-driven pipeline with a constitution + artifacts generated via slash commands (constitution → spec → plan → tasks → implement).
 - **MCAF**: Predictability via shared repo context + tests/analyzers as gates + explicit agent instructions.
@@ -163,7 +163,7 @@ This is a simple linear weighting system for the matrix. "Out of scope" receives
 - **Ralph**: Fresh-context iteration loops with verification/backpressure (repeat until objective completion criteria pass).
 
 ### 2) Artifact model and where truth lives
-- **Cyber Constructor**
+- **Constructor Studio**
   - Truth is captured in a layered architecture of Markdown artifacts.
   - Strong separation of concerns: PRD vs architecture vs feature designs vs implementation plans.
   - Living evolution: implementation planning and status live in feature artifacts and are updated iteratively during implementation.
@@ -185,7 +185,7 @@ This is a simple linear weighting system for the matrix. "Out of scope" receives
   - Living evolution: PRD/tasks/progress logs on disk are updated each iteration; git commits become durable memory.
 
 ### 3) Validation gates and failure modes
-- **Cyber Constructor**: Explicit validation chain per layer; dependent artifacts require validated parents.
+- **Constructor Studio**: Explicit validation chain per layer; dependent artifacts require validated parents.
 - **OpenSpec**: Validate change folder (strict) and keep work proposal-first; archive after deployment.
 - **Spec Kit**: Workflow emphasizes not moving to next phase until validated, but enforcement is primarily via process discipline + templates.
 - **MCAF**: Spec docs and ADR are updated when needed; failing tests (including integration/API/UI) and analyzers block completion.
@@ -193,7 +193,7 @@ This is a simple linear weighting system for the matrix. "Out of scope" receives
 - **Ralph**: Gates are the loop stop condition: if tests/typecheck/build fail (or `verifyCompletion` returns false), the loop continues.
 
 ### 3.5) Types of determinism (what is “validated”)
-- **Cyber Constructor**: Deterministic validators for doc/schema, cross-artifact references, and code traceability via `@cpt-*` markers.
+- **Constructor Studio**: Deterministic validators for doc/schema, cross-artifact references, and code traceability via `@cpt-*` markers.
 - **OpenSpec**: Deterministic validator for change folder structure and spec/delta format; `archive` is the gate back into living specs.
 - **Spec Kit**: Deterministic setup tooling plus template constraints; validation is primarily agent/human-driven (analysis/checklists) rather than a strict spec validator.
 - **MCAF**: Deterministic executable gates (tests + static analysis) are the decision makers.
@@ -201,7 +201,7 @@ This is a simple linear weighting system for the matrix. "Out of scope" receives
 - **Ralph**: Determinism is primarily executable-gate-driven (tests/build/typecheck) with a fresh-context loop and explicit completion verification functions.
 
 ### 4) Traceability
-- **Cyber Constructor**: First-class traceability from design IDs to code via tags and validation tooling, down to instruction-level granularity.
+- **Constructor Studio**: First-class traceability from design IDs to code via tags and validation tooling, down to instruction-level granularity.
 - **OpenSpec**: Traceability is “change-centric”: proposals/tasks/deltas are co-located per change.
 - **Spec Kit**: Traceability is “spec pipeline-centric”: spec → plan → tasks → implement.
 - **MCAF**: Traceability is “repo-centric”: docs link to tests and code; instructions standardize commands and workflow.
@@ -209,7 +209,7 @@ This is a simple linear weighting system for the matrix. "Out of scope" receives
 - **Ralph**: Traceability is “verification-centric”: tasks map to commits and passing checks; progress is recorded on disk and reflected in git history.
 
 ### 5) Best-fit use cases
-- **Cyber Constructor** fits best when you need:
+- **Constructor Studio** fits best when you need:
   - Business-reviewable behavior specs (plain English), strong layered documentation, and design→code traceability.
   - Multi-spec systems where cross-spec consistency matters.
 - **OpenSpec** fits best when you need:
@@ -224,14 +224,14 @@ This is a simple linear weighting system for the matrix. "Out of scope" receives
   - An autonomy “engine” that iterates until verified complete, especially in repos where tests/typecheck/build are reliable signals.
 
 ### 6) Artifact strictness and integrity controls
-- **Cyber Constructor**: Treats artifacts as a schema-driven system: each artifact has a required structure (section order/naming), strict ID formats, payload blocks, and cross-artifact reference rules; validation is designed to detect missing sections, broken links, placeholder content, invalid IDs, and cross-layer inconsistencies.
+- **Constructor Studio**: Treats artifacts as a schema-driven system: each artifact has a required structure (section order/naming), strict ID formats, payload blocks, and cross-artifact reference rules; validation is designed to detect missing sections, broken links, placeholder content, invalid IDs, and cross-layer inconsistencies.
 - **OpenSpec**: Strictness is concentrated in the change proposal: you get a prescribed change folder layout and delta spec conventions with validation on the proposal itself; it is less focused on global cross-artifact integrity across a layered documentation stack.
 - **Spec Kit**: Strictness is primarily constitutional/template-driven (process discipline), not enforced by a dedicated deterministic validator across documents.
 - **MCAF**: Strictness is enforced via repository gates (tests/analyzers) and governance (instructions), rather than a required schema for architecture/spec artifacts.
 - **BMAD**: Strictness is enforced through workflow standards for planning artifacts and step-by-step execution patterns (including create/validate/edit modes), but it is less focused on deterministic cross-artifact integrity checks across a layered doc stack.
 - **Ralph**: Strictness is enforced through passing gates and small tasks; document structure and artifact schemas are repo-dependent.
 
-### 7) Where Cyber Constructor is unusually strong
+### 7) Where Constructor Studio is unusually strong
 - Layered artifacts are backed by explicit structure requirements and an execution protocol (workflows and requirements are first-class).
 - Workflows themselves are structured specs (prerequisites, ordered steps, validation criteria/checklists), which reduces ambiguity for AI agents.
 - Deterministic tooling is not only format checking: it includes cascading dependency validation and cross-artifact integrity checks.
@@ -242,32 +242,32 @@ This is a simple linear weighting system for the matrix. "Out of scope" receives
 
 ## Practical interoperability patterns
 
-### Pattern A: Cyber Constructor + OpenSpec (layered design + delta change tracking)
-- Use **Cyber Constructor** for layered artifacts and feature decomposition.
+### Pattern A: Constructor Studio + OpenSpec (layered design + delta change tracking)
+- Use **Constructor Studio** for layered artifacts and feature decomposition.
 - Use **OpenSpec** for change proposals/deltas when you need an external-facing audit trail, or when multiple specs must be patched in a controlled way.
 
-### Pattern B: Spec Kit for bootstrap, then migrate to Cyber Constructor-style layering
+### Pattern B: Spec Kit for bootstrap, then migrate to Constructor Studio-style layering
 - Use Spec Kit templates and constitution to generate initial spec/plan/tasks.
 - When the system grows, adopt a layered approach (e.g., separate PRD, global design, and per-spec designs).
 
 ### Pattern C: MCAF verification doctrine applied to any of the above
 - Regardless of spec system, apply MCAF’s “tests + analyzers are decision makers” and strict instructions governance.
 
-### Pattern D: BMAD for planning and artifact generation, then Cyber Constructor/OpenSpec for long-lived specs
+### Pattern D: BMAD for planning and artifact generation, then Constructor Studio/OpenSpec for long-lived specs
 - Use **BMAD** to generate planning artifacts and maintain story-level execution flow.
-- Use **Cyber Constructor** (layered design + deterministic validation) and/or **OpenSpec** (delta change proposals) when you need long-lived, auditable specs with stronger format/validator guarantees.
+- Use **Constructor Studio** (layered design + deterministic validation) and/or **OpenSpec** (delta change proposals) when you need long-lived, auditable specs with stronger format/validator guarantees.
 
 ### Pattern E: Ralph as an implementation loop for any methodology
 - Use **Ralph** to execute small, verifiable work units in a loop until tests/typecheck/build pass.
-- Pair with **Cyber Constructor/OpenSpec/Spec Kit/BMAD** for planning/spec artifacts; treat Ralph as the “executor.”
+- Pair with **Constructor Studio/OpenSpec/Spec Kit/BMAD** for planning/spec artifacts; treat Ralph as the “executor.”
 
 ---
 
 ## Primary sources consulted
 
-### Cyber Constructor
-- `README.md`, `{cf-constructor-path}/.core/skills/cf-constructor/README.md`, `kits/sdlc/guides/QUICKSTART.md`
-- Cyber Constructor workflow execution requirements and protocols in `requirements/` and `workflows/`
+### Constructor Studio
+- `README.md`, `{cf-studio-path}/.core/skills/cf-studio/README.md`, `kits/sdlc/guides/QUICKSTART.md`
+- Constructor Studio workflow execution requirements and protocols in `requirements/` and `workflows/`
 
 ### OpenSpec
 - https://github.com/Fission-AI/OpenSpec

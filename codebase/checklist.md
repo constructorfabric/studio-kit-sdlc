@@ -1,10 +1,10 @@
-# Cyber Constructor SDLC Code Checklist (Kit-Specific)
+# Constructor Studio SDLC Code Checklist (Kit-Specific)
 
-ALWAYS open and follow `{cf-constructor-path}/.core/requirements/code-checklist.md` FIRST
+ALWAYS open and follow `{cf-studio-path}/.core/requirements/code-checklist.md` FIRST
 
-**Artifact**: Code Implementation (Cyber Constructor SDLC)
+**Artifact**: Code Implementation (Constructor Studio SDLC)
 **Version**: 1.0
-**Purpose**: Kit-specific checks that require Cyber Constructor SDLC artifacts (PRD/DESIGN/DECOMPOSITION/FEATURE/ADR) and/or Cyber Constructor traceability.
+**Purpose**: Kit-specific checks that require Constructor Studio SDLC artifacts (PRD/DESIGN/DECOMPOSITION/FEATURE/ADR) and/or Constructor Studio traceability.
 
 ---
 
@@ -27,12 +27,12 @@ Before running the SDLC-specific checks:
 
 ## Semantic Alignment (SEM)
 
-These checks are **Cyber Constructor SDLC-specific** because they require Cyber Constructor artifacts (Feature design, Overall Design, ADRs, PRD/DESIGN coverage) and/or Cyber Constructor markers.
+These checks are **Constructor Studio SDLC-specific** because they require Constructor Studio artifacts (Feature design, Overall Design, ADRs, PRD/DESIGN coverage) and/or Constructor Studio markers.
 
 ### SEM-CODE-001: Resolve Design Sources
 **Severity**: HIGH
 
-- [ ] Resolve Feature design via `@cpt-*` markers using the `cfc where-defined` or `cfc where-used` skill
+- [ ] Resolve Feature design via `@cpt-*` markers using the `cfs where-defined` or `cfs where-used` skill
 - [ ] If no `@cpt-*` markers exist, ask the user to provide the Feature design location before proceeding
 - [ ] If the user is unsure, search the repository for candidate feature designs and present options for user selection
 - [ ] Resolve Overall Design by following references from the Feature design (or ask the user for the design path)
@@ -91,4 +91,4 @@ These checks are **Cyber Constructor SDLC-specific** because they require Cyber 
 
 ---
 
-Use `{cf-constructor-path}/.core/requirements/code-checklist.md` for all generic code quality checks.
+Use `{cf-studio-path}/.core/requirements/code-checklist.md` for all generic code quality checks.

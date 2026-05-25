@@ -1,19 +1,19 @@
 ---
-name: cf-constructor-sdlc
+name: cf
 description: "Artifacts: ADR, CODEBASE, DECOMPOSITION, DESIGN, FEATURE, PR-CODE-REVIEW-TEMPLATE, PR-REVIEW, PR-STATUS-REPORT-TEMPLATE, PRD; Workflows: migrate-openspec, pr-review, pr-status"
 ---
 
-# Cyber Constructor Skill — Kit `sdlc`
+# Constructor Studio Skill — Kit `sdlc`
 
 Kit `sdlc` skill extensions.
 
 ## ADR
 
 ### ADR Commands
-- `cfc validate --artifact <ADR.md>` — validate ADR structure and IDs
-- `cfc list-ids --kind adr` — list all ADRs
-- `cfc where-defined --id <id>` — find where an ADR ID is defined
-- `cfc where-used --id <id>` — find where an ADR ID is referenced in DESIGN
+- `cfs validate --artifact <ADR.md>` — validate ADR structure and IDs
+- `cfs list-ids --kind adr` — list all ADRs
+- `cfs where-defined --id <id>` — find where an ADR ID is defined
+- `cfs where-used --id <id>` — find where an ADR ID is referenced in DESIGN
 ### ADR Workflows
 - **Generate ADR**: create a new ADR from template with guided prompts per section
 - **Analyze ADR**: validate structure (deterministic) then semantic quality (checklist-based)
@@ -21,9 +21,9 @@ Kit `sdlc` skill extensions.
 ## CODEBASE
 
 ### CODE Commands
-- `cfc validate --artifact <code-path>` — validate code traceability and quality
-- `cfc where-defined --id <id>` — find where an ID is defined in artifacts
-- `cfc where-used --id <id>` — find where an ID is referenced in code via `@cpt-*` markers
+- `cfs validate --artifact <code-path>` — validate code traceability and quality
+- `cfs where-defined --id <id>` — find where an ID is defined in artifacts
+- `cfs where-used --id <id>` — find where an ID is referenced in code via `@cpt-*` markers
 ### CODE Workflows
 - **Generate CODE**: implement FEATURE design with optional `@cpt-*` traceability markers
 - **Analyze CODE**: validate implementation coverage, traceability, tests, and quality
@@ -31,11 +31,11 @@ Kit `sdlc` skill extensions.
 ## DECOMPOSITION
 
 ### DECOMPOSITION Commands
-- `cfc validate --artifact <DECOMPOSITION.md>` — validate DECOMPOSITION structure and IDs
-- `cfc list-ids --kind feature` — list all features
-- `cfc list-ids --kind status` — list status indicators
-- `cfc where-defined --id <id>` — find where a feature ID is defined
-- `cfc where-used --id <id>` — find where a feature ID is referenced in FEATURE artifacts
+- `cfs validate --artifact <DECOMPOSITION.md>` — validate DECOMPOSITION structure and IDs
+- `cfs list-ids --kind feature` — list all features
+- `cfs list-ids --kind status` — list status indicators
+- `cfs where-defined --id <id>` — find where a feature ID is defined
+- `cfs where-used --id <id>` — find where a feature ID is referenced in FEATURE artifacts
 ### DECOMPOSITION Workflows
 - **Generate DECOMPOSITION**: create feature manifest from DESIGN with guided prompts
 - **Analyze DECOMPOSITION**: validate structure (deterministic) then decomposition quality (checklist-based)
@@ -43,11 +43,11 @@ Kit `sdlc` skill extensions.
 ## DESIGN
 
 ### DESIGN Commands
-- `cfc validate --artifact <DESIGN.md>` — validate DESIGN structure and IDs
-- `cfc list-ids --kind component` — list all components
-- `cfc list-ids --kind principle` — list all design principles
-- `cfc where-defined --id <id>` — find where a DESIGN ID is defined
-- `cfc where-used --id <id>` — find where a DESIGN ID is referenced downstream
+- `cfs validate --artifact <DESIGN.md>` — validate DESIGN structure and IDs
+- `cfs list-ids --kind component` — list all components
+- `cfs list-ids --kind principle` — list all design principles
+- `cfs where-defined --id <id>` — find where a DESIGN ID is defined
+- `cfs where-used --id <id>` — find where a DESIGN ID is referenced downstream
 ### DESIGN Workflows
 - **Generate DESIGN**: create a new DESIGN from template with guided prompts per section
 - **Analyze DESIGN**: validate structure (deterministic) then semantic quality (checklist-based)
@@ -55,13 +55,13 @@ Kit `sdlc` skill extensions.
 ## FEATURE
 
 ### FEATURE Commands
-- `cfc validate --artifact <FEATURE.md>` — validate FEATURE structure and IDs
-- `cfc list-ids --kind flow` — list all flows
-- `cfc list-ids --kind algo` — list all algorithms
-- `cfc list-ids --kind state` — list all state machines
-- `cfc list-ids --kind dod` — list all definitions of done
-- `cfc where-defined --id <id>` — find where a FEATURE ID is defined
-- `cfc where-used --id <id>` — find where a FEATURE ID is referenced in code
+- `cfs validate --artifact <FEATURE.md>` — validate FEATURE structure and IDs
+- `cfs list-ids --kind flow` — list all flows
+- `cfs list-ids --kind algo` — list all algorithms
+- `cfs list-ids --kind state` — list all state machines
+- `cfs list-ids --kind dod` — list all definitions of done
+- `cfs where-defined --id <id>` — find where a FEATURE ID is defined
+- `cfs where-used --id <id>` — find where a FEATURE ID is referenced in code
 ### FEATURE Workflows
 - **Generate FEATURE**: create a new FEATURE from template with guided CDSL prompts
 - **Analyze FEATURE**: validate structure (deterministic) then semantic quality (checklist-based)
@@ -73,20 +73,22 @@ Kit `sdlc` skill extensions.
 ALWAYS re-fetch and re-analyze from scratch WHEN a PR review or status request is detected — even if the same PR was reviewed earlier in this conversation. Previous results are stale the moment a new request arrives. NEVER skip fetch or reuse earlier analysis.
 
 ALWAYS run `python3 {scripts}/pr.py list` WHEN user intent matches PR list patterns:
-- `list PRs`, `list open PRs`, `cf-constructor list PRs`
+- `list PRs`, `list open PRs`, `cf-studio list PRs`, `cf list PRs`
 - `show PRs`, `show open PRs`, `what PRs are open`
+- `cf-sdlc-pr-status list PRs` — kit-level invocation (routes here, not to status workflow)
 - Any request to enumerate or browse open pull requests
 
 AVOID use `gh pr list` directly — ALWAYS use `pr.py list` for listing PRs.
 
-ALWAYS route to the `cf-constructor-pr-review` workflow WHEN user intent matches PR review patterns:
+ALWAYS route to the `cf-sdlc-pr-review` workflow WHEN user intent matches PR review patterns:
 - `review PR {number}`, `review PR #{number}`, `review PR https://...`
-- `cf-constructor review PR {number}`, `PR review {number}`
+- `cf-studio review PR {number}`, `cf review PR {number}`, `PR review {number}`
 - `code review PR {number}`, `check PR {number}`
 
-ALWAYS route to the `cf-constructor-pr-status` workflow WHEN user intent matches PR status patterns:
-- `PR status {number}`, `cf-constructor PR status {number}`
+ALWAYS route to the `cf-sdlc-pr-status` workflow WHEN user intent matches PR status patterns:
+- `PR status {number}`, `cf-studio PR status {number}`, `cf PR status {number}`
 - `status of PR {number}`, `check PR status {number}`
+- `cf-sdlc-pr-status {number}` — kit-level direct invocation
 
 ### PR List (Quick Command)
 
@@ -102,7 +104,7 @@ When routed to PR review:
 2. Read `{workflow_pr_review}` and follow its steps
 3. Use `python3 {scripts}/pr.py` as the script
 4. When target is `ALL` or no PR number given, run `pr.py list` first to show available PRs
-5. Select prompt and checklist from `{cf-constructor-path}/config/pr-review.toml` → `prompts`
+5. Select prompt and checklist from `{cf-studio-path}/config/pr-review.toml` → `prompts`
 6. Load prompt from `prompt_file` and checklist from `checklist` in matched entry
 7. Use templates from `{pr_code_review_template}` and `{pr_status_report_template}`
 
@@ -117,14 +119,14 @@ When routed to PR status:
 ## MIGRATION
 
 ### Migration Commands
-- `cf-constructor migrate-openspec` — migrate OpenSpec artifacts to Cyber Constructor SDLC documents
+- `cf-studio migrate-openspec` — migrate OpenSpec artifacts to Constructor Studio SDLC documents
 
 ### Migration Workflows
 
-ALWAYS route to the `cf-constructor-migrate-openspec` workflow WHEN user intent matches OpenSpec migration patterns:
+ALWAYS route to the `cf-sdlc-migrate-openspec` workflow WHEN user intent matches OpenSpec migration patterns:
 - `migrate openspec`, `migrate from openspec`, `convert openspec`
-- `cf-constructor migrate-openspec`, `openspec to Cyber Constructor`
-- Any request to convert OpenSpec artifacts to Cyber Constructor SDLC format
+- `cf-studio migrate-openspec`, `openspec to Constructor Studio`
+- Any request to convert OpenSpec artifacts to Constructor Studio SDLC format
 
 When routed to OpenSpec migration:
 1. Read `{workflow_migrate_openspec}` and follow its steps
@@ -133,11 +135,11 @@ When routed to OpenSpec migration:
 ## PRD
 
 ### PRD Commands
-- `cfc validate --artifact <PRD.md>` — validate PRD structure and IDs
-- `cfc list-ids --kind fr` — list all functional requirements
-- `cfc list-ids --kind actor` — list all actors
-- `cfc where-defined --id <id>` — find where a PRD ID is defined
-- `cfc where-used --id <id>` — find where a PRD ID is referenced downstream
+- `cfs validate --artifact <PRD.md>` — validate PRD structure and IDs
+- `cfs list-ids --kind fr` — list all functional requirements
+- `cfs list-ids --kind actor` — list all actors
+- `cfs where-defined --id <id>` — find where a PRD ID is defined
+- `cfs where-used --id <id>` — find where a PRD ID is referenced downstream
 ### PRD Workflows
 - **Generate PRD**: create a new PRD from template with guided prompts per section
 - **Analyze PRD**: validate structure (deterministic) then semantic quality (checklist-based)

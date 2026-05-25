@@ -1,9 +1,9 @@
-# Cyber Constructor SDLC Kit — Declarative Installation Manifest
+# Constructor Studio SDLC Kit — Declarative Installation Manifest
 # Schema: kit-manifest.schema.json v1.0
 
 [manifest]
 version = "1.0"
-root = "{cf-constructor-path}/config/kits/{slug}"
+root = "{cf-studio-path}/config/kits/{slug}"
 user_modifiable = true
 
 # ── ADR artifact files ───────────────────────────────────────────────
@@ -232,7 +232,7 @@ user_modifiable = false
 
 [[resources]]
 id = "workflow_migrate_openspec"
-description = "OpenSpec to Cyber Constructor SDLC migration workflow"
+description = "OpenSpec to Constructor Studio SDLC migration workflow"
 source = "workflows/migrate-openspec.md"
 default_path = "workflows/migrate-openspec.md"
 type = "file"
@@ -273,4 +273,3 @@ source = "AGENTS.md"
 default_path = "AGENTS.md"
 type = "file"
 user_modifiable = false
-
