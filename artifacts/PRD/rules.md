@@ -3,8 +3,6 @@
 **Artifact**: PRD
 **Kit**: sdlc
 
-**Dependencies** (lazy-loaded): `{prd_template}` (structure), `{prd_checklist}` (semantic criteria), `{prd_example}` (content depth).
-
 ```pdsl
 UNIT PrdAuthoring
 

@@ -3,8 +3,6 @@
 **Artifact**: DESIGN
 **Kit**: sdlc
 
-**Dependencies** (lazy-loaded): `{design_template}` (structure), `{design_checklist}` (semantic criteria), `{design_example}` (content depth).
-
 ```pdsl
 UNIT DesignAuthoring
 

@@ -3,8 +3,6 @@
 **Artifact**: FEATURE
 **Kit**: sdlc
 
-**Dependencies** (lazy-loaded): `{feature_template}` (structure), `{feature_checklist}` (semantic criteria), `{feature_example}` (content depth).
-
 ```pdsl
 UNIT FeatureAuthoring
 

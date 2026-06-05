@@ -3,8 +3,6 @@
 **Artifact**: DECOMPOSITION
 **Kit**: sdlc
 
-**Dependencies** (lazy-loaded): `{decomposition_template}` (structure), `{decomposition_checklist}` (semantic criteria), `{decomposition_example}` (content depth).
-
 ```pdsl
 UNIT DecompositionAuthoring
 

@@ -3,8 +3,6 @@
 **Artifact**: ADR
 **Kit**: sdlc
 
-**Dependencies** (lazy-loaded): `{adr_template}` (structure), `{adr_checklist}` (semantic criteria), `{adr_example}` (content depth).
-
 ```pdsl
 UNIT AdrAuthoring
 
