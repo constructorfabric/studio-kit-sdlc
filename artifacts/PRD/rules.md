@@ -97,12 +97,14 @@ Read project config for ID prefix.
 - [ ] Every FR MUST have a priority marker (`p1`–`p9`)
 - [ ] Every FR MUST have a rationale explaining business value
 - [ ] Every FR MUST reference at least one actor
+- [ ] Authorization requirements MUST specify the exact permissions each actor holds per capability/operation — which actor may perform which action on which resource (e.g., "Admin may delete any account; Member may edit only own profile"); MUST NOT restate the generic "every API/endpoint requires authentication/authorization", which is assumed
 - [ ] Capabilities MUST trace to business problems
 - [ ] No placeholder content (TODO, TBD, FIXME)
 - [ ] No duplicate IDs within document
 - [ ] All requirements verified via automated tests (unit, integration, e2e) targeting 90%+ code coverage unless otherwise specified
 - [ ] Document verification method only for non-test approaches (analysis, inspection, demonstration)
 - [ ] NFRs MUST have measurable thresholds with units and conditions
+- [ ] NFRs MUST be expressed as business-level quality requirements (user/business outcomes, SLAs, and measurable targets); MUST NOT specify technical implementation details (technology stack, infrastructure sizing, or component-level tuning) — implementation belongs in DESIGN/ADR
 - [ ] NFR exclusions MUST have explicit reasoning
 - [ ] Intentional exclusions MUST list N/A checklist categories with reasoning
 - [ ] Use cases MUST cover primary user journeys
@@ -150,7 +152,7 @@ PRDs must NOT contain the following — report as violation if found:
 - **BIZ-PRD-NO-001**: No Implementation Tasks (HIGH) — tasks belong in DECOMPOSITION
 - **BIZ-PRD-NO-002**: No Spec-Level Design (HIGH) — specs belong in FEATURE
 - **DATA-PRD-NO-001**: No Data Schema Definitions (HIGH) — schemas belong in DESIGN
-- **INT-PRD-NO-001**: No API Specifications (HIGH) — API specs belong in DESIGN/FEATURE
+- **INT-PRD-NO-001**: No API Specifications (HIGH) — no API contracts/OpenAPI, REST endpoints, HTTP methods, HTTP/REST status codes, authentication header specifications (which header, auth scheme, required/optional), or standardized error response formats (HTTP status codes, error body schema/fields); API contracts and endpoint specifications belong in DESIGN, and API design decisions in ADR
 - **TEST-PRD-NO-001**: No Test Cases (MEDIUM) — tests belong in FEATURE/code
 - **OPS-PRD-NO-001**: No Infrastructure Specifications (MEDIUM) — infra belongs in DESIGN
 - **SEC-PRD-NO-001**: No Security Implementation Details (HIGH) — implementation belongs in DESIGN/code
@@ -170,6 +172,13 @@ PRDs must NOT contain the following — report as violation if found:
 **Load on demand**:
 - `{prd_template}` — WHEN generating artifact structure
 - `{prd_example}` — WHEN needing reference for content depth
+
+**Mandatory during generation** — these are authoring rules, not only validation gates; the author MUST apply them while writing every section (do not defer them to the Phase 4 quality check):
+
+- [ ] Keep the PRD requirements-only (WHAT, not HOW): MUST NOT introduce database schemas, API contracts/OpenAPI, REST endpoints, HTTP methods or HTTP/REST status codes, or architecture/technology decisions — they belong in DESIGN/ADR (see [Deliberate Omissions](#deliberate-omissions-must-not-have))
+- [ ] Express every NFR as a business-level quality requirement (user/business outcome, SLA, measurable target), not a technical implementation spec
+- [ ] State authorization as exact per-actor/operation permissions; MUST NOT restate the generic "every API/endpoint requires authentication/authorization"
+- [ ] Apply all [Semantic](#semantic) rules and the MUST NOT HAVE omissions continuously as you author
 
 - [ ] Write each section guided by template prompts and examples
 - [ ] Use example as reference for content depth:

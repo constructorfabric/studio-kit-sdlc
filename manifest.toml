@@ -238,6 +238,78 @@ default_path = "workflows/migrate-openspec.md"
 type = "file"
 user_modifiable = false
 
+[[resources]]
+id = "workflow_doc_prd"
+description = "PRD authoring preset workflow (wraps cf-write-docs)"
+source = "workflows/doc-prd.md"
+default_path = "workflows/doc-prd.md"
+type = "file"
+user_modifiable = false
+
+[[resources]]
+id = "workflow_doc_adr"
+description = "ADR authoring preset workflow (wraps cf-write-docs)"
+source = "workflows/doc-adr.md"
+default_path = "workflows/doc-adr.md"
+type = "file"
+user_modifiable = false
+
+[[resources]]
+id = "workflow_doc_design"
+description = "DESIGN authoring preset workflow (wraps cf-write-docs)"
+source = "workflows/doc-design.md"
+default_path = "workflows/doc-design.md"
+type = "file"
+user_modifiable = false
+
+[[resources]]
+id = "workflow_decompose"
+description = "DECOMPOSITION authoring preset workflow (wraps cf-write-docs)"
+source = "workflows/decompose.md"
+default_path = "workflows/decompose.md"
+type = "file"
+user_modifiable = false
+
+[[resources]]
+id = "workflow_doc_feature"
+description = "FEATURE authoring preset workflow (wraps cf-write-docs)"
+source = "workflows/doc-feature.md"
+default_path = "workflows/doc-feature.md"
+type = "file"
+user_modifiable = false
+
+[[resources]]
+id = "workflow_implement"
+description = "CODE implementation preset workflow (wraps cf-coding)"
+source = "workflows/implement.md"
+default_path = "workflows/implement.md"
+type = "file"
+user_modifiable = false
+
+[[resources]]
+id = "workflow_change_impact_analysis"
+description = "Change impact analysis workflow (Phase-1; wraps cf-analyze)"
+source = "workflows/change-impact-analysis.md"
+default_path = "workflows/change-impact-analysis.md"
+type = "file"
+user_modifiable = false
+
+[[resources]]
+id = "workflow_reverse_engineer"
+description = "Reverse-engineer artifacts from code workflow (Phase-1; wraps cf-write-docs)"
+source = "workflows/reverse-engineer.md"
+default_path = "workflows/reverse-engineer.md"
+type = "file"
+user_modifiable = false
+
+[[resources]]
+id = "change_impact_config"
+description = "Kit-owned thresholds for the change-impact-analysis workflow"
+source = "scripts/change-impact-analysis.toml"
+default_path = "scripts/change-impact-analysis.toml"
+type = "file"
+user_modifiable = true
+
 # ── Scripts ──────────────────────────────────────────────────────────
 
 [[resources]]
