@@ -1,16 +1,1 @@
 # What's New — SDLC Kit
-
-[whatsnew."1.1.0"]
-summary = "Add six artifact authoring/implementation preset workflows."
-details = """
-New preset workflows, each exposed as a cf-sdlc-<name> skill:
-- cf-sdlc-doc-prd, cf-sdlc-doc-adr, cf-sdlc-doc-design, cf-sdlc-decompose,
-  cf-sdlc-doc-feature — thin presets over the core cf-write-docs engine that
-  bind the artifact KIND and inject that artifact's rules, template, checklist,
-  and example.
-- cf-sdlc-implement — thin preset over the core cf-coding engine that binds the
-  CODE KIND, the codebase rules/checklist, and requires @cpt-* traceability back
-  to the source FEATURE.
-
-Registered the six workflows in manifest.toml and added routing to SKILL.md.
-"""
