@@ -1,5 +1,11 @@
 # What's New — SDLC Kit
 
+[whatsnew."1.1.1"]
+summary = "Leaner CODE generation rules"
+details = """\
+- The rules guiding CODE generation are now more concise and faster to load — no change to how your code is generated or validated\
+"""
+
 [whatsnew."1.1.0"]
 summary = "PRDs stay requirements-only, with business-level NFRs and explicit permissions"
 details = """\
