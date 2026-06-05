@@ -1,1 +1,10 @@
 # What's New — SDLC Kit
+
+[whatsnew."1.1.0"]
+summary = "PRDs stay requirements-only, with business-level NFRs and explicit permissions"
+details = """\
+- Generated PRDs now stay focused on requirements: no database schemas, API contracts, REST/HTTP status codes, or architecture and technology decisions — those are directed to your DESIGN and ADR documents
+- Non-functional requirements are written as business-level outcomes (SLAs and measurable targets) instead of technical implementation detail
+- Access control is captured as exact per-actor permissions (who may do what) instead of a generic "everything needs authentication/authorization"
+- These checks now apply while the PRD is being written, not only during validation\
+"""
