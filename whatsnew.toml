@@ -1,14 +1,10 @@
 # What's New — SDLC Kit
 
 [whatsnew."1.1.0"]
-summary = "Tighter PRD boundaries and PDSL-compacted artifact rules"
+summary = "PRDs stay requirements-only, with business-level NFRs and explicit permissions"
 details = """\
-- PRD generation is now requirements-only: rules.md forbids DB schemas, API contracts/OpenAPI, REST endpoints, HTTP methods, and HTTP/REST status codes, plus architecture/technology decisions — they belong in `DESIGN`/`ADR`
-- NFRs must be stated as business-level quality requirements (user/business outcomes, SLAs, measurable targets), not technical implementation specs
-- Authorization must specify exact per-actor/operation permissions instead of restating the blanket "every endpoint requires authentication/authorization"
-- These boundaries are marked **mandatory during generation**, not just validation gates
-- All five artifact `rules.md` (PRD, ADR, DESIGN, DECOMPOSITION, FEATURE) rewritten as compact **PDSL** UNITs — roughly 60-65% smaller
-- Semantic quality criteria and review methodology are now delegated to each artifact's `checklist.md`; rules.md keeps only generation-critical content (structure, IDs, versioning, MUST NOT HAVE, validation gates, error handling)
-- Removed redundant `*Constraints` UNITs; kept generation-critical rules — DESIGN/DECOMPOSITION checkbox cascade and FEATURE `@cpt` code traceability now live in the `*Validate` UNITs
-- Added `CONTRIBUTING.md` requiring a DCO `Signed-off-by` trailer on every commit\
+- Generated PRDs now stay focused on requirements: no database schemas, API contracts, REST/HTTP status codes, or architecture and technology decisions — those are directed to your DESIGN and ADR documents
+- Non-functional requirements are written as business-level outcomes (SLAs and measurable targets) instead of technical implementation detail
+- Access control is captured as exact per-actor permissions (who may do what) instead of a generic "everything needs authentication/authorization"
+- These checks now apply while the PRD is being written, not only during validation\
 """
