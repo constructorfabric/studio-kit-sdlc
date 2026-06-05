@@ -173,6 +173,13 @@ PRDs must NOT contain the following — report as violation if found:
 - `{prd_template}` — WHEN generating artifact structure
 - `{prd_example}` — WHEN needing reference for content depth
 
+**Mandatory during generation** — these are authoring rules, not only validation gates; the author MUST apply them while writing every section (do not defer them to the Phase 4 quality check):
+
+- [ ] Keep the PRD requirements-only (WHAT, not HOW): MUST NOT introduce database schemas, API contracts/OpenAPI, REST endpoints, HTTP methods or HTTP/REST status codes, or architecture/technology decisions — they belong in DESIGN/ADR (see [Deliberate Omissions](#deliberate-omissions-must-not-have))
+- [ ] Express every NFR as a business-level quality requirement (user/business outcome, SLA, measurable target), not a technical implementation spec
+- [ ] State authorization as exact per-actor/operation permissions; MUST NOT restate the generic "every API/endpoint requires authentication/authorization"
+- [ ] Apply all [Semantic](#semantic) rules and the MUST NOT HAVE omissions continuously as you author
+
 - [ ] Write each section guided by template prompts and examples
 - [ ] Use example as reference for content depth:
   - Vision → how example explains purpose (BIZ-PRD-001)
