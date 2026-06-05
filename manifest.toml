@@ -286,6 +286,30 @@ default_path = "workflows/implement.md"
 type = "file"
 user_modifiable = false
 
+[[resources]]
+id = "workflow_change_impact_analysis"
+description = "Change impact analysis workflow (Phase-1; wraps cf-analyze)"
+source = "workflows/change-impact-analysis.md"
+default_path = "workflows/change-impact-analysis.md"
+type = "file"
+user_modifiable = false
+
+[[resources]]
+id = "workflow_reverse_engineer"
+description = "Reverse-engineer artifacts from code workflow (Phase-1; wraps cf-write-docs)"
+source = "workflows/reverse-engineer.md"
+default_path = "workflows/reverse-engineer.md"
+type = "file"
+user_modifiable = false
+
+[[resources]]
+id = "change_impact_config"
+description = "Kit-owned thresholds for the change-impact-analysis workflow"
+source = "scripts/change-impact-analysis.toml"
+default_path = "scripts/change-impact-analysis.toml"
+type = "file"
+user_modifiable = true
+
 # ── Scripts ──────────────────────────────────────────────────────────
 
 [[resources]]

@@ -1,6 +1,6 @@
 ---
 name: cf
-description: "Invoke when the user asks to author or review any SDLC artifact or run an SDLC kit operation — write/revise a PRD, ADR, DESIGN, DECOMPOSITION, or FEATURE; implement a FEATURE in code; review or report status on a GitHub PR; or migrate OpenSpec artifacts. Kit `sdlc` extensions — artifacts: ADR, CODEBASE, DECOMPOSITION, DESIGN, FEATURE, PRD (+ PR review/status templates); workflows: doc-prd, doc-adr, doc-design, decompose, doc-feature, implement, migrate-openspec, pr-review, pr-status."
+description: "Invoke when the user asks to author or review any SDLC artifact or run an SDLC kit operation — write/revise a PRD, ADR, DESIGN, DECOMPOSITION, or FEATURE; implement a FEATURE in code; review or report status on a GitHub PR; or migrate OpenSpec artifacts. Kit `sdlc` extensions — artifacts: ADR, CODEBASE, DECOMPOSITION, DESIGN, FEATURE, PRD (+ PR review/status templates); workflows: doc-prd, doc-adr, doc-design, decompose, doc-feature, implement, change-impact-analysis, reverse-engineer, migrate-openspec, pr-review, pr-status."
 ---
 
 # Constructor Studio Skill — Kit `sdlc`
@@ -36,6 +36,24 @@ When routed to a preset workflow:
 1. Read the matched workflow file and follow it.
 2. The preset binds the artifact KIND + references, then delegates the full
    author/coder -> deterministic-gate -> semantic-review loop to its core engine.
+
+## Analysis & Reconstruction Workflows (Phase-1)
+
+| Skill | Engine | Workflow | Output |
+|-------|--------|----------|--------|
+| `cf-sdlc-change-impact-analysis` | cf-analyze | `{workflow_change_impact_analysis}` | `.change-impact/{id}/report.md` |
+| `cf-sdlc-reverse-engineer` | cf-write-docs | `{workflow_reverse_engineer}` | `docs/sdlc/{kind}/` |
+
+ALWAYS route to the matching workflow WHEN the user intent matches:
+
+- `cf-sdlc-change-impact-analysis` — analyze the downstream impact of an
+  upstream artifact change (`impact of changing PRD-001`, `what breaks if I
+  change this DESIGN`). Read-only; modes `cascade-tracking` and
+  `release-readiness-estimation`; thresholds in `{change_impact_config}`.
+- `cf-sdlc-reverse-engineer` — reconstruct SDLC artifacts from existing code via
+  `@cpt-*` markers (`reverse engineer FEATURE from this module`,
+  `rebuild the DESIGN from code`). Distinct from `cf-sdlc-migrate-openspec`,
+  which converts from the OpenSpec format.
 
 ## ADR
 
