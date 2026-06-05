@@ -82,29 +82,6 @@ RULES:
 ```
 
 ```pdsl
-UNIT AdrConstraints
-
-PURPOSE:
-  Resolve cross-artifact references and ID rules from constraints.
-
-WHEN:
-  - REQUIRE validating cross-references or ID formats
-
-DO:
-  - LOAD {constraints} (kit root) as the primary validator for where IDs are defined, where referenced, and which cross-artifact references are required/optional/prohibited
-  - LOAD {cf-studio-path}/.core/architecture/specs/traceability.md for ID formats
-  - LOAD {cf-studio-path}/.core/architecture/specs/kit/constraints.md for constraint rules
-
-RULES:
-  - ALWAYS open and follow {constraints}
-  - ALWAYS satisfy identifiers[<kind>].references rules for ADR coverage in DESIGN (enforced by cfs validate)
-
-NOTES:
-  References: {cf-studio-path}/.core/requirements/kit-constraints.md,
-  {cf-studio-path}/.core/schemas/kit-constraints.schema.json.
-```
-
-```pdsl
 UNIT AdrValidate
 
 PURPOSE:

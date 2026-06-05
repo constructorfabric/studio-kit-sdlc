@@ -60,27 +60,6 @@ RULES:
 ```
 
 ```pdsl
-UNIT FeatureConstraints
-
-PURPOSE:
-  Enforce cross-artifact constraints and traceability for FEATURE.
-
-DO:
-  - LOAD {constraints} (kit root) as primary validator for: where IDs are defined, where referenced, which cross-artifact references are required/optional/prohibited
-  - LOAD {cf-studio-path}/.core/requirements/kit-constraints.md and {cf-studio-path}/.core/schemas/kit-constraints.schema.json
-  - LOAD {cf-studio-path}/.core/architecture/specs/traceability.md for ID formats
-
-RULES:
-  - ALWAYS open and follow {constraints}
-  - ALWAYS trace upstream: parent feature ID (DECOMPOSITION); actor `cpt-{system}-actor-{slug}`, FR `cpt-{system}-fr-{slug}`, NFR `cpt-{system}-nfr-{slug}` (PRD); principle, constraint, component, seq, dbtable IDs (DESIGN)
-  - ALWAYS trace to CODE: IDs with `to_code="true"` map to code markers `@cpt-{kind}:{cpt-id}:p{N}`; each CDSL instruction maps to a code marker
-  - NEVER leave a `to_code="true"` ID untraced to code
-
-NOTES:
-  Relationship: DECOMPOSITION lists what to build; DESIGN gives architecture context; FEATURE details implementable behavior; CODE implements with @cpt markers. One FEATURE per DECOMPOSITION feature — split if too broad, inline implementation details into flow/algo.
-```
-
-```pdsl
 UNIT FeatureValidate
 
 PURPOSE:
@@ -95,6 +74,8 @@ DO:
 RULES:
   - ALWAYS use {feature_checklist} for semantic criteria, applicability context, severities, report format, and reporting commitment
   - NEVER mark FEATURE done while any structural, semantic, or TOC check FAILs/errors
+  - ALWAYS trace to CODE: IDs with `to_code="true"` map to code markers `@cpt-{kind}:{cpt-id}:p{N}`, and each CDSL instruction maps to a code marker
+  - NEVER leave a `to_code="true"` ID untraced to code
 ```
 
 ```pdsl

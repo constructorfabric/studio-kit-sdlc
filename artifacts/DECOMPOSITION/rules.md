@@ -53,24 +53,6 @@ RULES:
 ```
 
 ```pdsl
-UNIT DecompositionConstraints
-
-PURPOSE:
-  Enforce cross-reference, coverage, and traceability constraints.
-
-DO:
-  - LOAD {constraints} (kit root) WHEN validating cross-references
-  - LOAD {cf-studio-path}/.core/architecture/specs/traceability.md WHEN checking ID formats
-  - LOAD {cf-studio-path}/.core/requirements/kit-constraints.md and {cf-studio-path}/.core/schemas/kit-constraints.schema.json as references
-
-RULES:
-  - ALWAYS open and follow {constraints} as primary validator for where IDs are defined, where IDs are referenced, and which cross-artifact references are required / optional / prohibited
-  - ALWAYS preserve bidirectional traceability: each design element traces to implementing feature(s); each feature traces back to source design IDs
-  - ALWAYS maintain progress/cascade rules — a `feature` ID is not checked until that feature is fully implemented; `status-overall` is not checked until ALL `feature` entries are checked
-  - ALWAYS keep cfs-enforced consistency: identifiers[<kind>].references rules, headings scoping for definitions/references, and "checked ref implies checked def"
-```
-
-```pdsl
 UNIT DecompositionValidate
 
 PURPOSE:
@@ -86,6 +68,7 @@ RULES:
   - ALWAYS use {decomposition_checklist} as the source for semantic criteria, severity, domain disposition, and the issues-only report format
   - NEVER consider the artifact done while any cfs validate check fails or errors
   - NEVER consider semantic validation done while any checklist domain is unaddressed and not explicitly dispositioned
+  - ALWAYS maintain progress/cascade rules — a `feature` ID is not checked until that feature is fully implemented; `status-overall` is not checked until ALL `feature` entries are checked
 ```
 
 ```pdsl

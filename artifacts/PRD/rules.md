@@ -50,19 +50,6 @@ RULES:
 ```
 
 ```pdsl
-UNIT PrdConstraints
-
-PURPOSE:
-  Enforce cross-artifact reference and traceability constraints.
-
-RULES:
-  - ALWAYS open and follow {constraints} (kit root) as the primary validator for where IDs are defined, where IDs are referenced, and which cross-artifact references are required / optional / prohibited
-  - ALWAYS resolve constraint rules against {cf-studio-path}/.core/architecture/specs/kit/constraints.md (refs: {cf-studio-path}/.core/requirements/kit-constraints.md, {cf-studio-path}/.core/schemas/kit-constraints.schema.json)
-  - ALWAYS follow ID-format and traceability rules in {cf-studio-path}/.core/architecture/specs/traceability.md (PRD -> DESIGN -> DECOMPOSITION -> FEATURE -> CODE)
-  - ALWAYS rely on cfs validate to enforce identifiers[<kind>].references rules, heading scoping for ID definitions/references, and "checked ref implies checked def" consistency
-```
-
-```pdsl
 UNIT PrdValidate
 
 PURPOSE:

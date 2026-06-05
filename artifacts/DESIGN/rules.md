@@ -59,28 +59,6 @@ RULES:
 ```
 
 ```pdsl
-UNIT DesignConstraints
-
-PURPOSE:
-  Apply cross-artifact constraint rules and maintain traceability.
-
-DO:
-  - LOAD {constraints} (kit root) WHEN validating cross-references
-  - LOAD {cf-studio-path}/.core/architecture/specs/kit/constraints.md WHEN resolving constraint rules
-  - LOAD {cf-studio-path}/.core/schemas/kit-constraints.schema.json WHEN validating constraints schema
-  - LOAD {cf-studio-path}/.core/architecture/specs/traceability.md WHEN checking ID formats
-
-RULES:
-  - ALWAYS open and follow {constraints} as primary validator for where IDs are
-    defined/referenced and which cross-artifact references are required/optional/prohibited
-  - ALWAYS preserve trace direction: DESIGN traces up from PRD/ADR and down to
-    DECOMPOSITION/FEATURE
-  - ALWAYS mark component [x] in DESIGN when fully implemented
-  - ALWAYS update ADR status (PROPOSED → ACCEPTED) when all its components implemented
-  - ALWAYS mark PRD capability [x] when all its design elements implemented
-```
-
-```pdsl
 UNIT DesignValidate
 
 PURPOSE:
@@ -100,6 +78,9 @@ RULES:
   - NEVER mark DESIGN done while any validation reports FAIL or error
   - ALWAYS use {design_checklist} for semantic criteria, applicability context,
     review priority, severity, and report format (do not duplicate here)
+  - ALWAYS mark a component [x] in DESIGN when it is fully implemented
+  - ALWAYS update the related ADR status (PROPOSED → ACCEPTED) when all its components are implemented
+  - ALWAYS mark a PRD capability [x] when all its design elements are implemented
 ```
 
 ```pdsl
