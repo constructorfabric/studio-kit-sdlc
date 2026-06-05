@@ -2,7 +2,7 @@
 cf-studio: true
 type: workflow
 name: cf-sdlc-implement
-description: Implement a FEATURE in source code by running the core cf-coding engine preset to the CODE artifact KIND with codebase traceability rules, checklist, and @cpt-* markers.
+description: Invoke when the user asks to implement, build, or write the code for a FEATURE — e.g. "implement", "write the code", "build this feature", "implement FEATURE with @cpt-* traceability". Thin preset binding the CODE artifact KIND, delegating implementation and review to the core cf-coding engine.
 version: 1.0
 purpose: Thin preset that binds the CODE artifact KIND and its kit references, then delegates implementation and review to the core cf-coding workflow.
 ---

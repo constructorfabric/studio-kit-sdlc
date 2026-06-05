@@ -2,7 +2,7 @@
 cf-studio: true
 type: workflow
 name: cf-sdlc-doc-design
-description: Author or revise a DESIGN by running the core cf-write-docs engine preset to the DESIGN artifact KIND with DESIGN-specific rules, template, checklist, and example.
+description: Invoke when the user asks to author, write, revise, generate, or produce a DESIGN or system/technical design — e.g. "generate DESIGN", "design the system", "define components / interfaces / architecture / boundaries". Thin preset binding the DESIGN artifact KIND, delegating authoring and review to the core cf-write-docs engine.
 version: 1.0
 purpose: Thin preset that binds the DESIGN artifact KIND and its kit references, then delegates authoring and review to the core cf-write-docs workflow.
 ---

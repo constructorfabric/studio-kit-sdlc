@@ -2,7 +2,7 @@
 cf-studio: true
 type: workflow
 name: cf-sdlc-decompose
-description: Author or revise a DECOMPOSITION by running the core cf-write-docs engine preset to the DECOMPOSITION artifact KIND with DECOMPOSITION-specific rules, template, checklist, and example.
+description: Invoke when the user asks to decompose, break down, or author/revise a DECOMPOSITION — e.g. "decompose", "break into features", "create the feature list / plan", "order features and dependencies with coverage back to PRD/DESIGN". Thin preset binding the DECOMPOSITION artifact KIND, delegating authoring and review to the core cf-write-docs engine.
 version: 1.0
 purpose: Thin preset that binds the DECOMPOSITION artifact KIND and its kit references, then delegates authoring and review to the core cf-write-docs workflow.
 ---

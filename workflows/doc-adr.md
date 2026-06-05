@@ -2,7 +2,7 @@
 cf-studio: true
 type: workflow
 name: cf-sdlc-doc-adr
-description: Author or revise an ADR by running the core cf-write-docs engine preset to the ADR artifact KIND with ADR-specific rules, template, checklist, and example.
+description: Invoke when the user asks to author, write, revise, generate, or record an ADR or architecture decision — e.g. "generate ADR", "record a decision", "document why we chose X", "capture context / options / decision / consequences". Thin preset binding the ADR artifact KIND, delegating authoring and review to the core cf-write-docs engine.
 version: 1.0
 purpose: Thin preset that binds the ADR artifact KIND and its kit references, then delegates authoring and review to the core cf-write-docs workflow.
 ---

@@ -1,6 +1,6 @@
 ---
 name: cf
-description: "Artifacts: ADR, CODEBASE, DECOMPOSITION, DESIGN, FEATURE, PR-CODE-REVIEW-TEMPLATE, PR-REVIEW, PR-STATUS-REPORT-TEMPLATE, PRD; Workflows: doc-prd, doc-adr, doc-design, decompose, doc-feature, implement, migrate-openspec, pr-review, pr-status"
+description: "Invoke when the user asks to author or review any SDLC artifact or run an SDLC kit operation — write/revise a PRD, ADR, DESIGN, DECOMPOSITION, or FEATURE; implement a FEATURE in code; review or report status on a GitHub PR; or migrate OpenSpec artifacts. Kit `sdlc` extensions — artifacts: ADR, CODEBASE, DECOMPOSITION, DESIGN, FEATURE, PRD (+ PR review/status templates); workflows: doc-prd, doc-adr, doc-design, decompose, doc-feature, implement, migrate-openspec, pr-review, pr-status."
 ---
 
 # Constructor Studio Skill — Kit `sdlc`

@@ -2,7 +2,7 @@
 cf-studio: true
 type: workflow
 name: cf-sdlc-doc-prd
-description: Author or revise a PRD by running the core cf-write-docs engine preset to the PRD artifact KIND with PRD-specific rules, template, checklist, and example.
+description: Invoke when the user asks to author, write, revise, or generate a PRD — e.g. "generate PRD", "write the PRD", "create product requirements", "capture actors, FR/NFR, use cases, or success criteria". Thin preset binding the PRD artifact KIND, delegating authoring and review to the core cf-write-docs engine.
 version: 1.0
 purpose: Thin preset that binds the PRD artifact KIND and its kit references, then delegates authoring and review to the core cf-write-docs workflow.
 ---

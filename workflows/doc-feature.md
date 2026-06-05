@@ -2,7 +2,7 @@
 cf-studio: true
 type: workflow
 name: cf-sdlc-doc-feature
-description: Author or revise a FEATURE by running the core cf-write-docs engine preset to the FEATURE artifact KIND with FEATURE-specific rules, template, checklist, and example.
+description: Invoke when the user asks to author, write, revise, generate, or spec a FEATURE — e.g. "generate FEATURE", "spec the feature", "define flows / algorithms / states / definition of done (CDSL)", "write test scenarios for a feature". Thin preset binding the FEATURE artifact KIND, delegating authoring and review to the core cf-write-docs engine.
 version: 1.0
 purpose: Thin preset that binds the FEATURE artifact KIND and its kit references, then delegates authoring and review to the core cf-write-docs workflow.
 ---
