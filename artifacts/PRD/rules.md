@@ -152,7 +152,7 @@ PRDs must NOT contain the following — report as violation if found:
 - **BIZ-PRD-NO-001**: No Implementation Tasks (HIGH) — tasks belong in DECOMPOSITION
 - **BIZ-PRD-NO-002**: No Spec-Level Design (HIGH) — specs belong in FEATURE
 - **DATA-PRD-NO-001**: No Data Schema Definitions (HIGH) — schemas belong in DESIGN
-- **INT-PRD-NO-001**: No API Specifications (HIGH) — no API contracts/OpenAPI, REST endpoints, HTTP methods, or HTTP/REST status codes; API contracts and endpoint specifications belong in DESIGN, and API design decisions in ADR
+- **INT-PRD-NO-001**: No API Specifications (HIGH) — no API contracts/OpenAPI, REST endpoints, HTTP methods, HTTP/REST status codes, authentication header specifications (which header, auth scheme, required/optional), or standardized error response formats (HTTP status codes, error body schema/fields); API contracts and endpoint specifications belong in DESIGN, and API design decisions in ADR
 - **TEST-PRD-NO-001**: No Test Cases (MEDIUM) — tests belong in FEATURE/code
 - **OPS-PRD-NO-001**: No Infrastructure Specifications (MEDIUM) — infra belongs in DESIGN
 - **SEC-PRD-NO-001**: No Security Implementation Details (HIGH) — implementation belongs in DESIGN/code
