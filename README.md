@@ -1,6 +1,6 @@
 # SDLC Kit
 
-> This is a kit for the [**Constructor Studio**](https://github.com/constructorfabric/constructor-studio) project.
+> This is a kit for the [**Constructor Studio**](https://github.com/constructorfabric/studio) project.
 
 ## Installation
 
@@ -23,6 +23,7 @@ cfs validate-kits .
 - **Deterministic gates**: templates, IDs, cross-references, and task/acceptance criteria are validated by the skill engine at every step
 - **Behavior spec**: the **FEATURE** layer expresses behavior as **Constructor Studio DSL (CDSL)** flows/algorithms/states plus definitions of done that can be implemented directly
 - **Traceability chain**: each downstream artifact references upstream IDs; code keeps links via `@cpt-*` markers
+- **Workflow orchestration**: artifact authoring and implementation presets delegate into shared Studio workflows for context discovery, brainstorm, planning, validation, review, and approved fix loops
 
 ## Pipeline Diagram
 
@@ -54,12 +55,12 @@ Learn Constructor Studio in 10 minutes with:
 
 | Artifact | Generation | Deterministic Validation | Feedback | Acceptance |
 |----------|------------|--------------------------|----------|------------|
-| **PRD** | Drafted from stakeholder input with required IDs | Template structure, ID format | Semantic review vs industry best practices | Product Managers & Architects alignment |
-| **ADR** | Captures key architecture decisions with rationale | Template structure, ID format | Semantic review vs industry best practices | Architects alignment |
-| **DESIGN** | Derived from PRD with architecture decisions | Cross reference ID and tasks validation | Semantic review vs PRD + ADR + industry best practices | Architects alignment |
-| **DECOMPOSITION** | Decomposed from DESIGN into implementable feature scope | Cross reference ID and tasks validation | Semantic review vs DESIGN + industry best practices | Architects alignment |
-| **FEATURE** | Expanded from DECOMPOSITION into **Constructor Studio DSL** (**CDSL**) flows/algorithms/states plus definitions of done | Cross reference ID and tasks validation | Semantic review vs DESIGN + DECOMPOSITION + industry best practices | Architects & Developers alignment |
-| **CODE** | Implemented from FEATURE with traceability in code comments | Cross reference ID and tasks validation | Semantic review vs FEATURE + DESIGN + DECOMPOSITION + industry best practices | Developers & QA alignment |
+| **PRD** | Drafted from stakeholder input with required IDs | Template structure, ID format | Semantic review with findings browser and explicit fix approval | Product Managers & Architects alignment |
+| **ADR** | Captures key architecture decisions with rationale | Template structure, ID format | Semantic review with findings browser and explicit fix approval | Architects alignment |
+| **DESIGN** | Derived from PRD with architecture decisions | Cross reference ID and tasks validation | Semantic review vs PRD + ADR with findings browser and explicit fix approval | Architects alignment |
+| **DECOMPOSITION** | Decomposed from DESIGN into implementable feature scope | Cross reference ID and tasks validation | Semantic review vs DESIGN with findings browser and explicit fix approval | Architects alignment |
+| **FEATURE** | Expanded from DECOMPOSITION into **Constructor Studio DSL** (**CDSL**) flows/algorithms/states plus definitions of done | Cross reference ID and tasks validation | Semantic review vs DESIGN + DECOMPOSITION with findings browser and explicit fix approval | Architects & Developers alignment |
+| **CODE** | Implemented from FEATURE with traceability in code comments | Cross reference ID and tasks validation | Semantic review vs FEATURE + DESIGN + DECOMPOSITION with findings browser and explicit fix approval | Developers & QA alignment |
 
 ## What the SDLC Kit Provides
 
@@ -70,7 +71,7 @@ The kit ships the following resources as ready-to-use files:
 - **Examples** (`examples/`) — canonical examples for each artifact kind
 - **Rules** (`rules.md`) — tasks and acceptance criteria for generation and validation
 - **Constraints** (`constraints.toml`) — heading and ID constraints for deterministic validation
-- **Workflows** (`workflows/`) — kit-specific workflows (PR review, PR status)
+- **Workflows** (`workflows/`) — kit-specific workflows, including delegated artifact authoring/implementation presets plus standalone read-only PR review and PR status analysis routes
 - **Skill Extensions** — kit-specific skill content injected into `.gen/SKILL.md`
 
 ## References
