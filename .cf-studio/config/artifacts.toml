@@ -1,0 +1,9 @@
+# Constructor Studio artifacts registry
+
+[[systems]]
+name = "StudioKitSdlc"
+slug = "studiokitsdlc"
+kit = ""
+artifacts = []
+codebase = []
+children = []

@@ -234,7 +234,6 @@ public = true
 description = "PR review workflow"
 generated_targets = ["installed"]
 origin = "legacy-workflow"
-generated_name = "cf-sdlc-workflow_pr_review"
 
 [[kits.resources]]
 id = "workflow_pr_status"
@@ -247,7 +246,6 @@ public = true
 description = "PR status report workflow"
 generated_targets = ["installed"]
 origin = "legacy-workflow"
-generated_name = "cf-sdlc-workflow_pr_status"
 
 [[kits.resources]]
 id = "workflow_migrate_openspec"
@@ -260,7 +258,6 @@ public = true
 description = "OpenSpec to Constructor Studio SDLC migration workflow"
 generated_targets = ["installed"]
 origin = "legacy-workflow"
-generated_name = "cf-sdlc-workflow_migrate_openspec"
 
 [[kits.resources]]
 id = "workflow_doc_prd"
@@ -273,7 +270,6 @@ public = true
 description = "PRD authoring preset workflow (wraps cf-write-docs)"
 generated_targets = ["installed"]
 origin = "legacy-workflow"
-generated_name = "cf-sdlc-workflow_doc_prd"
 
 [[kits.resources]]
 id = "workflow_doc_adr"
@@ -286,7 +282,6 @@ public = true
 description = "ADR authoring preset workflow (wraps cf-write-docs)"
 generated_targets = ["installed"]
 origin = "legacy-workflow"
-generated_name = "cf-sdlc-workflow_doc_adr"
 
 [[kits.resources]]
 id = "workflow_doc_design"
@@ -299,7 +294,6 @@ public = true
 description = "DESIGN authoring preset workflow (wraps cf-write-docs)"
 generated_targets = ["installed"]
 origin = "legacy-workflow"
-generated_name = "cf-sdlc-workflow_doc_design"
 
 [[kits.resources]]
 id = "workflow_decompose"
@@ -312,7 +306,6 @@ public = true
 description = "DECOMPOSITION authoring preset workflow (wraps cf-write-docs)"
 generated_targets = ["installed"]
 origin = "legacy-workflow"
-generated_name = "cf-sdlc-workflow_decompose"
 
 [[kits.resources]]
 id = "workflow_doc_feature"
@@ -325,7 +318,6 @@ public = true
 description = "FEATURE authoring preset workflow (wraps cf-write-docs)"
 generated_targets = ["installed"]
 origin = "legacy-workflow"
-generated_name = "cf-sdlc-workflow_doc_feature"
 
 [[kits.resources]]
 id = "workflow_implement"
@@ -338,7 +330,6 @@ public = true
 description = "CODE implementation preset workflow (wraps cf-coding)"
 generated_targets = ["installed"]
 origin = "legacy-workflow"
-generated_name = "cf-sdlc-workflow_implement"
 
 [[kits.resources]]
 id = "workflow_change_impact_analysis"
@@ -351,7 +342,6 @@ public = true
 description = "Change impact analysis workflow (Phase-1; wraps cf-analyze)"
 generated_targets = ["installed"]
 origin = "legacy-workflow"
-generated_name = "cf-sdlc-workflow_change_impact_analysis"
 
 [[kits.resources]]
 id = "workflow_reverse_engineer"
@@ -364,7 +354,6 @@ public = true
 description = "Reverse-engineer artifacts from code workflow (Phase-1; wraps cf-write-docs)"
 generated_targets = ["installed"]
 origin = "legacy-workflow"
-generated_name = "cf-sdlc-workflow_reverse_engineer"
 
 [[kits.resources]]
 id = "change_impact_config"
@@ -393,17 +382,26 @@ type = "file"
 user_modifiable = false
 description = "Kit structural constraints (heading outlines, ID kinds, cross-references)"
 
-[[kits.resources]]
-id = "skill"
-kind = "skill"
-source = "SKILL.md"
-install_path = "SKILL.md"
-type = "file"
-user_modifiable = false
-public = true
-description = "Kit SKILL.md for agent navigation and workflow routing"
-generated_targets = ["installed"]
-generated_name = "cf-sdlc-skill"
+[kits.resources.artifacts]
+[kits.resources.artifacts.ADR]
+template = "adr_template"
+examples = "adr_example"
+
+[kits.resources.artifacts.DECOMPOSITION]
+template = "decomposition_template"
+examples = "decomposition_example"
+
+[kits.resources.artifacts.DESIGN]
+template = "design_template"
+examples = "design_example"
+
+[kits.resources.artifacts.FEATURE]
+template = "feature_template"
+examples = "feature_example"
+
+[kits.resources.artifacts.PRD]
+template = "prd_template"
+examples = "prd_example"
 
 [[kits.resources]]
 id = "agents"
@@ -415,4 +413,3 @@ user_modifiable = false
 public = true
 description = "Kit AGENTS.md for agent integration entry points"
 generated_targets = ["installed"]
-generated_name = "cf-sdlc-agents"
