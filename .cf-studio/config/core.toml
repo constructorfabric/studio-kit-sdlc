@@ -1,0 +1,30 @@
+# Constructor Studio project configuration
+
+version = "1.0"
+project_root = ".."
+
+[install]
+version_source = "project_config"
+runtime_tracking = "ignored"
+agent_tracking = "ignored"
+kit_tracking = "tracked"
+
+[kits]
+[kits.sdlc]
+format = "CFS"
+path = ".."
+install_mode = "register"
+version = "1.0"
+tool_risk_fingerprint = "3bdcd30d3029ad80e74c76eb0b57d80ad617a51191eb9d9307b2921c65f5dc16"
+source = "github:constructorfabric/studio-kit-sdlc"
+
+[kits.sdlc.source_provenance]
+source_type = "local_path"
+resolver_mode = "register"
+resolution_basis = "local_path"
+effective_source = ".."
+verified = "local"
+freshness = "local"
+
+[kits.sdlc.local_metadata]
+conf_version = "1.0.0"
