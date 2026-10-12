@@ -10,7 +10,7 @@
 1. [Referenced Standards](#referenced-standards)
 2. [Review Scope Selection](#review-scope-selection)
 3. [Prerequisites](#prerequisites)
-4. [Evidence Requirements (STRICT mode)](#evidence-requirements-strict-mode)
+4. [Evidence Requirements](#evidence-requirements)
 5. [Applicability Context](#applicability-context)
 6. [Severity Dictionary](#severity-dictionary)
 7. [MUST HAVE](#must-have)
@@ -99,9 +99,9 @@ Before starting the review, confirm:
 
 ---
 
-## Evidence Requirements (STRICT mode)
+## Evidence Requirements
 
-**When Rules Mode = STRICT** (per `{cf-studio-path}/.core/requirements/agent-compliance.md`):
+**Always** (anti-patterns AP-001..AP-008 are defined in `{cf-studio-path}/.core/requirements/review-anti-patterns.md`):
 
 ### For Each Checklist Category
 

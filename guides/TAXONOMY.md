@@ -206,7 +206,7 @@ Phase tokens:
 | `cfs toc` | Generates/updates table of contents in markdown files |
 | `cfs info` | Shows Constructor Studio configuration and project context |
 
-Script path (for direct invocation): `python3 {cf-studio-path}/.core/skills/cf-studio/scripts/cfs.py <command>`
+Script path (for direct invocation): `python3 {cf-studio-path}/.core/skills/studio/scripts/studio.py <command>`
 
 > All `cf-studio ...` prompts in the guides above are **AI skill prompts** typed in the IDE chat. The `cfs` commands above are **CLI commands** run in the terminal.
 
