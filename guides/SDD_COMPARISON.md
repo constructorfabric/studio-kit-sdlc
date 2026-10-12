@@ -266,7 +266,7 @@ This is a simple linear weighting system for the matrix. "Out of scope" receives
 ## Primary sources consulted
 
 ### Constructor Studio
-- `README.md`, `{cf-studio-path}/.core/skills/cf-studio/README.md`, `kits/sdlc/guides/QUICKSTART.md`
+- `README.md`, `{cf-studio-path}/.core/skills/studio/README.md`, `kits/sdlc/guides/QUICKSTART.md`
 - Constructor Studio workflow execution requirements and protocols in `requirements/` and `workflows/`
 
 ### OpenSpec

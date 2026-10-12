@@ -896,7 +896,7 @@ path = "src/"
 ### Step 8.2: Run Deterministic Validation
 
 ```bash
-python3 {cf-studio-path}/.core/skills/cf-studio/scripts/cfs.py validate
+python3 {cf-studio-path}/.core/skills/studio/scripts/studio.py validate
 ```
 
 **MUST**: Fix all validation errors before proceeding. Re-run until `"status": "PASS"`.
@@ -912,7 +912,7 @@ Common validation issues during migration:
 ### Step 8.3: Run Spec Coverage
 
 ```bash
-python3 {cf-studio-path}/.core/skills/cf-studio/scripts/cfs.py spec-coverage
+python3 {cf-studio-path}/.core/skills/studio/scripts/studio.py spec-coverage
 ```
 
 Report coverage percentage. Target: 100% of `to_code` IDs covered.
@@ -920,7 +920,7 @@ Report coverage percentage. Target: 100% of `to_code` IDs covered.
 ### Step 8.4: Run TOC Generation
 
 ```bash
-python3 {cf-studio-path}/.core/skills/cf-studio/scripts/cfs.py toc {artifacts_output}/PRD.md {artifacts_output}/DESIGN.md {artifacts_output}/DECOMPOSITION.md
+python3 {cf-studio-path}/.core/skills/studio/scripts/studio.py toc {artifacts_output}/PRD.md {artifacts_output}/DESIGN.md {artifacts_output}/DECOMPOSITION.md
 ```
 
 NEVER write TOC manually — always use `cfs toc`.
